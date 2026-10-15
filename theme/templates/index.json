@@ -1,0 +1,48 @@
+{
+  "sections": {
+    "hero": {
+      "type": "hero",
+      "blocks": {
+        "stat-1": {
+          "type": "stat",
+          "settings": { "value": "100%", "label": "Batch tested" }
+        },
+        "stat-2": {
+          "type": "stat",
+          "settings": { "value": "5", "label": "Landrace lines" }
+        },
+        "stat-3": {
+          "type": "stat",
+          "settings": { "value": "18+", "label": "Verified members" }
+        }
+      },
+      "block_order": ["stat-1", "stat-2", "stat-3"],
+      "settings": {
+        "eyebrow": "Members only",
+        "heading": "Landrace genetics, kept honest.",
+        "body": "A small, verified collective growing South African landrace cultivars. Every batch is lab-tested and the certificate is on the product page.",
+        "primary_label": "Browse the collection",
+        "primary_url": "shopify://collections/all",
+        "secondary_label": "How membership works",
+        "secondary_url": "shopify://pages/membership"
+      }
+    },
+    "featured": {
+      "type": "featured-products",
+      "settings": {
+        "eyebrow": "This week",
+        "heading": "Current batches",
+        "products_to_show": 4
+      }
+    },
+    "cbd": {
+      "type": "featured-products",
+      "settings": {
+        "eyebrow": "No membership required",
+        "heading": "CBD & wellness",
+        "products_to_show": 4
+      }
+    }
+  },
+  "order": ["hero", "featured", "cbd"]
+}

@@ -1,0 +1,175 @@
+{% doc %}
+  Injects the theme's global base styles. Renders no markup. Render once from the
+  layout, before any section.
+
+  @example
+  {% render 'base-styles' %}
+{% enddoc %}
+
+{% stylesheet %}
+  *,
+  *::before,
+  *::after {
+    box-sizing: border-box;
+  }
+
+  .hb-body {
+    margin: 0;
+    background: var(--hb-bg);
+    color: var(--hb-ink);
+    font-family: ui-sans-serif, system-ui, -apple-system, 'Segoe UI', sans-serif;
+    line-height: 1.6;
+    -webkit-font-smoothing: antialiased;
+  }
+
+  .hb-main {
+    min-height: 60vh;
+  }
+
+  .hb-skip {
+    position: absolute;
+    left: -9999px;
+    top: 0;
+    padding: 0.75rem 1rem;
+    background: var(--hb-accent);
+    color: var(--hb-accent-ink);
+    z-index: 100;
+  }
+
+  .hb-skip:focus {
+    left: 0;
+  }
+
+  .hb-container {
+    width: 100%;
+    max-width: var(--hb-width);
+    margin-inline: auto;
+    padding-inline: 1.25rem;
+  }
+
+  .hb-btn {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    gap: 0.5rem;
+    padding: 0.8rem 1.5rem;
+    border-radius: calc(var(--hb-radius) / 1.5);
+    border: 1px solid transparent;
+    font: inherit;
+    font-weight: 600;
+    cursor: pointer;
+    text-decoration: none;
+    transition: opacity 0.15s ease, background-color 0.15s ease;
+  }
+
+  .hb-btn:disabled {
+    opacity: 0.45;
+    cursor: not-allowed;
+  }
+
+  .hb-btn--primary {
+    background: var(--hb-accent);
+    color: var(--hb-accent-ink);
+  }
+
+  .hb-btn--primary:hover:not(:disabled) {
+    opacity: 0.88;
+  }
+
+  .hb-btn--ghost {
+    background: transparent;
+    color: var(--hb-ink);
+    border-color: var(--hb-border);
+  }
+
+  .hb-btn--ghost:hover:not(:disabled) {
+    border-color: var(--hb-accent);
+  }
+
+  .hb-section {
+    padding-block: clamp(2.5rem, 6vw, 4.5rem);
+  }
+
+  .hb-section__head {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: end;
+    justify-content: space-between;
+    gap: 1rem;
+    margin-bottom: 2rem;
+  }
+
+  .hb-section__title {
+    margin: 0;
+    font-size: clamp(1.5rem, 3vw, 2rem);
+    letter-spacing: -0.02em;
+  }
+
+  .hb-eyebrow {
+    margin: 0 0 0.5rem;
+    font-size: 0.75rem;
+    letter-spacing: 0.18em;
+    text-transform: uppercase;
+    color: var(--hb-accent);
+  }
+
+  .hb-grid {
+    display: grid;
+    gap: 1.5rem;
+    grid-template-columns: repeat(auto-fill, minmax(15rem, 1fr));
+  }
+
+  .hb-muted {
+    color: var(--hb-muted);
+  }
+
+  :where(a):focus-visible,
+  :where(button):focus-visible,
+  :where(input):focus-visible,
+  :where(select):focus-visible {
+    outline: 2px solid var(--hb-accent);
+    outline-offset: 2px;
+  }
+
+  .hb-form__actions {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.75rem;
+    padding-top: 0.5rem;
+  }
+
+  .hb-password {
+    display: grid;
+    place-items: center;
+    min-height: 100vh;
+    padding: 1.25rem;
+  }
+
+  .hb-password__panel {
+    width: 100%;
+    max-width: 26rem;
+    padding: 2.5rem 2rem;
+    border: 1px solid var(--hb-border);
+    border-radius: var(--hb-radius);
+    background: var(--hb-surface);
+    text-align: center;
+  }
+
+  .hb-password__title {
+    margin: 0 0 0.75rem;
+    font-size: 1.75rem;
+    line-height: 1.2;
+  }
+
+  .hb-password__panel .hb-form {
+    margin-top: 1.5rem;
+    text-align: left;
+  }
+
+  @media (prefers-reduced-motion: reduce) {
+    * {
+      animation-duration: 0.01ms !important;
+      transition-duration: 0.01ms !important;
+    }
+  }
+{% endstylesheet %}

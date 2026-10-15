@@ -1,0 +1,16 @@
+{
+  "current": {
+    "color_background": "#10130F",
+    "color_surface": "#191D17",
+    "color_text": "#EDEFE9",
+    "color_accent": "#7BA05B",
+    "color_accent_text": "#10130F",
+    "page_width": 1240,
+    "corner_radius": 12,
+    "enable_age_gate": true,
+    "minimum_age": 18,
+    "age_gate_remember_days": 30,
+    "age_gate_notice": "This collective operates on a private membership basis. Confirming your age does not create a membership — verification is completed before any order is released.",
+    "allow_search_indexing": false
+  }
+}

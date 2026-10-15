@@ -1,0 +1,12 @@
+# macOS
+.DS_Store
+
+# Local tooling. The dev-server config this project actually uses lives in
+# ~/.claude/launch.json; the copy in .claude/ here is vestigial.
+.claude/
+
+# Real product photography is dropped here for ingest. Those are the owner's
+# own batch images and do not belong in a public repo. The README that
+# documents the pipeline is tracked.
+photos-incoming/*
+!photos-incoming/README.md

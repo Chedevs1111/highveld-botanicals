@@ -1,0 +1,23 @@
+{
+  "sections": {
+    "apply": {
+      "type": "membership-apply",
+      "blocks": {
+        "p1": { "type": "province", "settings": { "name": "Eastern Cape" } },
+        "p2": { "type": "province", "settings": { "name": "Free State" } },
+        "p3": { "type": "province", "settings": { "name": "Gauteng" } },
+        "p4": { "type": "province", "settings": { "name": "KwaZulu-Natal" } },
+        "p5": { "type": "province", "settings": { "name": "Limpopo" } },
+        "p6": { "type": "province", "settings": { "name": "Mpumalanga" } },
+        "p7": { "type": "province", "settings": { "name": "North West" } },
+        "p8": { "type": "province", "settings": { "name": "Northern Cape" } },
+        "p9": { "type": "province", "settings": { "name": "Western Cape" } }
+      },
+      "block_order": ["p1", "p2", "p3", "p4", "p5", "p6", "p7", "p8", "p9"],
+      "settings": {
+        "heading": "Apply for membership"
+      }
+    }
+  },
+  "order": ["apply"]
+}

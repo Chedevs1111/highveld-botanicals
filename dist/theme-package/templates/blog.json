@@ -1,0 +1,12 @@
+{
+  "sections": {
+    "main": {
+      "type": "main-blog",
+      "settings": {
+        "intro": "What we grow, how we test it, and the reasoning behind how this place is run.",
+        "per_page": 12
+      }
+    }
+  },
+  "order": ["main"]
+}

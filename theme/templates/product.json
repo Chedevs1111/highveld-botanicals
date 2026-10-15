@@ -1,0 +1,12 @@
+{
+  "sections": {
+    "main": {
+      "type": "main-product",
+      "settings": {
+        "contribution_notice": "This amount is a member contribution toward cultivation, testing and handling. It is not a public retail sale.",
+        "max_quantity": 4
+      }
+    }
+  },
+  "order": ["main"]
+}

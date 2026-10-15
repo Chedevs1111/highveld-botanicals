@@ -1,0 +1,55 @@
+<section class="hb-section">
+  <div class="hb-container">
+    <h2 class="hb-detail__title">{{ 'customer.orders_title' | t }}</h2>
+
+    {% paginate customer.orders by 20 %}
+      {% if customer.orders.size > 0 %}
+        <div class="hb-scroll">
+          <table class="hb-pol__table">
+            <thead>
+              <tr>
+                <th>{{ 'customer.order' | t }}</th>
+                <th>{{ 'customer.date' | t }}</th>
+                <th>{{ 'customer.payment' | t }}</th>
+                <th>{{ 'customer.fulfilment' | t }}</th>
+                <th>{{ 'customer.total' | t }}</th>
+              </tr>
+            </thead>
+            <tbody>
+              {% for order in customer.orders %}
+                <tr>
+                  <td><a href="{{ order.customer_url }}">{{ order.name }}</a></td>
+                  <td class="hb-muted">{{ order.created_at | date: '%d %b %Y' }}</td>
+                  <td>{{ order.financial_status_label }}</td>
+                  <td>{{ order.fulfillment_status_label }}</td>
+                  <td>{{ order.total_price | money }}</td>
+                </tr>
+              {% endfor %}
+            </tbody>
+          </table>
+        </div>
+
+        {% if paginate.pages > 1 %}
+          <nav class="hb-pagination" aria-label="{{ 'accessibility.pagination' | t }}">
+            {{ paginate | default_pagination }}
+          </nav>
+        {% endif %}
+      {% else %}
+        <p class="hb-muted">{{ 'customer.no_orders' | t }}</p>
+        <a class="hb-btn hb-btn--primary" href="{{ routes.all_products_collection_url }}">
+          {{ 'cart.continue' | t }}
+        </a>
+      {% endif %}
+    {% endpaginate %}
+  </div>
+</section>
+
+{% stylesheet %}
+  .hb-scroll {
+    overflow-x: auto;
+  }
+{% endstylesheet %}
+
+{% schema %}
+{ "name": "t:sections.customer_orders.name", "settings": [] }
+{% endschema %}

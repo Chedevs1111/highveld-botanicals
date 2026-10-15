@@ -1,0 +1,168 @@
+{% doc %}
+  Renders a blocking age and membership confirmation dialog. Reads the minimum age
+  and copy from theme settings, and remembers acceptance for the configured number
+  of days. Render once per page, directly inside the opening body tag.
+
+  @example
+  {% render 'age-gate' %}
+{% enddoc %}
+
+{% if settings.enable_age_gate %}
+  <dialog
+    id="hb-age-gate"
+    class="hb-age-gate"
+    data-age-gate
+    data-minimum-age="{{ settings.minimum_age }}"
+    data-remember-days="{{ settings.age_gate_remember_days }}"
+    aria-labelledby="hb-age-gate-title"
+  >
+    <div class="hb-age-gate__panel">
+      <p class="hb-age-gate__eyebrow">{{ shop.name }}</p>
+
+      <h1 id="hb-age-gate-title" class="hb-age-gate__title">
+        {{ 'age_gate.title' | t: age: settings.minimum_age }}
+      </h1>
+
+      <p class="hb-age-gate__body">
+        {{ 'age_gate.body' | t: age: settings.minimum_age }}
+      </p>
+
+      {% if settings.age_gate_notice != blank %}
+        <p class="hb-age-gate__notice">{{ settings.age_gate_notice }}</p>
+      {% endif %}
+
+      <div class="hb-age-gate__actions">
+        <button type="button" class="hb-btn hb-btn--primary" data-age-gate-accept>
+          {{ 'age_gate.accept' | t: age: settings.minimum_age }}
+        </button>
+        <button type="button" class="hb-btn hb-btn--ghost" data-age-gate-decline>
+          {{ 'age_gate.decline' | t }}
+        </button>
+      </div>
+
+      <p class="hb-age-gate__declined" data-age-gate-declined hidden>
+        {{ 'age_gate.declined' | t }}
+      </p>
+    </div>
+  </dialog>
+
+  {% stylesheet %}
+    .hb-age-gate {
+      border: 0;
+      padding: 0;
+      max-width: 34rem;
+      width: calc(100vw - 2rem);
+      background: transparent;
+      color: var(--hb-ink);
+    }
+
+    .hb-age-gate::backdrop {
+      background: rgb(12 16 12 / 0.82);
+      backdrop-filter: blur(6px);
+    }
+
+    .hb-age-gate__panel {
+      background: var(--hb-surface);
+      border: 1px solid var(--hb-border);
+      border-radius: var(--hb-radius);
+      padding: 2.5rem 2rem;
+      text-align: center;
+    }
+
+    .hb-age-gate__eyebrow {
+      margin: 0 0 1.25rem;
+      font-size: 0.75rem;
+      letter-spacing: 0.18em;
+      text-transform: uppercase;
+      color: var(--hb-accent);
+    }
+
+    .hb-age-gate__title {
+      margin: 0 0 0.75rem;
+      font-size: 1.75rem;
+      line-height: 1.2;
+    }
+
+    .hb-age-gate__body {
+      margin: 0 0 1rem;
+      color: var(--hb-muted);
+      line-height: 1.6;
+    }
+
+    .hb-age-gate__notice {
+      margin: 0 0 1.5rem;
+      padding: 0.85rem 1rem;
+      border: 1px solid var(--hb-border);
+      border-radius: calc(var(--hb-radius) / 1.5);
+      font-size: 0.8125rem;
+      line-height: 1.5;
+      color: var(--hb-muted);
+      text-align: left;
+    }
+
+    .hb-age-gate__actions {
+      display: flex;
+      flex-direction: column;
+      gap: 0.625rem;
+    }
+
+    .hb-age-gate__declined {
+      margin: 1.25rem 0 0;
+      color: var(--hb-muted);
+      font-size: 0.875rem;
+    }
+
+    @media (min-width: 30rem) {
+      .hb-age-gate__actions {
+        flex-direction: row;
+        justify-content: center;
+      }
+    }
+  {% endstylesheet %}
+
+  {% javascript %}
+    (function () {
+      const gate = document.querySelector('[data-age-gate]');
+      if (!gate) return;
+
+      const STORAGE_KEY = 'hb:age-verified';
+      const rememberDays = Number(gate.dataset.rememberDays) || 30;
+
+      let verifiedUntil = 0;
+      try {
+        verifiedUntil = Number(window.localStorage.getItem(STORAGE_KEY)) || 0;
+      } catch (error) {
+        verifiedUntil = 0;
+      }
+
+      if (verifiedUntil > Date.now()) return;
+
+      const lock = () => {
+        document.body.style.overflow = 'hidden';
+      };
+      const unlock = () => {
+        document.body.style.overflow = '';
+      };
+
+      gate.showModal();
+      lock();
+
+      gate.addEventListener('cancel', (event) => event.preventDefault());
+
+      gate.querySelector('[data-age-gate-accept]').addEventListener('click', () => {
+        try {
+          window.localStorage.setItem(STORAGE_KEY, String(Date.now() + rememberDays * 86400000));
+        } catch (error) {
+          gate.dataset.storageUnavailable = 'true';
+        }
+        gate.close();
+        unlock();
+      });
+
+      gate.querySelector('[data-age-gate-decline]').addEventListener('click', () => {
+        gate.querySelector('[data-age-gate-declined]').hidden = false;
+        gate.querySelector('[data-age-gate-accept]').disabled = true;
+      });
+    })();
+  {% endjavascript %}
+{% endif %}

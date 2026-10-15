@@ -1,0 +1,341 @@
+{% capture member_status %}{% render 'member-status' %}{% endcapture %}
+{% assign member_status = member_status | strip %}
+
+<section class="hb-section">
+  <div class="hb-container hb-narrow">
+    <p class="hb-eyebrow">{{ 'membership.eyebrow' | t }}</p>
+    <h1 class="hb-apply__title">{{ section.settings.heading }}</h1>
+
+    {% if member_status == 'pending' %}
+      <p class="hb-notice">{{ 'membership.already_pending' | t }}</p>
+      <a class="hb-btn hb-btn--primary" href="{{ routes.account_url }}">{{ 'membership.view_status' | t }}</a>
+
+    {% elsif member_status == 'approved' %}
+      <p class="hb-notice">{{ 'membership.already_approved' | t }}</p>
+      <a class="hb-btn hb-btn--primary" href="{{ routes.all_products_collection_url }}">
+        {{ 'membership.browse' | t }}
+      </a>
+
+    {% else %}
+      {% unless customer %}
+        <p class="hb-notice">{{ 'membership.account_required' | t }}</p>
+        <a class="hb-btn hb-btn--primary" href="{{ routes.account_register_url }}">
+          {{ 'membership.create_account' | t }}
+        </a>
+        <p class="hb-muted hb-apply__aside">
+          {{ 'membership.have_account' | t }}
+          <a href="{{ routes.account_login_url }}">{{ 'header.log_in' | t }}</a>
+        </p>
+      {% endunless %}
+
+      {% if customer %}
+        {% form 'contact', class: 'hb-form' %}
+          {% if form.posted_successfully? %}
+            <p class="hb-notice hb-notice--ok">{{ 'membership.submitted' | t }}</p>
+          {% endif %}
+
+          {{ form.errors | default_errors }}
+
+          <div class="hb-form__row">
+            <label class="hb-form__field">
+              <span class="hb-form__label">{{ 'membership.first_name' | t }}</span>
+              <input
+                class="hb-form__input"
+                type="text"
+                name="contact[first_name]"
+                value="{{ customer.first_name }}"
+                required
+              >
+            </label>
+
+            <label class="hb-form__field">
+              <span class="hb-form__label">{{ 'membership.last_name' | t }}</span>
+              <input
+                class="hb-form__input"
+                type="text"
+                name="contact[last_name]"
+                value="{{ customer.last_name }}"
+                required
+              >
+            </label>
+          </div>
+
+          <label class="hb-form__field">
+            <span class="hb-form__label">{{ 'membership.email' | t }}</span>
+            <input class="hb-form__input" type="email" name="contact[email]" value="{{ customer.email }}" required>
+          </label>
+
+          <label class="hb-form__field">
+            <span class="hb-form__label">{{ 'membership.phone' | t }}</span>
+            <input class="hb-form__input" type="tel" name="contact[phone]" required>
+          </label>
+
+          <label class="hb-form__field">
+            <span class="hb-form__label">{{ 'membership.dob' | t }}</span>
+            <input class="hb-form__input" type="date" name="contact[date_of_birth]" required>
+            <span class="hb-form__hint">{{ 'membership.dob_hint' | t }}</span>
+          </label>
+
+          <label class="hb-form__field">
+            <span class="hb-form__label">{{ 'membership.address' | t }}</span>
+            <input class="hb-form__input" type="text" name="contact[street]" required>
+          </label>
+
+          <div class="hb-form__row">
+            <label class="hb-form__field">
+              <span class="hb-form__label">{{ 'membership.suburb' | t }}</span>
+              <input class="hb-form__input" type="text" name="contact[suburb]" required>
+            </label>
+
+            <label class="hb-form__field">
+              <span class="hb-form__label">{{ 'membership.city' | t }}</span>
+              <input class="hb-form__input" type="text" name="contact[city]" required>
+            </label>
+          </div>
+
+          <div class="hb-form__row">
+            <label class="hb-form__field">
+              <span class="hb-form__label">{{ 'membership.province' | t }}</span>
+              <select class="hb-form__input" name="contact[province]" required>
+                {% for block in section.blocks %}
+                  <option value="{{ block.settings.name }}">{{ block.settings.name }}</option>
+                {% endfor %}
+              </select>
+            </label>
+
+            <label class="hb-form__field">
+              <span class="hb-form__label">{{ 'membership.postal_code' | t }}</span>
+              <input class="hb-form__input" type="text" name="contact[postal_code]" inputmode="numeric" required>
+            </label>
+          </div>
+
+          <fieldset class="hb-form__checks">
+            <legend class="hb-form__label">{{ 'membership.declarations' | t }}</legend>
+
+            <label class="hb-form__check">
+              <input type="checkbox" name="contact[declares_age]" value="yes" required>
+              <span>{{ 'membership.declare_age' | t: age: settings.minimum_age }}</span>
+            </label>
+
+            <label class="hb-form__check">
+              <input type="checkbox" name="contact[declares_residency]" value="yes" required>
+              <span>{{ 'membership.declare_residency' | t }}</span>
+            </label>
+
+            <label class="hb-form__check">
+              <input type="checkbox" name="contact[declares_personal_use]" value="yes" required>
+              <span>{{ 'membership.declare_personal_use' | t }}</span>
+            </label>
+
+            <label class="hb-form__check">
+              <input type="checkbox" name="contact[consents_popia]" value="yes" required>
+              <span>{{ 'membership.declare_popia' | t }}</span>
+            </label>
+          </fieldset>
+
+          <button type="submit" class="hb-btn hb-btn--primary">{{ 'membership.submit' | t }}</button>
+        {% endform %}
+
+        <div class="hb-handoff">
+          <h2 class="hb-handoff__title">{{ 'membership.documents_title' | t }}</h2>
+          <p class="hb-muted">{{ 'membership.documents_body' | t }}</p>
+
+          {% if section.settings.upload_url != blank %}
+            <a class="hb-btn hb-btn--ghost" href="{{ section.settings.upload_url }}">
+              {{ 'membership.documents_action' | t }}
+            </a>
+          {% else %}
+            <p class="hb-muted hb-handoff__missing">{{ 'membership.documents_unconfigured' | t }}</p>
+          {% endif %}
+        </div>
+      {% endif %}
+    {% endif %}
+
+    {% if section.settings.privacy_notice != blank %}
+      <p class="hb-notice hb-apply__privacy">{{ section.settings.privacy_notice }}</p>
+    {% endif %}
+  </div>
+</section>
+
+{% stylesheet %}
+  .hb-narrow {
+    max-width: 46rem;
+  }
+
+  .hb-apply__title {
+    margin: 0 0 1.5rem;
+    font-size: clamp(1.75rem, 4vw, 2.5rem);
+    line-height: 1.1;
+    letter-spacing: -0.02em;
+  }
+
+  .hb-apply__aside {
+    margin-top: 1rem;
+    font-size: 0.875rem;
+  }
+
+  .hb-apply__privacy {
+    margin-top: 2rem;
+  }
+
+  .hb-notice {
+    margin: 0 0 1.5rem;
+    padding: 0.9rem 1.1rem;
+    border: 1px solid var(--hb-border);
+    border-radius: calc(var(--hb-radius) / 1.5);
+    font-size: 0.875rem;
+    line-height: 1.55;
+    color: var(--hb-muted);
+  }
+
+  .hb-notice--ok {
+    border-color: var(--hb-accent);
+    color: var(--hb-ink);
+  }
+
+  .hb-form {
+    display: grid;
+    gap: 1.25rem;
+  }
+
+  .hb-form__row {
+    display: grid;
+    gap: 1.25rem;
+    grid-template-columns: 1fr;
+  }
+
+  .hb-form__field {
+    display: grid;
+    gap: 0.35rem;
+  }
+
+  .hb-form__label {
+    font-size: 0.6875rem;
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+    color: var(--hb-muted);
+  }
+
+  .hb-form__input {
+    width: 100%;
+    padding: 0.8rem 0.9rem;
+    border: 1px solid var(--hb-border);
+    border-radius: calc(var(--hb-radius) / 1.5);
+    background: var(--hb-surface);
+    color: inherit;
+    font: inherit;
+  }
+
+  .hb-form__hint {
+    font-size: 0.75rem;
+    color: var(--hb-muted);
+  }
+
+  .hb-form__checks {
+    display: grid;
+    gap: 0.875rem;
+    margin: 0;
+    padding: 1.25rem;
+    border: 1px solid var(--hb-border);
+    border-radius: var(--hb-radius);
+    background: var(--hb-surface);
+  }
+
+  .hb-form__check {
+    display: grid;
+    grid-template-columns: auto 1fr;
+    gap: 0.75rem;
+    align-items: start;
+    font-size: 0.9375rem;
+    cursor: pointer;
+  }
+
+  .hb-form__check input {
+    margin-top: 0.35rem;
+    accent-color: var(--hb-accent);
+  }
+
+  .hb-handoff {
+    margin-top: 2.5rem;
+    padding: 1.5rem;
+    border: 1px dashed var(--hb-border);
+    border-radius: var(--hb-radius);
+  }
+
+  .hb-handoff__title {
+    margin: 0 0 0.5rem;
+    font-size: 1rem;
+  }
+
+  .hb-handoff .hb-btn {
+    margin-top: 1rem;
+  }
+
+  .hb-handoff__missing {
+    margin: 1rem 0 0;
+    font-size: 0.8125rem;
+  }
+
+  @media (min-width: 40rem) {
+    .hb-form__row {
+      grid-template-columns: 1fr 1fr;
+    }
+  }
+{% endstylesheet %}
+
+{% schema %}
+{
+  "name": "t:sections.membership_apply.name",
+  "settings": [
+    {
+      "type": "text",
+      "id": "heading",
+      "label": "t:labels.heading",
+      "default": "Apply for membership"
+    },
+    {
+      "type": "url",
+      "id": "upload_url",
+      "label": "t:labels.upload_url",
+      "info": "t:labels.upload_url_info"
+    },
+    {
+      "type": "textarea",
+      "id": "privacy_notice",
+      "label": "t:labels.privacy_notice",
+      "default": "Your ID and address documents are special personal information under POPIA. We use them only to verify your age and residency, never share them with third parties, and delete them 12 months after your membership ends. You can request deletion at any time."
+    }
+  ],
+  "blocks": [
+    {
+      "type": "province",
+      "name": "t:blocks.province.name",
+      "limit": 12,
+      "settings": [
+        {
+          "type": "text",
+          "id": "name",
+          "label": "t:labels.name",
+          "default": "Gauteng"
+        }
+      ]
+    }
+  ],
+  "presets": [
+    {
+      "name": "t:sections.membership_apply.name",
+      "blocks": [
+        { "type": "province", "settings": { "name": "Eastern Cape" } },
+        { "type": "province", "settings": { "name": "Free State" } },
+        { "type": "province", "settings": { "name": "Gauteng" } },
+        { "type": "province", "settings": { "name": "KwaZulu-Natal" } },
+        { "type": "province", "settings": { "name": "Limpopo" } },
+        { "type": "province", "settings": { "name": "Mpumalanga" } },
+        { "type": "province", "settings": { "name": "North West" } },
+        { "type": "province", "settings": { "name": "Northern Cape" } },
+        { "type": "province", "settings": { "name": "Western Cape" } }
+      ]
+    }
+  ]
+}
+{% endschema %}

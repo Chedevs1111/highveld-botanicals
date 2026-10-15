@@ -1,0 +1,294 @@
+{% capture member_status %}{% render 'member-status' %}{% endcapture %}
+
+{% liquid
+  assign member_status = member_status | strip
+  assign tier = product.metafields.custom.member_tier.value | default: 'standard'
+  assign batch = product.metafields.custom.batch_id.value
+  assign coa = product.metafields.custom.coa_url.value
+  assign terpenes = product.metafields.custom.terpenes.value
+  assign effects = product.metafields.custom.effects.value
+
+  assign may_purchase = false
+  if tier == 'open'
+    assign may_purchase = true
+  elsif member_status == 'approved'
+    assign may_purchase = true
+  endif
+%}
+
+<section class="hb-section hb-pdp">
+  <div class="hb-container hb-pdp__grid">
+    <div class="hb-pdp__media">
+      {% if product.featured_image %}
+        {{
+          product.featured_image
+          | image_url: width: 1200
+          | image_tag: class: 'hb-pdp__image', widths: '400, 700, 1000, 1200', loading: 'eager', alt: product.featured_image.alt | default: product.title
+        }}
+      {% else %}
+        {{ 'product-1' | placeholder_svg_tag: 'hb-pdp__image' }}
+      {% endif %}
+    </div>
+
+    <div class="hb-pdp__info">
+      <p class="hb-eyebrow">{{ product.type }}</p>
+      <h1 class="hb-pdp__title">{{ product.title }}</h1>
+
+      <p class="hb-pdp__price">
+        {% if product.compare_at_price > product.price %}
+          <s class="hb-muted">{{ product.compare_at_price | money }}</s>
+        {% endif %}
+        {{ product.price | money }}
+      </p>
+
+      {% if section.settings.contribution_notice != blank %}
+        <p class="hb-pdp__contribution">{{ section.settings.contribution_notice }}</p>
+      {% endif %}
+
+      {% render 'potency-badge', product: product, size: 'large' %}
+
+      {% if tier == 'premium' %}
+        <p class="hb-pdp__warning" role="note">{{ 'product.premium_warning' | t }}</p>
+      {% endif %}
+
+      {% if may_purchase == false %}
+        {% render 'member-gate', status: member_status, apply_url: section.settings.membership_url %}
+      {% else %}
+      {% form 'product', product %}
+        <input type="hidden" name="id" value="{{ product.selected_or_first_available_variant.id }}">
+
+        <div class="hb-pdp__buy">
+          <label class="hb-pdp__qty">
+            <span class="hb-pdp__qty-label">{{ 'product.quantity' | t }}</span>
+            <input type="number" name="quantity" value="1" min="1" max="{{ section.settings.max_quantity }}">
+          </label>
+
+          <button
+            type="submit"
+            name="add"
+            class="hb-btn hb-btn--primary hb-pdp__add"
+            {% if product.available == false %}
+              disabled
+            {% endif %}
+          >
+            {% if product.available %}
+              {{ 'product.add_to_cart' | t }}
+            {% else %}
+              {{ 'product.sold_out' | t }}
+            {% endif %}
+          </button>
+        </div>
+
+        {% if section.settings.max_quantity > 0 %}
+          <p class="hb-pdp__limit hb-muted">
+            {{ 'product.quantity_limit' | t: limit: section.settings.max_quantity }}
+          </p>
+        {% endif %}
+      {% endform %}
+      {% endif %}
+
+      <div class="hb-pdp__description">{{ product.description }}</div>
+
+      <dl class="hb-pdp__specs">
+        {% if terpenes != blank %}
+          <div class="hb-pdp__spec">
+            <dt>{{ 'product.terpenes' | t }}</dt>
+            <dd>{{ terpenes | join: ' · ' }}</dd>
+          </div>
+        {% endif %}
+
+        {% if effects != blank %}
+          <div class="hb-pdp__spec">
+            <dt>{{ 'product.effects' | t }}</dt>
+            <dd>{{ effects | join: ' · ' }}</dd>
+          </div>
+        {% endif %}
+
+        {% if batch != blank %}
+          <div class="hb-pdp__spec">
+            <dt>{{ 'product.batch_label' | t }}</dt>
+            <dd>
+              {% if coa != blank %}
+                <a href="{{ coa }}">{{ batch }}</a>
+              {% else %}
+                {{ batch }}
+              {% endif %}
+            </dd>
+          </div>
+        {% endif %}
+
+        <div class="hb-pdp__spec">
+          <dt>{{ 'product.sku' | t }}</dt>
+          <dd>{{ product.selected_or_first_available_variant.sku }}</dd>
+        </div>
+      </dl>
+    </div>
+  </div>
+</section>
+
+{% stylesheet %}
+  .hb-pdp__grid {
+    display: grid;
+    gap: 2.5rem;
+    grid-template-columns: 1fr;
+    align-items: start;
+  }
+
+  .hb-pdp__image {
+    width: 100%;
+    height: auto;
+    display: block;
+    border-radius: var(--hb-radius);
+    background: var(--hb-surface);
+  }
+
+  .hb-pdp__info {
+    display: flex;
+    flex-direction: column;
+    gap: 1.25rem;
+  }
+
+  .hb-pdp__title {
+    margin: 0;
+    font-size: clamp(1.75rem, 4vw, 2.5rem);
+    line-height: 1.1;
+    letter-spacing: -0.02em;
+  }
+
+  .hb-pdp__price {
+    margin: 0;
+    font-size: 1.5rem;
+    font-weight: 700;
+    font-variant-numeric: tabular-nums;
+  }
+
+  .hb-pdp__price s {
+    margin-inline-end: 0.5rem;
+    font-size: 1.125rem;
+    font-weight: 400;
+  }
+
+  .hb-pdp__contribution,
+  .hb-pdp__warning {
+    margin: 0;
+    padding: 0.75rem 1rem;
+    border-radius: calc(var(--hb-radius) / 1.5);
+    border: 1px solid var(--hb-border);
+    font-size: 0.8125rem;
+    line-height: 1.55;
+    color: var(--hb-muted);
+  }
+
+  .hb-pdp__warning {
+    border-color: var(--hb-accent);
+    color: var(--hb-ink);
+  }
+
+  .hb-pdp__buy {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.75rem;
+    align-items: end;
+  }
+
+  .hb-pdp__qty {
+    display: flex;
+    flex-direction: column;
+    gap: 0.35rem;
+  }
+
+  .hb-pdp__qty-label {
+    font-size: 0.6875rem;
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+    color: var(--hb-muted);
+  }
+
+  .hb-pdp__qty input {
+    width: 5rem;
+    padding: 0.8rem 0.75rem;
+    border: 1px solid var(--hb-border);
+    border-radius: calc(var(--hb-radius) / 1.5);
+    background: var(--hb-surface);
+    color: inherit;
+    font: inherit;
+  }
+
+  .hb-pdp__add {
+    flex: 1;
+    min-width: 12rem;
+  }
+
+  .hb-pdp__limit {
+    margin: 0;
+    font-size: 0.75rem;
+  }
+
+  .hb-pdp__description {
+    padding-top: 1.25rem;
+    border-top: 1px solid var(--hb-border);
+    color: var(--hb-muted);
+  }
+
+  .hb-pdp__specs {
+    display: grid;
+    gap: 0.75rem;
+    margin: 0;
+    padding-top: 1.25rem;
+    border-top: 1px solid var(--hb-border);
+  }
+
+  .hb-pdp__spec {
+    display: grid;
+    grid-template-columns: 9rem 1fr;
+    gap: 1rem;
+    font-size: 0.875rem;
+  }
+
+  .hb-pdp__spec dt {
+    color: var(--hb-muted);
+  }
+
+  .hb-pdp__spec dd {
+    margin: 0;
+  }
+
+  .hb-pdp__spec a {
+    color: var(--hb-accent);
+  }
+
+  @media (min-width: 52rem) {
+    .hb-pdp__grid {
+      grid-template-columns: 1fr 1fr;
+      gap: 3.5rem;
+    }
+  }
+{% endstylesheet %}
+
+{% schema %}
+{
+  "name": "t:sections.main_product.name",
+  "settings": [
+    {
+      "type": "textarea",
+      "id": "contribution_notice",
+      "label": "t:labels.contribution_notice",
+      "default": "This amount is a member contribution toward cultivation, testing and handling. It is not a public retail sale."
+    },
+    {
+      "type": "range",
+      "id": "max_quantity",
+      "label": "t:labels.max_quantity",
+      "min": 1,
+      "max": 20,
+      "step": 1,
+      "default": 4
+    },
+    {
+      "type": "url",
+      "id": "membership_url",
+      "label": "t:labels.membership_url"
+    }
+  ]
+}
+{% endschema %}

@@ -1,0 +1,63 @@
+{
+  "sections": {
+    "policy": {
+      "type": "delivery-policy",
+      "blocks": {
+        "h-who": {
+          "type": "heading",
+          "settings": {
+            "text": "Who may join"
+          }
+        },
+        "l-who": {
+          "type": "list",
+          "settings": {
+            "text": "18 years or older. Verified against a government-issued ID, not self-declared.\nResident in South Africa, at the address you provide proof for.\nApplying for yourself. One membership per person."
+          }
+        },
+        "h-not": {
+          "type": "heading",
+          "settings": {
+            "text": "What you agree not to do"
+          }
+        },
+        "l-not": {
+          "type": "list",
+          "settings": {
+            "text": "Resell or supply anything you receive. Not to friends, not at cost, not as a gift. This ends your membership immediately.\nSupply anyone under 18, or let anyone under 18 access what you hold.\nLet someone else use your membership or collect on your behalf.\nDrive or operate machinery after use. South African law treats this the same as alcohol.\nTake anything across a border, including to countries where it is legal."
+          }
+        },
+        "h-liab": {
+          "type": "heading",
+          "settings": {
+            "text": "Liability"
+          }
+        },
+        "p-liab": {
+          "type": "paragraph",
+          "settings": {
+            "text": "<p>We are responsible for the product being what the certificate says it is, safely handled and correctly labelled. We are not responsible for how it affects you individually.</p><p><strong>What we cannot limit, we do not try to.</strong> The Consumer Protection Act 68 of 2008 makes suppliers liable for harm caused by unsafe or defective goods, and nothing here reduces that. Where any clause conflicts with the Act, the Act applies.</p>"
+          }
+        }
+      },
+      "block_order": [
+        "h-who",
+        "l-who",
+        "h-not",
+        "l-not",
+        "h-liab",
+        "p-liab"
+      ],
+      "settings": {
+        "heading": "Terms of service",
+        "intro": "The agreement between you and Highveld Botanicals (Pty) Ltd. Written to be read, not to be survived.",
+        "lede": "<p><strong>This is a private collective, not a shop.</strong> Membership is a condition of access to everything except the CBD range, and what you pay is a contribution toward cultivation, testing and handling of your own allocation. If that framing does not suit you, do not apply.</p>",
+        "show_shipping_summary": false,
+        "updated": "2 August 2026"
+      }
+    }
+  },
+  "order": [
+    "policy"
+  ]
+}

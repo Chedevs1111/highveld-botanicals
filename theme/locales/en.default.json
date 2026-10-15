@@ -1,0 +1,403 @@
+{
+  "accessibility": {
+    "skip_to_content": "Skip to content",
+    "primary_navigation": "Primary",
+    "pagination": "Pagination"
+  },
+  "age_gate": {
+    "title": "Are you {{ age }} or older?",
+    "body": "You must be {{ age }} or older to view this collection. We do not sell to anyone under {{ age }}, and age is verified again before any order is released.",
+    "accept": "Yes, I am {{ age }} or older",
+    "decline": "No, take me back",
+    "declined": "You need to be of legal age to continue. Thanks for stopping by."
+  },
+  "header": {
+    "account": "Account",
+    "log_in": "Log in",
+    "cart": "Cart"
+  },
+  "footer": {
+    "rights": "All rights reserved."
+  },
+  "collection": {
+    "eyebrow": "Collection",
+    "view_all": "View all",
+    "empty": "Nothing in this collection yet.",
+    "count": "{{ count }} products",
+    "apply_filters": "Apply filters"
+  },
+  "product": {
+    "thc": "THC",
+    "cbd": "CBD",
+    "strain": "Strain",
+    "terpenes": "Terpenes",
+    "effects": "Reported effects",
+    "batch": "Batch {{ id }}",
+    "batch_label": "Batch & lab report",
+    "sku": "SKU",
+    "quantity": "Quantity",
+    "quantity_limit": "Limited to {{ limit }} per member, per order.",
+    "add_to_cart": "Add to cart",
+    "sold_out": "Sold out",
+    "tier_premium": "Premium",
+    "tier_open": "No membership",
+    "premium_warning": "High potency. If this is your first batch from this line, start at a quarter of your usual amount."
+  },
+  "cart": {
+    "title": "Your cart",
+    "subtotal": "Subtotal",
+    "tax_note": "Delivery and verification are confirmed at the next step.",
+    "update": "Update",
+    "checkout": "Checkout",
+    "empty": "Your cart is empty.",
+    "continue": "Browse the collection",
+    "restricted_note": "{{ count }} item(s) in your cart need a verified membership. You can check out with the CBD range on its own."
+  },
+  "sections": {
+    "header": {
+      "name": "Header"
+    },
+    "footer": {
+      "name": "Footer"
+    },
+    "hero": {
+      "name": "Hero"
+    },
+    "featured_products": {
+      "name": "Featured products"
+    },
+    "main_collection": {
+      "name": "Collection"
+    },
+    "main_product": {
+      "name": "Product"
+    },
+    "main_cart": {
+      "name": "Cart"
+    },
+    "membership_apply": {
+      "name": "Membership application"
+    },
+    "verification_status": {
+      "name": "Verification status"
+    },
+    "order_instructions": {
+      "name": "Order instructions"
+    },
+    "delivery_policy": {
+      "name": "Delivery policy"
+    },
+    "policy_page": {
+      "name": "Policy page"
+    },
+    "faq": {
+      "name": "FAQ"
+    },
+    "main_article": {
+      "name": "Article"
+    },
+    "main_page": {
+      "name": "Page"
+    },
+    "main_404": {
+      "name": "404"
+    },
+    "main_search": {
+      "name": "Search"
+    },
+    "main_blog": {
+      "name": "Blog"
+    },
+    "main_list_collections": {
+      "name": "Collections list"
+    },
+    "customer_orders": {
+      "name": "Customer orders"
+    }
+  },
+  "blocks": {
+    "menu": {
+      "name": "Menu"
+    },
+    "stat": {
+      "name": "Stat"
+    },
+    "province": {
+      "name": "Province"
+    },
+    "heading": {
+      "name": "Heading"
+    },
+    "paragraph": {
+      "name": "Paragraph"
+    },
+    "list": {
+      "name": "List"
+    },
+    "group": {
+      "name": "Group heading"
+    },
+    "question": {
+      "name": "Question"
+    }
+  },
+  "settings": {
+    "colors": "Colours",
+    "layout": "Layout",
+    "compliance": "Compliance",
+    "age_gate_header": "Age gate",
+    "age_gate_paragraph": "This gate is a deterrent, not a legal control. Real verification must happen server-side before fulfilment."
+  },
+  "labels": {
+    "logo": "Logo",
+    "menu": "Menu",
+    "announcement": "Announcement",
+    "blurb": "Short description",
+    "compliance_notice": "Compliance notice",
+    "heading": "Heading",
+    "eyebrow": "Eyebrow",
+    "body": "Body text",
+    "image": "Image",
+    "value": "Value",
+    "label": "Label",
+    "collection": "Collection",
+    "products_to_show": "Products to show",
+    "products_per_page": "Products per page",
+    "show_filters": "Show filters",
+    "primary_label": "Primary button label",
+    "primary_url": "Primary button link",
+    "secondary_label": "Secondary button label",
+    "secondary_url": "Secondary button link",
+    "contribution_notice": "Contribution notice",
+    "checkout_notice": "Checkout notice",
+    "max_quantity": "Maximum quantity per order",
+    "color_background": "Background",
+    "color_surface": "Surface",
+    "color_text": "Text",
+    "color_accent": "Accent",
+    "color_accent_text": "Text on accent",
+    "page_width": "Page width",
+    "corner_radius": "Corner radius",
+    "enable_age_gate": "Enable age gate",
+    "minimum_age": "Minimum age",
+    "age_gate_remember_days": "Remember acceptance for",
+    "age_gate_notice": "Age gate notice",
+    "allow_search_indexing": "Allow search engine indexing",
+    "membership_url": "Membership page",
+    "upload_url": "Secure document upload URL",
+    "upload_url_info": "Points at your verification app. Identity documents must never be collected through the theme.",
+    "privacy_notice": "Privacy notice",
+    "name": "Name",
+    "standard_allowance": "Standard tier allowance",
+    "premium_allowance": "Premium tier allowance",
+    "payment_method": "Payment method",
+    "payment_method_info": "Card gateways prohibit these products. Only EFT and cash on collection are offered.",
+    "courier_fee": "Courier fee",
+    "courier_fee_info": "Must match what checkout charges. Changing it here does not change checkout.",
+    "free_over": "Free courier above",
+    "collection_page": "Collection points page",
+    "updated": "Last updated",
+    "list_items": "List items",
+    "list_items_info": "One item per line.",
+    "lede": "Callout box",
+    "lede_info": "The one rule you want read before anything else. Leave empty to omit.",
+    "show_shipping_summary": "Show the shipping summary table",
+    "contact_page": "Contact page",
+    "question": "Question",
+    "answer": "Answer",
+    "show_links": "Show helpful links"
+  },
+  "member_gate": {
+    "lock": "Members only",
+    "unverified": "This item is available to verified members. Applying takes about five minutes.",
+    "pending": "Your application is under review. You can purchase once it is approved.",
+    "rejected": "Your application was not approved. You may submit a new application.",
+    "action_unverified": "Apply for membership",
+    "action_pending": "Check your application",
+    "action_rejected": "Apply again",
+    "log_in": "Log in to continue"
+  },
+  "membership": {
+    "eyebrow": "Membership",
+    "first_name": "First name",
+    "last_name": "Last name",
+    "email": "Email address",
+    "phone": "Mobile number",
+    "dob": "Date of birth",
+    "dob_hint": "Must match the date on the ID you upload.",
+    "address": "Street address",
+    "suburb": "Suburb",
+    "city": "City",
+    "province": "Province",
+    "postal_code": "Postal code",
+    "declarations": "Declarations",
+    "declare_age": "I am {{ age }} years or older.",
+    "declare_residency": "I am resident in South Africa and this is my own address.",
+    "declare_personal_use": "Anything I receive is for my own private use and I will not resell it.",
+    "declare_popia": "I consent to my ID and address documents being processed to verify my age and residency.",
+    "submit": "Submit application",
+    "submitted": "Application received. We will email you once it has been reviewed.",
+    "already_pending": "You already have an application under review.",
+    "already_approved": "You are a verified member. Nothing further is needed.",
+    "view_status": "View your membership",
+    "browse": "Browse the collection",
+    "account_required": "Membership is tied to an account. Create one first, then apply.",
+    "create_account": "Create an account",
+    "have_account": "Already have an account?",
+    "documents_title": "Step 2 — upload your documents",
+    "documents_body": "Your ID and proof of address are uploaded through a secure form, not through this page. Identity documents must never pass through the storefront.",
+    "documents_action": "Upload documents securely",
+    "documents_unconfigured": "No secure upload URL is configured yet. Set one in the theme editor before taking applications."
+  },
+  "account": {
+    "eyebrow": "Account",
+    "title": "Your membership",
+    "status": "Status",
+    "status_value": "{{ status }}",
+    "tier": "Tier",
+    "verified_on": "Verified on",
+    "sign_in_required": "Sign in to see your membership.",
+    "pending_body": "A person reviews every application, usually within two business days. We will email you when it is decided.",
+    "rejected_title": "Not approved.",
+    "rejected_fallback": "No reason was recorded. Please contact us.",
+    "reapply": "Submit a new application",
+    "unverified_body": "You are not a member yet. Everything except the CBD range needs a verified membership.",
+    "apply": "Apply for membership",
+    "allocation": "Monthly allocation",
+    "allocation_used": "{{ used }} of {{ total }} units used",
+    "allocation_note": "{{ remaining }} units remaining. Resets on the first of each month.",
+    "expires": "Membership valid until {{ date }}.",
+    "on_file": "On file",
+    "documents_note": "Your ID number and uploaded documents are not shown here and are not readable from the storefront.",
+    "deletion_note": "Want your documents removed? Email us and we delete them within 30 days, as required by POPIA."
+  },
+  "order": {
+    "eft_title": "Pay by EFT",
+    "account_name": "Account name",
+    "bank": "Bank",
+    "account_number": "Account number",
+    "branch_code": "Branch code",
+    "amount": "Amount",
+    "reference": "Reference",
+    "reference_note": "Use the reference exactly as shown — it is how we match your transfer to this order. Unreferenced payments take several days to trace, and nothing is released until the funds clear.",
+    "handover_title": "What to bring to collection",
+    "bring_id": "The ID you verified with. The same document, not a photo of it. Handover is refused without it.",
+    "bring_order": "Your order number, {{ name }}.",
+    "bring_cash": "{{ amount }} in cash. Exact amount — collection points hold no change and have no card machine.",
+    "named_member_only": "Collection is by the named member only. We cannot hand over to a friend, partner or courier on your behalf.",
+    "batches_title": "Batches in this order",
+    "batches_note": "Check the batch code on your packaging matches what is listed here. Each one links to its certificate of analysis."
+  },
+  "options": {
+    "payment": {
+      "eft": "EFT / bank transfer",
+      "cash": "Cash on collection"
+    }
+  },
+  "delivery": {
+    "eyebrow": "Policy",
+    "no_courier_title": "Members-only items are not couriered. Ever.",
+    "no_courier_body": "Anything outside the CBD range is handed over in person so we can check your ID against the document you verified with. There is no workaround for this, and asking us to post it will get the order cancelled and refunded.",
+    "summary_title": "The short version",
+    "col_what": "What you ordered",
+    "col_how": "How it reaches you",
+    "col_cost": "Cost",
+    "row_members": "Anything members-only — flower, pre-rolls, edibles, vapes",
+    "row_cbd": "CBD & wellness — non-intoxicating, no membership needed",
+    "row_mixed": "A mixed order",
+    "collection_only": "Collection in person only",
+    "collection_or_courier": "Collection or courier",
+    "free": "Free",
+    "courier_cost": "{{ fee }}, free over {{ threshold }}",
+    "see_points": "Collection points, hours and directions",
+    "updated": "Last updated {{ date }}."
+  },
+  "faq": {
+    "eyebrow": "Support",
+    "empty": "No questions have been added to this page yet.",
+    "still_stuck": "Still stuck?",
+    "contact_us": "Contact us"
+  },
+  "article": {
+    "published": "Published {{ date }}",
+    "reading": "{{ minutes }} min read",
+    "safety_title": "Safety information.",
+    "safety_body": "General guidance, not medical advice, and it knows nothing about you. If any of it applies to your situation, talk to a doctor or a pharmacist.",
+    "more_from": "More from {{ blog }}"
+  },
+  "customer": {
+    "eyebrow": "Account",
+    "login_title": "Log in",
+    "login_submit": "Log in",
+    "password": "Password",
+    "new_password": "New password",
+    "confirm_password": "Confirm password",
+    "forgot": "Forgot password?",
+    "cancel": "Cancel",
+    "no_account": "Do not have an account yet?",
+    "recover_title": "Reset your password",
+    "recover_body": "We will email you a link to set a new one.",
+    "recover_submit": "Send reset link",
+    "recover_sent": "If that email is registered, a reset link is on its way.",
+    "register_title": "Create an account",
+    "register_body": "An account is the first step. Membership verification comes after, and is a separate check.",
+    "register_notice": "Creating an account does not make you a member. It lets you apply, track an application, and buy the CBD range.",
+    "register_submit": "Create account",
+    "password_hint": "At least 8 characters.",
+    "reset_title": "Set a new password",
+    "reset_submit": "Save password",
+    "activate_title": "Activate your account",
+    "activate_body": "Choose a password to finish setting up your account.",
+    "activate_submit": "Activate account",
+    "decline": "Decline invitation",
+    "addresses_title": "Your addresses",
+    "address": "Address",
+    "default_address": "Default address",
+    "add_address": "Add an address",
+    "save_address": "Save address",
+    "address_notice": "Changing your verified residential address needs fresh proof of address — email us to start that. Addresses here are used for CBD delivery only.",
+    "orders_title": "Your orders",
+    "order": "Order",
+    "order_title": "Order {{ name }}",
+    "placed_on": "Placed {{ date }}",
+    "date": "Date",
+    "payment": "Payment",
+    "fulfilment": "Fulfilment",
+    "total": "Total",
+    "item": "Item",
+    "no_orders": "You have not placed an order yet.",
+    "back_to_account": "Back to your account"
+  },
+  "not_found": {
+    "eyebrow": "404",
+    "title": "That page does not exist",
+    "body": "The link may be out of date, or the page may have moved. Nothing is wrong with your account.",
+    "browse": "Browse the collection",
+    "search": "Search",
+    "popular": "Try one of these"
+  },
+  "search": {
+    "eyebrow": "Search",
+    "title": "Search",
+    "label": "What are you looking for?",
+    "placeholder": "strain, batch code, question…",
+    "submit": "Search",
+    "results_count": "{{ count }} results for “{{ terms }}”",
+    "empty": "Nothing matches “{{ terms }}”. Try a shorter word."
+  },
+  "blog": {
+    "eyebrow": "Writing",
+    "empty": "No posts yet.",
+    "filtered_by": "Filtered by {{ tag }}.",
+    "clear": "Show all"
+  },
+  "collections": {
+    "title": "Collections"
+  },
+  "password": {
+    "title": "Opening soon",
+    "body": "This collective is not open to the public yet. If you have the password, enter it below.",
+    "label": "Password",
+    "submit": "Enter"
+  }
+}

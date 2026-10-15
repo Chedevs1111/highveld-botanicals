@@ -1,0 +1,1314 @@
+{
+  "lab": {
+    "name": "Karoo Analytical Services (Pty) Ltd",
+    "short": "Karoo Analytical",
+    "accreditation": "SANAS T-0000 (specimen)",
+    "address": "12 Voortrekker Road, Bellville, Cape Town, 7530",
+    "contact": "reports@karooanalytical.example",
+    "scope": "ISO/IEC 17025 — cannabinoid potency, terpene profile, contaminant screening"
+  },
+  "coas": [
+    {
+      "batch_id": "DP-2607-A",
+      "product_handle": "durban-poison",
+      "product_title": "Durban Poison",
+      "sku": "HB-FL-001",
+      "matrix": "flower",
+      "matrix_label": "Dried cannabis flower",
+      "specimen": true,
+      "lab": {
+        "name": "Karoo Analytical Services (Pty) Ltd",
+        "short": "Karoo Analytical",
+        "accreditation": "SANAS T-0000 (specimen)",
+        "address": "12 Voortrekker Road, Bellville, Cape Town, 7530",
+        "contact": "reports@karooanalytical.example",
+        "scope": "ISO/IEC 17025 — cannabinoid potency, terpene profile, contaminant screening"
+      },
+      "sample": {
+        "lab_sample_id": "KA-2607A-291",
+        "received": "2026-07-06",
+        "tested": "2026-07-09",
+        "reported": "2026-07-10",
+        "sample_size": "5.0 g",
+        "batch_size": "1600 g",
+        "methods": "Cannabinoids by HPLC-DAD; terpenes by GC-MS headspace"
+      },
+      "basis": "percent",
+      "terpenes": [
+        {
+          "name": "Terpinolene",
+          "mg_g": 8.05,
+          "pct": 0.805
+        },
+        {
+          "name": "Ocimene",
+          "mg_g": 5.99,
+          "pct": 0.599
+        },
+        {
+          "name": "Myrcene",
+          "mg_g": 2.07,
+          "pct": 0.207
+        }
+      ],
+      "safety": [
+        {
+          "panel": "Pesticide residues",
+          "method": "LC-MS/MS · GC-MS/MS",
+          "analytes": 66,
+          "result": "Pass",
+          "detail": "No analyte detected above the limit of quantitation."
+        },
+        {
+          "panel": "Heavy metals",
+          "method": "ICP-MS",
+          "analytes": 4,
+          "result": "Pass",
+          "detail": "Pb 0.045, Cd 0.036, As 0.032, Hg 0.017 ppm — all below action limits."
+        },
+        {
+          "panel": "Microbial contaminants",
+          "method": "qPCR · plate count",
+          "analytes": 5,
+          "result": "Pass",
+          "detail": "E. coli, Salmonella spp., Aspergillus (flavus, fumigatus, niger, terreus) not detected. TYMC below limit."
+        },
+        {
+          "panel": "Mycotoxins",
+          "method": "LC-MS/MS",
+          "analytes": 5,
+          "result": "Pass",
+          "detail": "Aflatoxins B1, B2, G1, G2 and Ochratoxin A not detected."
+        },
+        {
+          "panel": "Foreign matter",
+          "method": "Visual · magnification",
+          "analytes": null,
+          "result": "Pass",
+          "detail": "No visible mould, insect fragments, or extraneous material."
+        }
+      ],
+      "analyst": "N. Petersen, Signatory Analyst",
+      "verification_code": "DP-2607-A-8241",
+      "cannabinoids": [
+        {
+          "name": "Δ9-Tetrahydrocannabinol (THC)",
+          "key": "d9_thc",
+          "pct": 0.67,
+          "mg_g": 6.7
+        },
+        {
+          "name": "Tetrahydrocannabinolic acid (THCA)",
+          "key": "thca",
+          "pct": 24.33,
+          "mg_g": 243.3
+        },
+        {
+          "name": "Cannabidiol (CBD)",
+          "key": "cbd",
+          "pct": 0.13,
+          "mg_g": 1.3
+        },
+        {
+          "name": "Cannabidiolic acid (CBDA)",
+          "key": "cbda",
+          "pct": 0.31,
+          "mg_g": 3.1
+        },
+        {
+          "name": "Cannabigerol (CBG)",
+          "key": "cbg",
+          "pct": 0.25,
+          "mg_g": 2.5
+        },
+        {
+          "name": "Cannabinol (CBN)",
+          "key": "cbn",
+          "pct": 0.31,
+          "mg_g": 3.1
+        },
+        {
+          "name": "Cannabichromene (CBC)",
+          "key": "cbc",
+          "pct": 0.2,
+          "mg_g": 2
+        },
+        {
+          "name": "Δ8-Tetrahydrocannabinol",
+          "key": "d8_thc",
+          "pct": 0,
+          "nd": true,
+          "mg_g": 0
+        }
+      ],
+      "totals": {
+        "total_thc_pct": 22.01,
+        "total_cbd_pct": 0.4,
+        "total_cannabinoids_pct": 26.2
+      },
+      "moisture_pct": 10.7,
+      "water_activity": 0.58
+    },
+    {
+      "batch_id": "SG-2606-C",
+      "product_handle": "swazi-gold",
+      "product_title": "Swazi Gold",
+      "sku": "HB-FL-002",
+      "matrix": "flower",
+      "matrix_label": "Dried cannabis flower",
+      "specimen": true,
+      "lab": {
+        "name": "Karoo Analytical Services (Pty) Ltd",
+        "short": "Karoo Analytical",
+        "accreditation": "SANAS T-0000 (specimen)",
+        "address": "12 Voortrekker Road, Bellville, Cape Town, 7530",
+        "contact": "reports@karooanalytical.example",
+        "scope": "ISO/IEC 17025 — cannabinoid potency, terpene profile, contaminant screening"
+      },
+      "sample": {
+        "lab_sample_id": "KA-2606C-982",
+        "received": "2026-06-12",
+        "tested": "2026-06-15",
+        "reported": "2026-06-17",
+        "sample_size": "5.0 g",
+        "batch_size": "2000 g",
+        "methods": "Cannabinoids by HPLC-DAD; terpenes by GC-MS headspace"
+      },
+      "basis": "percent",
+      "terpenes": [
+        {
+          "name": "Myrcene",
+          "mg_g": 6.88,
+          "pct": 0.688
+        },
+        {
+          "name": "Pinene",
+          "mg_g": 6.17,
+          "pct": 0.617
+        },
+        {
+          "name": "Limonene",
+          "mg_g": 2.43,
+          "pct": 0.243
+        }
+      ],
+      "safety": [
+        {
+          "panel": "Pesticide residues",
+          "method": "LC-MS/MS · GC-MS/MS",
+          "analytes": 66,
+          "result": "Pass",
+          "detail": "No analyte detected above the limit of quantitation."
+        },
+        {
+          "panel": "Heavy metals",
+          "method": "ICP-MS",
+          "analytes": 4,
+          "result": "Pass",
+          "detail": "Pb 0.005, Cd 0.02, As 0.008, Hg 0.007 ppm — all below action limits."
+        },
+        {
+          "panel": "Microbial contaminants",
+          "method": "qPCR · plate count",
+          "analytes": 5,
+          "result": "Pass",
+          "detail": "E. coli, Salmonella spp., Aspergillus (flavus, fumigatus, niger, terreus) not detected. TYMC below limit."
+        },
+        {
+          "panel": "Mycotoxins",
+          "method": "LC-MS/MS",
+          "analytes": 5,
+          "result": "Pass",
+          "detail": "Aflatoxins B1, B2, G1, G2 and Ochratoxin A not detected."
+        },
+        {
+          "panel": "Foreign matter",
+          "method": "Visual · magnification",
+          "analytes": null,
+          "result": "Pass",
+          "detail": "No visible mould, insect fragments, or extraneous material."
+        }
+      ],
+      "analyst": "N. Petersen, Signatory Analyst",
+      "verification_code": "SG-2606-C-9913",
+      "cannabinoids": [
+        {
+          "name": "Δ9-Tetrahydrocannabinol (THC)",
+          "key": "d9_thc",
+          "pct": 0.74,
+          "mg_g": 7.4
+        },
+        {
+          "name": "Tetrahydrocannabinolic acid (THCA)",
+          "key": "thca",
+          "pct": 20.82,
+          "mg_g": 208.2
+        },
+        {
+          "name": "Cannabidiol (CBD)",
+          "key": "cbd",
+          "pct": 0.09,
+          "mg_g": 0.9
+        },
+        {
+          "name": "Cannabidiolic acid (CBDA)",
+          "key": "cbda",
+          "pct": 0.58,
+          "mg_g": 5.8
+        },
+        {
+          "name": "Cannabigerol (CBG)",
+          "key": "cbg",
+          "pct": 0.24,
+          "mg_g": 2.4
+        },
+        {
+          "name": "Cannabinol (CBN)",
+          "key": "cbn",
+          "pct": 0.1,
+          "mg_g": 1
+        },
+        {
+          "name": "Cannabichromene (CBC)",
+          "key": "cbc",
+          "pct": 0.3,
+          "mg_g": 3
+        },
+        {
+          "name": "Δ8-Tetrahydrocannabinol",
+          "key": "d8_thc",
+          "pct": 0,
+          "nd": true,
+          "mg_g": 0
+        }
+      ],
+      "totals": {
+        "total_thc_pct": 19,
+        "total_cbd_pct": 0.6,
+        "total_cannabinoids_pct": 22.87
+      },
+      "moisture_pct": 9.6,
+      "water_activity": 0.56
+    },
+    {
+      "batch_id": "MC-2607-A",
+      "product_handle": "malawi-cobra",
+      "product_title": "Malawi Cobra",
+      "sku": "HB-FL-003",
+      "matrix": "flower",
+      "matrix_label": "Dried cannabis flower",
+      "specimen": true,
+      "lab": {
+        "name": "Karoo Analytical Services (Pty) Ltd",
+        "short": "Karoo Analytical",
+        "accreditation": "SANAS T-0000 (specimen)",
+        "address": "12 Voortrekker Road, Bellville, Cape Town, 7530",
+        "contact": "reports@karooanalytical.example",
+        "scope": "ISO/IEC 17025 — cannabinoid potency, terpene profile, contaminant screening"
+      },
+      "sample": {
+        "lab_sample_id": "KA-2607A-259",
+        "received": "2026-07-06",
+        "tested": "2026-07-09",
+        "reported": "2026-07-11",
+        "sample_size": "5.0 g",
+        "batch_size": "800 g",
+        "methods": "Cannabinoids by HPLC-DAD; terpenes by GC-MS headspace"
+      },
+      "basis": "percent",
+      "terpenes": [
+        {
+          "name": "Limonene",
+          "mg_g": 10.45,
+          "pct": 1.045
+        },
+        {
+          "name": "Terpinolene",
+          "mg_g": 5.53,
+          "pct": 0.553
+        },
+        {
+          "name": "Caryophyllene",
+          "mg_g": 2.12,
+          "pct": 0.212
+        }
+      ],
+      "safety": [
+        {
+          "panel": "Pesticide residues",
+          "method": "LC-MS/MS · GC-MS/MS",
+          "analytes": 66,
+          "result": "Pass",
+          "detail": "No analyte detected above the limit of quantitation."
+        },
+        {
+          "panel": "Heavy metals",
+          "method": "ICP-MS",
+          "analytes": 4,
+          "result": "Pass",
+          "detail": "Pb 0.035, Cd 0.031, As 0.012, Hg 0.012 ppm — all below action limits."
+        },
+        {
+          "panel": "Microbial contaminants",
+          "method": "qPCR · plate count",
+          "analytes": 5,
+          "result": "Pass",
+          "detail": "E. coli, Salmonella spp., Aspergillus (flavus, fumigatus, niger, terreus) not detected. TYMC below limit."
+        },
+        {
+          "panel": "Mycotoxins",
+          "method": "LC-MS/MS",
+          "analytes": 5,
+          "result": "Pass",
+          "detail": "Aflatoxins B1, B2, G1, G2 and Ochratoxin A not detected."
+        },
+        {
+          "panel": "Foreign matter",
+          "method": "Visual · magnification",
+          "analytes": null,
+          "result": "Pass",
+          "detail": "No visible mould, insect fragments, or extraneous material."
+        }
+      ],
+      "analyst": "N. Petersen, Signatory Analyst",
+      "verification_code": "MC-2607-A-1124",
+      "cannabinoids": [
+        {
+          "name": "Δ9-Tetrahydrocannabinol (THC)",
+          "key": "d9_thc",
+          "pct": 0.64,
+          "mg_g": 6.4
+        },
+        {
+          "name": "Tetrahydrocannabinolic acid (THCA)",
+          "key": "thca",
+          "pct": 26.63,
+          "mg_g": 266.3
+        },
+        {
+          "name": "Cannabidiol (CBD)",
+          "key": "cbd",
+          "pct": 0.13,
+          "mg_g": 1.3
+        },
+        {
+          "name": "Cannabidiolic acid (CBDA)",
+          "key": "cbda",
+          "pct": 0.08,
+          "mg_g": 0.8
+        },
+        {
+          "name": "Cannabigerol (CBG)",
+          "key": "cbg",
+          "pct": 0.84,
+          "mg_g": 8.4
+        },
+        {
+          "name": "Cannabinol (CBN)",
+          "key": "cbn",
+          "pct": 0.06,
+          "mg_g": 0.6
+        },
+        {
+          "name": "Cannabichromene (CBC)",
+          "key": "cbc",
+          "pct": 0.03,
+          "mg_g": 0.3
+        },
+        {
+          "name": "Δ8-Tetrahydrocannabinol",
+          "key": "d8_thc",
+          "pct": 0,
+          "nd": true,
+          "mg_g": 0
+        }
+      ],
+      "totals": {
+        "total_thc_pct": 23.99,
+        "total_cbd_pct": 0.2,
+        "total_cannabinoids_pct": 28.41
+      },
+      "moisture_pct": 10.7,
+      "water_activity": 0.53
+    },
+    {
+      "batch_id": "MK-2605-B",
+      "product_handle": "midnight-kush",
+      "product_title": "Midnight Kush",
+      "sku": "HB-FL-004",
+      "matrix": "flower",
+      "matrix_label": "Dried cannabis flower",
+      "specimen": true,
+      "lab": {
+        "name": "Karoo Analytical Services (Pty) Ltd",
+        "short": "Karoo Analytical",
+        "accreditation": "SANAS T-0000 (specimen)",
+        "address": "12 Voortrekker Road, Bellville, Cape Town, 7530",
+        "contact": "reports@karooanalytical.example",
+        "scope": "ISO/IEC 17025 — cannabinoid potency, terpene profile, contaminant screening"
+      },
+      "sample": {
+        "lab_sample_id": "KA-2605B-449",
+        "received": "2026-05-03",
+        "tested": "2026-05-06",
+        "reported": "2026-05-08",
+        "sample_size": "5.0 g",
+        "batch_size": "2800 g",
+        "methods": "Cannabinoids by HPLC-DAD; terpenes by GC-MS headspace"
+      },
+      "basis": "percent",
+      "terpenes": [
+        {
+          "name": "Myrcene",
+          "mg_g": 8.69,
+          "pct": 0.869
+        },
+        {
+          "name": "Caryophyllene",
+          "mg_g": 3.77,
+          "pct": 0.377
+        },
+        {
+          "name": "Linalool",
+          "mg_g": 2.42,
+          "pct": 0.242
+        }
+      ],
+      "safety": [
+        {
+          "panel": "Pesticide residues",
+          "method": "LC-MS/MS · GC-MS/MS",
+          "analytes": 66,
+          "result": "Pass",
+          "detail": "No analyte detected above the limit of quantitation."
+        },
+        {
+          "panel": "Heavy metals",
+          "method": "ICP-MS",
+          "analytes": 4,
+          "result": "Pass",
+          "detail": "Pb 0.036, Cd 0.005, As 0.043, Hg 0.016 ppm — all below action limits."
+        },
+        {
+          "panel": "Microbial contaminants",
+          "method": "qPCR · plate count",
+          "analytes": 5,
+          "result": "Pass",
+          "detail": "E. coli, Salmonella spp., Aspergillus (flavus, fumigatus, niger, terreus) not detected. TYMC below limit."
+        },
+        {
+          "panel": "Mycotoxins",
+          "method": "LC-MS/MS",
+          "analytes": 5,
+          "result": "Pass",
+          "detail": "Aflatoxins B1, B2, G1, G2 and Ochratoxin A not detected."
+        },
+        {
+          "panel": "Foreign matter",
+          "method": "Visual · magnification",
+          "analytes": null,
+          "result": "Pass",
+          "detail": "No visible mould, insect fragments, or extraneous material."
+        }
+      ],
+      "analyst": "N. Petersen, Signatory Analyst",
+      "verification_code": "MK-2605-B-7923",
+      "cannabinoids": [
+        {
+          "name": "Δ9-Tetrahydrocannabinol (THC)",
+          "key": "d9_thc",
+          "pct": 0.84,
+          "mg_g": 8.4
+        },
+        {
+          "name": "Tetrahydrocannabinolic acid (THCA)",
+          "key": "thca",
+          "pct": 22.99,
+          "mg_g": 229.9
+        },
+        {
+          "name": "Cannabidiol (CBD)",
+          "key": "cbd",
+          "pct": 0.13,
+          "mg_g": 1.3
+        },
+        {
+          "name": "Cannabidiolic acid (CBDA)",
+          "key": "cbda",
+          "pct": 0.76,
+          "mg_g": 7.6
+        },
+        {
+          "name": "Cannabigerol (CBG)",
+          "key": "cbg",
+          "pct": 0.72,
+          "mg_g": 7.2
+        },
+        {
+          "name": "Cannabinol (CBN)",
+          "key": "cbn",
+          "pct": 0.25,
+          "mg_g": 2.5
+        },
+        {
+          "name": "Cannabichromene (CBC)",
+          "key": "cbc",
+          "pct": 0.1,
+          "mg_g": 1
+        },
+        {
+          "name": "Δ8-Tetrahydrocannabinol",
+          "key": "d8_thc",
+          "pct": 0,
+          "nd": true,
+          "mg_g": 0
+        }
+      ],
+      "totals": {
+        "total_thc_pct": 21,
+        "total_cbd_pct": 0.8,
+        "total_cannabinoids_pct": 25.79
+      },
+      "moisture_pct": 9,
+      "water_activity": 0.6
+    },
+    {
+      "batch_id": "CH-2607-D",
+      "product_handle": "cape-haze-pre-roll-5-pack",
+      "product_title": "Cape Haze Pre-Roll 5-Pack",
+      "sku": "HB-PR-001",
+      "matrix": "flower",
+      "matrix_label": "Dried cannabis flower",
+      "specimen": true,
+      "lab": {
+        "name": "Karoo Analytical Services (Pty) Ltd",
+        "short": "Karoo Analytical",
+        "accreditation": "SANAS T-0000 (specimen)",
+        "address": "12 Voortrekker Road, Bellville, Cape Town, 7530",
+        "contact": "reports@karooanalytical.example",
+        "scope": "ISO/IEC 17025 — cannabinoid potency, terpene profile, contaminant screening"
+      },
+      "sample": {
+        "lab_sample_id": "KA-2607D-130",
+        "received": "2026-07-03",
+        "tested": "2026-07-06",
+        "reported": "2026-07-08",
+        "sample_size": "5.0 g",
+        "batch_size": "1200 g",
+        "methods": "Cannabinoids by HPLC-DAD; terpenes by GC-MS headspace"
+      },
+      "basis": "percent",
+      "terpenes": [
+        {
+          "name": "Pinene",
+          "mg_g": 8.97,
+          "pct": 0.897
+        },
+        {
+          "name": "Limonene",
+          "mg_g": 3.82,
+          "pct": 0.382
+        },
+        {
+          "name": "Humulene",
+          "mg_g": 2.72,
+          "pct": 0.272
+        }
+      ],
+      "safety": [
+        {
+          "panel": "Pesticide residues",
+          "method": "LC-MS/MS · GC-MS/MS",
+          "analytes": 66,
+          "result": "Pass",
+          "detail": "No analyte detected above the limit of quantitation."
+        },
+        {
+          "panel": "Heavy metals",
+          "method": "ICP-MS",
+          "analytes": 4,
+          "result": "Pass",
+          "detail": "Pb 0.028, Cd 0.01, As 0.004, Hg 0.009 ppm — all below action limits."
+        },
+        {
+          "panel": "Microbial contaminants",
+          "method": "qPCR · plate count",
+          "analytes": 5,
+          "result": "Pass",
+          "detail": "E. coli, Salmonella spp., Aspergillus (flavus, fumigatus, niger, terreus) not detected. TYMC below limit."
+        },
+        {
+          "panel": "Mycotoxins",
+          "method": "LC-MS/MS",
+          "analytes": 5,
+          "result": "Pass",
+          "detail": "Aflatoxins B1, B2, G1, G2 and Ochratoxin A not detected."
+        },
+        {
+          "panel": "Foreign matter",
+          "method": "Visual · magnification",
+          "analytes": null,
+          "result": "Pass",
+          "detail": "No visible mould, insect fragments, or extraneous material."
+        }
+      ],
+      "analyst": "N. Petersen, Signatory Analyst",
+      "verification_code": "CH-2607-D-8283",
+      "cannabinoids": [
+        {
+          "name": "Δ9-Tetrahydrocannabinol (THC)",
+          "key": "d9_thc",
+          "pct": 0.48,
+          "mg_g": 4.8
+        },
+        {
+          "name": "Tetrahydrocannabinolic acid (THCA)",
+          "key": "thca",
+          "pct": 19.97,
+          "mg_g": 199.7
+        },
+        {
+          "name": "Cannabidiol (CBD)",
+          "key": "cbd",
+          "pct": 0.12,
+          "mg_g": 1.2
+        },
+        {
+          "name": "Cannabidiolic acid (CBDA)",
+          "key": "cbda",
+          "pct": 0.44,
+          "mg_g": 4.4
+        },
+        {
+          "name": "Cannabigerol (CBG)",
+          "key": "cbg",
+          "pct": 0.18,
+          "mg_g": 1.8
+        },
+        {
+          "name": "Cannabinol (CBN)",
+          "key": "cbn",
+          "pct": 0.03,
+          "mg_g": 0.3
+        },
+        {
+          "name": "Cannabichromene (CBC)",
+          "key": "cbc",
+          "pct": 0.3,
+          "mg_g": 3
+        },
+        {
+          "name": "Δ8-Tetrahydrocannabinol",
+          "key": "d8_thc",
+          "pct": 0,
+          "nd": true,
+          "mg_g": 0
+        }
+      ],
+      "totals": {
+        "total_thc_pct": 17.99,
+        "total_cbd_pct": 0.51,
+        "total_cannabinoids_pct": 21.52
+      },
+      "moisture_pct": 10.3,
+      "water_activity": 0.59
+    },
+    {
+      "batch_id": "CS-2607-B",
+      "product_handle": "citrus-sunrise-gummies",
+      "product_title": "Citrus Sunrise Gummies",
+      "sku": "HB-ED-001",
+      "matrix": "ingestible",
+      "matrix_label": "Cannabis-infused edible / oral",
+      "specimen": true,
+      "lab": {
+        "name": "Karoo Analytical Services (Pty) Ltd",
+        "short": "Karoo Analytical",
+        "accreditation": "SANAS T-0000 (specimen)",
+        "address": "12 Voortrekker Road, Bellville, Cape Town, 7530",
+        "contact": "reports@karooanalytical.example",
+        "scope": "ISO/IEC 17025 — cannabinoid potency, terpene profile, contaminant screening"
+      },
+      "sample": {
+        "lab_sample_id": "KA-2607B-320",
+        "received": "2026-07-07",
+        "tested": "2026-07-10",
+        "reported": "2026-07-12",
+        "sample_size": "9 units",
+        "batch_size": "300 units",
+        "methods": "Cannabinoids by HPLC-DAD following solvent extraction"
+      },
+      "basis": "milligram",
+      "terpenes": [
+        {
+          "name": "Limonene",
+          "mg_g": 4.28,
+          "pct": 0.428
+        }
+      ],
+      "safety": [
+        {
+          "panel": "Pesticide residues",
+          "method": "LC-MS/MS · GC-MS/MS",
+          "analytes": 66,
+          "result": "Pass",
+          "detail": "No analyte detected above the limit of quantitation."
+        },
+        {
+          "panel": "Heavy metals",
+          "method": "ICP-MS",
+          "analytes": 4,
+          "result": "Pass",
+          "detail": "Pb 0.046, Cd 0.036, As 0.032, Hg 0.002 ppm — all below action limits."
+        },
+        {
+          "panel": "Microbial contaminants",
+          "method": "qPCR · plate count",
+          "analytes": 5,
+          "result": "Pass",
+          "detail": "E. coli, Salmonella spp., Aspergillus (flavus, fumigatus, niger, terreus) not detected. TYMC below limit."
+        },
+        {
+          "panel": "Mycotoxins",
+          "method": "LC-MS/MS",
+          "analytes": 5,
+          "result": "Pass",
+          "detail": "Aflatoxins B1, B2, G1, G2 and Ochratoxin A not detected."
+        },
+        {
+          "panel": "Dose homogeneity",
+          "method": "HPLC-DAD, n=10",
+          "analytes": null,
+          "result": "Pass",
+          "detail": "Relative standard deviation 3.6% across ten units — within the ±15% tolerance."
+        }
+      ],
+      "analyst": "N. Petersen, Signatory Analyst",
+      "verification_code": "CS-2607-B-6161",
+      "cannabinoids": [
+        {
+          "name": "Δ9-Tetrahydrocannabinol (THC)",
+          "key": "d9_thc",
+          "mg": 4.96
+        },
+        {
+          "name": "Tetrahydrocannabinolic acid (THCA)",
+          "key": "thca",
+          "mg": 0.04
+        },
+        {
+          "name": "Cannabidiol (CBD)",
+          "key": "cbd",
+          "mg": 4.93
+        },
+        {
+          "name": "Cannabidiolic acid (CBDA)",
+          "key": "cbda",
+          "mg": 0.08
+        },
+        {
+          "name": "Cannabigerol (CBG)",
+          "key": "cbg",
+          "mg": 0.15
+        },
+        {
+          "name": "Cannabinol (CBN)",
+          "key": "cbn",
+          "mg": 0.01
+        }
+      ],
+      "unit_label": "per piece",
+      "totals": {
+        "total_thc_mg": 5,
+        "total_cbd_mg": 5,
+        "units_per_pack": 20,
+        "total_thc_pack_mg": 100
+      }
+    },
+    {
+      "batch_id": "DC-2606-A",
+      "product_handle": "dark-cacao-bar",
+      "product_title": "Dark Cacao Bar",
+      "sku": "HB-ED-002",
+      "matrix": "ingestible",
+      "matrix_label": "Cannabis-infused edible / oral",
+      "specimen": true,
+      "lab": {
+        "name": "Karoo Analytical Services (Pty) Ltd",
+        "short": "Karoo Analytical",
+        "accreditation": "SANAS T-0000 (specimen)",
+        "address": "12 Voortrekker Road, Bellville, Cape Town, 7530",
+        "contact": "reports@karooanalytical.example",
+        "scope": "ISO/IEC 17025 — cannabinoid potency, terpene profile, contaminant screening"
+      },
+      "sample": {
+        "lab_sample_id": "KA-2606A-264",
+        "received": "2026-06-06",
+        "tested": "2026-06-09",
+        "reported": "2026-06-10",
+        "sample_size": "6 units",
+        "batch_size": "500 units",
+        "methods": "Cannabinoids by HPLC-DAD following solvent extraction"
+      },
+      "basis": "milligram",
+      "terpenes": [
+        {
+          "name": "Myrcene",
+          "mg_g": 4.62,
+          "pct": 0.462
+        }
+      ],
+      "safety": [
+        {
+          "panel": "Pesticide residues",
+          "method": "LC-MS/MS · GC-MS/MS",
+          "analytes": 66,
+          "result": "Pass",
+          "detail": "No analyte detected above the limit of quantitation."
+        },
+        {
+          "panel": "Heavy metals",
+          "method": "ICP-MS",
+          "analytes": 4,
+          "result": "Pass",
+          "detail": "Pb 0.004, Cd 0.014, As 0.049, Hg 0.006 ppm — all below action limits."
+        },
+        {
+          "panel": "Microbial contaminants",
+          "method": "qPCR · plate count",
+          "analytes": 5,
+          "result": "Pass",
+          "detail": "E. coli, Salmonella spp., Aspergillus (flavus, fumigatus, niger, terreus) not detected. TYMC below limit."
+        },
+        {
+          "panel": "Mycotoxins",
+          "method": "LC-MS/MS",
+          "analytes": 5,
+          "result": "Pass",
+          "detail": "Aflatoxins B1, B2, G1, G2 and Ochratoxin A not detected."
+        },
+        {
+          "panel": "Dose homogeneity",
+          "method": "HPLC-DAD, n=10",
+          "analytes": null,
+          "result": "Pass",
+          "detail": "Relative standard deviation 4.6% across ten units — within the ±15% tolerance."
+        }
+      ],
+      "analyst": "N. Petersen, Signatory Analyst",
+      "verification_code": "DC-2606-A-6755",
+      "cannabinoids": [
+        {
+          "name": "Δ9-Tetrahydrocannabinol (THC)",
+          "key": "d9_thc",
+          "mg": 98.42
+        },
+        {
+          "name": "Tetrahydrocannabinolic acid (THCA)",
+          "key": "thca",
+          "mg": 1.8
+        },
+        {
+          "name": "Cannabidiol (CBD)",
+          "key": "cbd",
+          "mg": 0
+        },
+        {
+          "name": "Cannabidiolic acid (CBDA)",
+          "key": "cbda",
+          "mg": 0
+        },
+        {
+          "name": "Cannabigerol (CBG)",
+          "key": "cbg",
+          "mg": 1.74
+        },
+        {
+          "name": "Cannabinol (CBN)",
+          "key": "cbn",
+          "mg": 0.28
+        }
+      ],
+      "unit_label": "per unit",
+      "totals": {
+        "total_thc_mg": 100,
+        "total_cbd_mg": 0,
+        "units_per_pack": 1,
+        "total_thc_pack_mg": 100
+      }
+    },
+    {
+      "batch_id": "BD-2607-C",
+      "product_handle": "blue-dream-live-resin-cart",
+      "product_title": "Live Resin Cart — Blue Dream",
+      "sku": "HB-VC-001",
+      "matrix": "concentrate",
+      "matrix_label": "Cannabis extract (vape cartridge)",
+      "specimen": true,
+      "lab": {
+        "name": "Karoo Analytical Services (Pty) Ltd",
+        "short": "Karoo Analytical",
+        "accreditation": "SANAS T-0000 (specimen)",
+        "address": "12 Voortrekker Road, Bellville, Cape Town, 7530",
+        "contact": "reports@karooanalytical.example",
+        "scope": "ISO/IEC 17025 — cannabinoid potency, terpene profile, contaminant screening"
+      },
+      "sample": {
+        "lab_sample_id": "KA-2607C-714",
+        "received": "2026-07-08",
+        "tested": "2026-07-11",
+        "reported": "2026-07-13",
+        "sample_size": "5.0 g",
+        "batch_size": "2400 g",
+        "methods": "Cannabinoids by HPLC-DAD; terpenes by GC-MS headspace"
+      },
+      "basis": "percent",
+      "terpenes": [
+        {
+          "name": "Myrcene",
+          "mg_g": 4.28,
+          "pct": 0.428
+        },
+        {
+          "name": "Pinene",
+          "mg_g": 1.88,
+          "pct": 0.188
+        },
+        {
+          "name": "Caryophyllene",
+          "mg_g": 1.22,
+          "pct": 0.122
+        }
+      ],
+      "safety": [
+        {
+          "panel": "Pesticide residues",
+          "method": "LC-MS/MS · GC-MS/MS",
+          "analytes": 66,
+          "result": "Pass",
+          "detail": "No analyte detected above the limit of quantitation."
+        },
+        {
+          "panel": "Heavy metals",
+          "method": "ICP-MS",
+          "analytes": 4,
+          "result": "Pass",
+          "detail": "Pb 0.076, Cd 0.011, As 0.026, Hg 0.008 ppm — all below action limits."
+        },
+        {
+          "panel": "Microbial contaminants",
+          "method": "qPCR · plate count",
+          "analytes": 5,
+          "result": "Pass",
+          "detail": "E. coli, Salmonella spp., Aspergillus (flavus, fumigatus, niger, terreus) not detected. TYMC below limit."
+        },
+        {
+          "panel": "Mycotoxins",
+          "method": "LC-MS/MS",
+          "analytes": 5,
+          "result": "Pass",
+          "detail": "Aflatoxins B1, B2, G1, G2 and Ochratoxin A not detected."
+        },
+        {
+          "panel": "Residual solvents",
+          "method": "HS-GC-FID",
+          "analytes": 21,
+          "result": "Pass",
+          "detail": "Butane, propane, ethanol, hexane and heptane below action limits. Extraction was hydrocarbon-free."
+        }
+      ],
+      "analyst": "N. Petersen, Signatory Analyst",
+      "verification_code": "BD-2607-C-2432",
+      "cannabinoids": [
+        {
+          "name": "Δ9-Tetrahydrocannabinol (THC)",
+          "key": "d9_thc",
+          "pct": 77.92,
+          "mg_g": 779.2
+        },
+        {
+          "name": "Tetrahydrocannabinolic acid (THCA)",
+          "key": "thca",
+          "pct": 2.37,
+          "mg_g": 23.7
+        },
+        {
+          "name": "Cannabidiol (CBD)",
+          "key": "cbd",
+          "pct": 0.45,
+          "mg_g": 4.5
+        },
+        {
+          "name": "Cannabidiolic acid (CBDA)",
+          "key": "cbda",
+          "pct": 0.06,
+          "mg_g": 0.6
+        },
+        {
+          "name": "Cannabigerol (CBG)",
+          "key": "cbg",
+          "pct": 0.63,
+          "mg_g": 6.3
+        },
+        {
+          "name": "Cannabinol (CBN)",
+          "key": "cbn",
+          "pct": 0.32,
+          "mg_g": 3.2
+        },
+        {
+          "name": "Cannabichromene (CBC)",
+          "key": "cbc",
+          "pct": 0.22,
+          "mg_g": 2.2
+        },
+        {
+          "name": "Δ8-Tetrahydrocannabinol",
+          "key": "d8_thc",
+          "pct": 0,
+          "nd": true,
+          "mg_g": 0
+        }
+      ],
+      "totals": {
+        "total_thc_pct": 80,
+        "total_cbd_pct": 0.5,
+        "total_cannabinoids_pct": 81.97
+      }
+    },
+    {
+      "batch_id": "CB-2607-A",
+      "product_handle": "full-spectrum-cbd-oil-1000mg",
+      "product_title": "Full-Spectrum CBD Oil 1000 mg",
+      "sku": "HB-CB-001",
+      "matrix": "ingestible",
+      "matrix_label": "Cannabis-infused edible / oral",
+      "specimen": true,
+      "lab": {
+        "name": "Karoo Analytical Services (Pty) Ltd",
+        "short": "Karoo Analytical",
+        "accreditation": "SANAS T-0000 (specimen)",
+        "address": "12 Voortrekker Road, Bellville, Cape Town, 7530",
+        "contact": "reports@karooanalytical.example",
+        "scope": "ISO/IEC 17025 — cannabinoid potency, terpene profile, contaminant screening"
+      },
+      "sample": {
+        "lab_sample_id": "KA-2607A-985",
+        "received": "2026-07-12",
+        "tested": "2026-07-14",
+        "reported": "2026-07-16",
+        "sample_size": "9 units",
+        "batch_size": "800 units",
+        "methods": "Cannabinoids by HPLC-DAD following solvent extraction"
+      },
+      "basis": "milligram",
+      "terpenes": [
+        {
+          "name": "Caryophyllene",
+          "mg_g": 4.48,
+          "pct": 0.448
+        },
+        {
+          "name": "Humulene",
+          "mg_g": 2.37,
+          "pct": 0.237
+        }
+      ],
+      "safety": [
+        {
+          "panel": "Pesticide residues",
+          "method": "LC-MS/MS · GC-MS/MS",
+          "analytes": 66,
+          "result": "Pass",
+          "detail": "No analyte detected above the limit of quantitation."
+        },
+        {
+          "panel": "Heavy metals",
+          "method": "ICP-MS",
+          "analytes": 4,
+          "result": "Pass",
+          "detail": "Pb 0.037, Cd 0.018, As 0.028, Hg 0.003 ppm — all below action limits."
+        },
+        {
+          "panel": "Microbial contaminants",
+          "method": "qPCR · plate count",
+          "analytes": 5,
+          "result": "Pass",
+          "detail": "E. coli, Salmonella spp., Aspergillus (flavus, fumigatus, niger, terreus) not detected. TYMC below limit."
+        },
+        {
+          "panel": "Mycotoxins",
+          "method": "LC-MS/MS",
+          "analytes": 5,
+          "result": "Pass",
+          "detail": "Aflatoxins B1, B2, G1, G2 and Ochratoxin A not detected."
+        },
+        {
+          "panel": "Dose homogeneity",
+          "method": "HPLC-DAD, n=10",
+          "analytes": null,
+          "result": "Pass",
+          "detail": "Relative standard deviation 4.7% across ten units — within the ±15% tolerance."
+        }
+      ],
+      "analyst": "N. Petersen, Signatory Analyst",
+      "verification_code": "CB-2607-A-8301",
+      "cannabinoids": [
+        {
+          "name": "Δ9-Tetrahydrocannabinol (THC)",
+          "key": "d9_thc",
+          "mg": 0
+        },
+        {
+          "name": "Tetrahydrocannabinolic acid (THCA)",
+          "key": "thca",
+          "mg": 0
+        },
+        {
+          "name": "Cannabidiol (CBD)",
+          "key": "cbd",
+          "mg": 987.1
+        },
+        {
+          "name": "Cannabidiolic acid (CBDA)",
+          "key": "cbda",
+          "mg": 14.71
+        },
+        {
+          "name": "Cannabigerol (CBG)",
+          "key": "cbg",
+          "mg": 0.7
+        },
+        {
+          "name": "Cannabinol (CBN)",
+          "key": "cbn",
+          "mg": 0
+        }
+      ],
+      "unit_label": "per unit",
+      "totals": {
+        "total_thc_mg": 0,
+        "total_cbd_mg": 1000,
+        "units_per_pack": 1,
+        "total_thc_pack_mg": 0
+      }
+    },
+    {
+      "batch_id": "RB-2606-B",
+      "product_handle": "recovery-balm",
+      "product_title": "Recovery Balm",
+      "sku": "HB-CB-002",
+      "matrix": "topical",
+      "matrix_label": "Topical preparation",
+      "specimen": true,
+      "lab": {
+        "name": "Karoo Analytical Services (Pty) Ltd",
+        "short": "Karoo Analytical",
+        "accreditation": "SANAS T-0000 (specimen)",
+        "address": "12 Voortrekker Road, Bellville, Cape Town, 7530",
+        "contact": "reports@karooanalytical.example",
+        "scope": "ISO/IEC 17025 — cannabinoid potency, terpene profile, contaminant screening"
+      },
+      "sample": {
+        "lab_sample_id": "KA-2606B-157",
+        "received": "2026-06-04",
+        "tested": "2026-06-06",
+        "reported": "2026-06-07",
+        "sample_size": "10 units",
+        "batch_size": "900 units",
+        "methods": "Cannabinoids by HPLC-DAD following solvent extraction"
+      },
+      "basis": "milligram",
+      "terpenes": [
+        {
+          "name": "Pinene",
+          "mg_g": 3.72,
+          "pct": 0.372
+        },
+        {
+          "name": "Linalool",
+          "mg_g": 2.03,
+          "pct": 0.203
+        }
+      ],
+      "safety": [
+        {
+          "panel": "Pesticide residues",
+          "method": "LC-MS/MS · GC-MS/MS",
+          "analytes": 66,
+          "result": "Pass",
+          "detail": "No analyte detected above the limit of quantitation."
+        },
+        {
+          "panel": "Heavy metals",
+          "method": "ICP-MS",
+          "analytes": 4,
+          "result": "Pass",
+          "detail": "Pb 0.003, Cd 0.026, As 0.005, Hg 0.018 ppm — all below action limits."
+        },
+        {
+          "panel": "Microbial contaminants",
+          "method": "qPCR · plate count",
+          "analytes": 5,
+          "result": "Pass",
+          "detail": "E. coli, Salmonella spp., Aspergillus (flavus, fumigatus, niger, terreus) not detected. TYMC below limit."
+        },
+        {
+          "panel": "Mycotoxins",
+          "method": "LC-MS/MS",
+          "analytes": 5,
+          "result": "Pass",
+          "detail": "Aflatoxins B1, B2, G1, G2 and Ochratoxin A not detected."
+        },
+        {
+          "panel": "Preservative efficacy",
+          "method": "ISO 11930",
+          "analytes": null,
+          "result": "Pass",
+          "detail": "Criterion A met at 28 days."
+        }
+      ],
+      "analyst": "N. Petersen, Signatory Analyst",
+      "verification_code": "RB-2606-B-9024",
+      "cannabinoids": [
+        {
+          "name": "Δ9-Tetrahydrocannabinol (THC)",
+          "key": "d9_thc",
+          "mg": 0
+        },
+        {
+          "name": "Tetrahydrocannabinolic acid (THCA)",
+          "key": "thca",
+          "mg": 0
+        },
+        {
+          "name": "Cannabidiol (CBD)",
+          "key": "cbd",
+          "mg": 494.22
+        },
+        {
+          "name": "Cannabidiolic acid (CBDA)",
+          "key": "cbda",
+          "mg": 6.59
+        },
+        {
+          "name": "Cannabigerol (CBG)",
+          "key": "cbg",
+          "mg": 4.24
+        },
+        {
+          "name": "Cannabinol (CBN)",
+          "key": "cbn",
+          "mg": 0
+        }
+      ],
+      "unit_label": "per unit",
+      "totals": {
+        "total_thc_mg": 0,
+        "total_cbd_mg": 500,
+        "units_per_pack": 1,
+        "total_thc_pack_mg": 0
+      }
+    }
+  ]
+}

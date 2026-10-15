@@ -1,0 +1,28 @@
+{% doc %}
+  Outputs the signed-in customer's verification status as a single lowercase word:
+  unverified, pending, approved or rejected. Status is derived from customer tags,
+  which an app writes — the theme never writes them.
+
+  Capture the output rather than rendering it directly, because snippets have an
+  isolated scope and cannot assign variables back to the caller.
+
+  @example
+  {% capture member_status %}{% render 'member-status' %}{% endcapture %}
+  {% assign member_status = member_status | strip %}
+{% enddoc %}
+
+{%- liquid
+  assign status = 'unverified'
+
+  if customer
+    if customer.tags contains 'verified-member'
+      assign status = 'approved'
+    elsif customer.tags contains 'verification-pending'
+      assign status = 'pending'
+    elsif customer.tags contains 'verification-rejected'
+      assign status = 'rejected'
+    endif
+  endif
+
+  echo status
+-%}

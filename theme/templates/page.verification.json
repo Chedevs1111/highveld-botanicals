@@ -1,0 +1,13 @@
+{
+  "sections": {
+    "status": {
+      "type": "verification-status",
+      "settings": {
+        "membership_url": "shopify://pages/membership",
+        "standard_allowance": 8,
+        "premium_allowance": 16
+      }
+    }
+  },
+  "order": ["status"]
+}

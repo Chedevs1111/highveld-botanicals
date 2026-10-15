@@ -1,0 +1,168 @@
+{% liquid
+  assign is_safety = false
+  if article.tags contains 'safety'
+    assign is_safety = true
+  endif
+%}
+
+<section class="hb-section">
+  <div class="hb-container hb-narrow">
+    <p class="hb-article__back"><a href="{{ blog.url }}">&larr; {{ blog.title }}</a></p>
+
+    <p class="hb-eyebrow">{{ article.tags | first | default: blog.title }}</p>
+    <h1 class="hb-apply__title">{{ article.title }}</h1>
+
+    {% if article.excerpt != blank %}
+      <p class="hb-muted hb-pol__lead">{{ article.excerpt | strip_html }}</p>
+    {% endif %}
+
+    <p class="hb-muted hb-article__meta">
+      {{ 'article.published' | t: date: article.published_at | date: '%d %B %Y' }}
+      {% if article.metafields.custom.reading_minutes != blank %}
+        &middot; {{ 'article.reading' | t: minutes: article.metafields.custom.reading_minutes }}
+      {% endif %}
+    </p>
+
+    {% if is_safety %}
+      <div class="hb-pol__lede">
+        <strong>{{ 'article.safety_title' | t }}</strong>
+        {{ 'article.safety_body' | t }}
+      </div>
+    {% endif %}
+
+    {% if article.image %}
+      {{
+        article.image
+        | image_url: width: 1400
+        | image_tag: class: 'hb-article__image', widths: '600, 900, 1400', loading: 'eager', alt: article.image.alt | default: article.title
+      }}
+    {% endif %}
+
+    <div class="hb-prose rte">{{ article.content }}</div>
+
+    {% if blog.articles.size > 1 %}
+      <div class="hb-related">
+        <h2 class="hb-related__title">{{ 'article.more_from' | t: blog: blog.title }}</h2>
+        <ul class="hb-related__list">
+          {% for other in blog.articles limit: 3 %}
+            {% unless other.id == article.id %}
+              <li>
+                <a href="{{ other.url }}">{{ other.title }}</a>
+                <span class="hb-muted">{{ other.published_at | date: '%d %b %Y' }}</span>
+              </li>
+            {% endunless %}
+          {% endfor %}
+        </ul>
+      </div>
+    {% endif %}
+  </div>
+</section>
+
+{% stylesheet %}
+  .hb-article__back {
+    margin: 0 0 1rem;
+    font-size: 0.875rem;
+  }
+
+  .hb-article__meta {
+    margin: 0 0 2rem;
+    padding-bottom: 1.5rem;
+    border-bottom: 1px solid var(--hb-border);
+    font-size: 0.75rem;
+    letter-spacing: 0.06em;
+    text-transform: uppercase;
+  }
+
+  .hb-article__image {
+    width: 100%;
+    height: auto;
+    display: block;
+    margin-bottom: 2rem;
+    border-radius: var(--hb-radius);
+  }
+
+  .hb-prose {
+    max-width: 68ch;
+    color: var(--hb-muted);
+    line-height: 1.7;
+  }
+
+  .hb-prose h2 {
+    margin: 2.5rem 0 0.875rem;
+    font-size: 1.25rem;
+    letter-spacing: -0.01em;
+    color: var(--hb-ink);
+  }
+
+  .hb-prose p {
+    margin: 0 0 1.125rem;
+  }
+
+  .hb-prose ul,
+  .hb-prose ol {
+    display: grid;
+    gap: 0.75rem;
+    margin: 0 0 1.25rem;
+    padding-left: 1.1rem;
+  }
+
+  .hb-prose strong {
+    color: var(--hb-ink);
+  }
+
+  .hb-prose blockquote {
+    margin: 0 0 1.5rem;
+    padding: 1rem 1.25rem;
+    border: 1px solid var(--hb-accent);
+    border-radius: var(--hb-radius);
+    background: var(--hb-surface);
+    color: var(--hb-ink);
+    font-size: 0.9375rem;
+  }
+
+  .hb-prose table {
+    width: 100%;
+    border-collapse: collapse;
+    margin-bottom: 1.5rem;
+    font-size: 0.875rem;
+  }
+
+  .hb-prose th,
+  .hb-prose td {
+    text-align: left;
+    padding: 0.75rem 0.75rem 0.75rem 0;
+    border-bottom: 1px solid var(--hb-border);
+  }
+
+  .hb-related {
+    margin-top: 3rem;
+    padding-top: 1.75rem;
+    border-top: 1px solid var(--hb-border);
+  }
+
+  .hb-related__title {
+    margin: 0 0 0.875rem;
+    font-size: 1rem;
+  }
+
+  .hb-related__list {
+    display: grid;
+    gap: 0.6rem;
+    margin: 0;
+    padding: 0;
+    list-style: none;
+    font-size: 0.9375rem;
+  }
+
+  .hb-related__list span {
+    margin-left: 0.5rem;
+    font-size: 0.8125rem;
+  }
+{% endstylesheet %}
+
+{% schema %}
+{
+  "name": "t:sections.main_article.name",
+  "settings": []
+}
+{% endschema %}

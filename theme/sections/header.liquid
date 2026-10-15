@@ -1,0 +1,175 @@
+<header class="hb-header">
+  {% if section.settings.notice != blank %}
+    <p class="hb-header__notice">{{ section.settings.notice }}</p>
+  {% endif %}
+
+  <div class="hb-container hb-header__bar">
+    <a class="hb-header__brand" href="{{ routes.root_url }}">
+      {% if section.settings.logo %}
+        {{
+          section.settings.logo
+          | image_url: width: 320
+          | image_tag: class: 'hb-header__logo', alt: shop.name, loading: 'eager'
+        }}
+      {% else %}
+        <span class="hb-header__wordmark">{{ shop.name }}</span>
+      {% endif %}
+    </a>
+
+    <nav class="hb-header__nav" aria-label="{{ 'accessibility.primary_navigation' | t }}">
+      <ul class="hb-header__links">
+        {% for link in section.settings.menu.links %}
+          <li>
+            <a
+              class="hb-header__link"
+              href="{{ link.url }}"
+              {% if link.active %}
+                aria-current="page"
+              {% endif %}
+            >
+              {{ link.title }}
+            </a>
+          </li>
+        {% endfor %}
+      </ul>
+    </nav>
+
+    <div class="hb-header__actions">
+      {% if shop.customer_accounts_enabled %}
+        {% if customer %}
+          <a class="hb-header__link" href="{{ routes.account_url }}">{{ 'header.account' | t }}</a>
+        {% else %}
+          <a class="hb-header__link" href="{{ routes.account_login_url }}">{{ 'header.log_in' | t }}</a>
+        {% endif %}
+      {% endif %}
+
+      <a class="hb-btn hb-btn--ghost hb-header__cart" href="{{ routes.cart_url }}">
+        {{ 'header.cart' | t }}
+        <span class="hb-header__count">{{ cart.item_count }}</span>
+      </a>
+    </div>
+  </div>
+</header>
+
+{% stylesheet %}
+  .hb-header {
+    position: sticky;
+    top: 0;
+    z-index: 20;
+    background: var(--hb-bg);
+    border-bottom: 1px solid var(--hb-border);
+  }
+
+  .hb-header__notice {
+    margin: 0;
+    padding: 0.5rem 1rem;
+    background: var(--hb-accent);
+    color: var(--hb-accent-ink);
+    font-size: 0.75rem;
+    letter-spacing: 0.04em;
+    text-align: center;
+  }
+
+  .hb-header__bar {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 1.5rem;
+    padding-block: 1rem;
+  }
+
+  .hb-header__brand {
+    color: inherit;
+    text-decoration: none;
+    flex-shrink: 0;
+  }
+
+  .hb-header__logo {
+    display: block;
+    max-height: 2.25rem;
+    width: auto;
+  }
+
+  .hb-header__wordmark {
+    font-size: 1.125rem;
+    font-weight: 700;
+    letter-spacing: 0.02em;
+  }
+
+  .hb-header__nav {
+    display: none;
+    flex: 1;
+  }
+
+  .hb-header__links {
+    display: flex;
+    gap: 1.5rem;
+    margin: 0;
+    padding: 0;
+    list-style: none;
+  }
+
+  .hb-header__link {
+    color: var(--hb-muted);
+    text-decoration: none;
+    font-size: 0.9375rem;
+  }
+
+  .hb-header__link:hover,
+  .hb-header__link[aria-current='page'] {
+    color: var(--hb-ink);
+  }
+
+  .hb-header__actions {
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+  }
+
+  .hb-header__cart {
+    padding: 0.5rem 1rem;
+    font-size: 0.875rem;
+  }
+
+  .hb-header__count {
+    min-width: 1.375rem;
+    padding: 0.0625rem 0.375rem;
+    border-radius: 999px;
+    background: var(--hb-accent);
+    color: var(--hb-accent-ink);
+    font-size: 0.75rem;
+    font-variant-numeric: tabular-nums;
+    text-align: center;
+  }
+
+  @media (min-width: 52rem) {
+    .hb-header__nav {
+      display: block;
+    }
+  }
+{% endstylesheet %}
+
+{% schema %}
+{
+  "name": "t:sections.header.name",
+  "settings": [
+    {
+      "type": "image_picker",
+      "id": "logo",
+      "label": "t:labels.logo"
+    },
+    {
+      "type": "link_list",
+      "id": "menu",
+      "label": "t:labels.menu",
+      "default": "main-menu"
+    },
+    {
+      "type": "text",
+      "id": "notice",
+      "label": "t:labels.announcement",
+      "default": "Members only. Verified 18+."
+    }
+  ]
+}
+{% endschema %}

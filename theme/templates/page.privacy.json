@@ -1,0 +1,63 @@
+{
+  "sections": {
+    "policy": {
+      "type": "delivery-policy",
+      "blocks": {
+        "h-special": {
+          "type": "heading",
+          "settings": {
+            "text": "Special personal information"
+          }
+        },
+        "p-special": {
+          "type": "paragraph",
+          "settings": {
+            "text": "<p>Identity documents are special personal information under POPIA s.26, processed on the basis of the explicit consent given in the fourth declaration on the application form. You can withdraw it at any time, but doing so ends your membership — age and residency verification is the entire basis on which we are permitted to supply you.</p>"
+          }
+        },
+        "h-never": {
+          "type": "heading",
+          "settings": {
+            "text": "What we do not do with it"
+          }
+        },
+        "l-never": {
+          "type": "list",
+          "settings": {
+            "text": "We do not sell or rent your data. Not to anyone, for any amount.\nWe do not build marketing segments from your identity documents or order history.\nWe do not profile you or make automated decisions. Every verification decision is made by a person.\nWe do not transfer your data outside South Africa."
+          }
+        },
+        "h-rights": {
+          "type": "heading",
+          "settings": {
+            "text": "Your rights"
+          }
+        },
+        "l-rights": {
+          "type": "list",
+          "settings": {
+            "text": "Access. Ask for everything we hold about you. We answer within 30 days.\nCorrection. Have anything inaccurate fixed.\nDeletion. Ask us to delete your documents. Done within 30 days.\nObjection. Object to processing, understanding it ends your membership.\nComplaint. Go to the Information Regulator directly. You do not have to come to us first."
+          }
+        }
+      },
+      "block_order": [
+        "h-special",
+        "p-special",
+        "h-never",
+        "l-never",
+        "h-rights",
+        "l-rights"
+      ],
+      "settings": {
+        "heading": "Privacy policy",
+        "intro": "What we collect, why, how long we keep it, and what you can make us do about it.",
+        "lede": "<p><strong>Your ID number is not stored.</strong> We use it once to verify your age and the checksum, then keep only the last four digits so we can match you at handover. The full number is never written to our records.</p>",
+        "show_shipping_summary": false,
+        "updated": "2 August 2026"
+      }
+    }
+  },
+  "order": [
+    "policy"
+  ]
+}

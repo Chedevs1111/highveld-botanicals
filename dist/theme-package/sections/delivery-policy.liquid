@@ -1,0 +1,230 @@
+{% liquid
+  assign fee_cents = section.settings.courier_fee | times: 100
+  assign threshold_cents = section.settings.free_over | times: 100
+  assign fee_money = fee_cents | money
+  assign threshold_money = threshold_cents | money
+%}
+
+<section class="hb-section">
+  <div class="hb-container hb-narrow">
+    <p class="hb-eyebrow">{{ 'delivery.eyebrow' | t }}</p>
+    <h1 class="hb-apply__title">{{ section.settings.heading }}</h1>
+
+    {% if section.settings.intro != blank %}
+      <p class="hb-muted hb-pol__lead">{{ section.settings.intro }}</p>
+    {% endif %}
+
+    {% if section.settings.lede != blank %}
+      <div class="hb-pol__lede">{{ section.settings.lede }}</div>
+    {% endif %}
+
+    {% if section.settings.show_shipping_summary %}
+    <h2 class="hb-pol__h2">{{ 'delivery.summary_title' | t }}</h2>
+    <table class="hb-pol__table">
+      <thead>
+        <tr>
+          <th>{{ 'delivery.col_what' | t }}</th>
+          <th>{{ 'delivery.col_how' | t }}</th>
+          <th>{{ 'delivery.col_cost' | t }}</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td>{{ 'delivery.row_members' | t }}</td>
+          <td>{{ 'delivery.collection_only' | t }}</td>
+          <td>{{ 'delivery.free' | t }}</td>
+        </tr>
+        <tr>
+          <td>{{ 'delivery.row_cbd' | t }}</td>
+          <td>{{ 'delivery.collection_or_courier' | t }}</td>
+          <td>{{ 'delivery.courier_cost' | t: fee: fee_money, threshold: threshold_money }}</td>
+        </tr>
+        <tr>
+          <td>{{ 'delivery.row_mixed' | t }}</td>
+          <td>{{ 'delivery.collection_only' | t }}</td>
+          <td>{{ 'delivery.free' | t }}</td>
+        </tr>
+      </tbody>
+    </table>
+    {% endif %}
+
+    {% for block in section.blocks %}
+      <div {{ block.shopify_attributes }}>
+        {% case block.type %}
+          {% when 'heading' %}
+            <h2 class="hb-pol__h2">{{ block.settings.text }}</h2>
+          {% when 'paragraph' %}
+            <p class="hb-muted hb-pol__body">{{ block.settings.text }}</p>
+          {% when 'list' %}
+            <ul class="hb-pol__list">
+              {% assign items = block.settings.text | newline_to_br | split: '<br />' %}
+              {% for item in items %}
+                {% assign trimmed = item | strip %}
+                {% if trimmed != blank %}
+                  <li>{{ trimmed }}</li>
+                {% endif %}
+              {% endfor %}
+            </ul>
+        {% endcase %}
+      </div>
+    {% endfor %}
+
+    {% if section.settings.collection_page != blank %}
+      <p class="hb-pol__body">
+        <a class="hb-btn hb-btn--ghost" href="{{ section.settings.collection_page }}">
+          {{ 'delivery.see_points' | t }}
+        </a>
+      </p>
+    {% endif %}
+
+    {% if section.settings.updated != blank %}
+      <p class="hb-muted hb-pol__updated">{{ 'delivery.updated' | t: date: section.settings.updated }}</p>
+    {% endif %}
+  </div>
+</section>
+
+{% stylesheet %}
+  .hb-pol__lead {
+    max-width: 62ch;
+    font-size: 1.0625rem;
+  }
+
+  .hb-pol__lede {
+    max-width: 74ch;
+    margin: 1.5rem 0;
+    padding: 1rem 1.25rem;
+    border: 1px solid var(--hb-accent);
+    border-radius: var(--hb-radius);
+    background: var(--hb-surface);
+    font-size: 0.9375rem;
+    line-height: 1.6;
+    color: var(--hb-muted);
+  }
+
+  .hb-pol__lede strong {
+    color: var(--hb-ink);
+  }
+
+  .hb-pol__h2 {
+    margin: 2.5rem 0 1rem;
+    padding-top: 1.5rem;
+    border-top: 1px solid var(--hb-border);
+    font-size: 1.25rem;
+    letter-spacing: -0.01em;
+  }
+
+  .hb-pol__body {
+    max-width: 72ch;
+    font-size: 0.9375rem;
+  }
+
+  .hb-pol__body strong {
+    color: var(--hb-ink);
+  }
+
+  .hb-pol__list {
+    display: grid;
+    gap: 0.75rem;
+    margin: 0;
+    padding-left: 1.1rem;
+    max-width: 74ch;
+    color: var(--hb-muted);
+    font-size: 0.9375rem;
+  }
+
+  .hb-pol__list strong {
+    color: var(--hb-ink);
+  }
+
+  .hb-pol__table {
+    width: 100%;
+    border-collapse: collapse;
+    font-size: 0.875rem;
+    margin-bottom: 1rem;
+  }
+
+  .hb-pol__table th {
+    text-align: left;
+    padding: 0.75rem 0.75rem 0.75rem 0;
+    font-size: 0.6875rem;
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+    color: var(--hb-muted);
+    border-bottom: 1px solid var(--hb-border);
+  }
+
+  .hb-pol__table td {
+    padding: 0.9rem 0.75rem 0.9rem 0;
+    border-bottom: 1px solid var(--hb-border);
+    vertical-align: top;
+  }
+
+  .hb-pol__updated {
+    margin-top: 3rem;
+    padding-top: 1.25rem;
+    border-top: 1px solid var(--hb-border);
+    font-size: 0.75rem;
+  }
+{% endstylesheet %}
+
+{% schema %}
+{
+  "name": "t:sections.policy_page.name",
+  "settings": [
+    { "type": "text", "id": "heading", "label": "t:labels.heading", "default": "Shipping & delivery" },
+    {
+      "type": "textarea",
+      "id": "intro",
+      "label": "t:labels.body",
+      "default": "How your order reaches you, what it costs, and the one thing we will never put in a courier bag."
+    },
+    {
+      "type": "richtext",
+      "id": "lede",
+      "label": "t:labels.lede",
+      "info": "t:labels.lede_info"
+    },
+    {
+      "type": "checkbox",
+      "id": "show_shipping_summary",
+      "label": "t:labels.show_shipping_summary",
+      "default": true
+    },
+    {
+      "type": "number",
+      "id": "courier_fee",
+      "label": "t:labels.courier_fee",
+      "default": 150,
+      "info": "t:labels.courier_fee_info"
+    },
+    { "type": "number", "id": "free_over", "label": "t:labels.free_over", "default": 1200 },
+    { "type": "url", "id": "collection_page", "label": "t:labels.collection_page" },
+    { "type": "text", "id": "updated", "label": "t:labels.updated", "default": "1 August 2026" }
+  ],
+  "blocks": [
+    {
+      "type": "heading",
+      "name": "t:blocks.heading.name",
+      "settings": [{ "type": "text", "id": "text", "label": "t:labels.heading", "default": "Collection" }]
+    },
+    {
+      "type": "paragraph",
+      "name": "t:blocks.paragraph.name",
+      "settings": [{ "type": "richtext", "id": "text", "label": "t:labels.body" }]
+    },
+    {
+      "type": "list",
+      "name": "t:blocks.list.name",
+      "settings": [
+        {
+          "type": "textarea",
+          "id": "text",
+          "label": "t:labels.list_items",
+          "info": "t:labels.list_items_info"
+        }
+      ]
+    }
+  ],
+  "presets": [{ "name": "t:sections.policy_page.name" }]
+}
+{% endschema %}

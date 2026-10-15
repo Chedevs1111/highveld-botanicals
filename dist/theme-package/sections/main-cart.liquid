@@ -1,0 +1,237 @@
+{% capture member_status %}{% render 'member-status' %}{% endcapture %}
+
+{% liquid
+  assign member_status = member_status | strip
+  assign restricted_count = 0
+
+  for item in cart.items
+    assign item_tier = item.product.metafields.custom.member_tier.value | default: 'standard'
+    if item_tier != 'open' and member_status != 'approved'
+      assign restricted_count = restricted_count | plus: 1
+    endif
+  endfor
+%}
+
+<section class="hb-section">
+  <div class="hb-container">
+    <h1 class="hb-section__title hb-cart__title">{{ 'cart.title' | t }}</h1>
+
+    {% if cart.item_count > 0 %}
+      {% if restricted_count > 0 %}
+        <div class="hb-cart__gate">
+          {% render 'member-gate', status: member_status, apply_url: section.settings.membership_url %}
+          <p class="hb-muted hb-cart__gate-note">
+            {{ 'cart.restricted_note' | t: count: restricted_count }}
+          </p>
+        </div>
+      {% endif %}
+
+      {% form 'cart', cart, class: 'hb-cart' %}
+        <ul class="hb-cart__items">
+          {% for item in cart.items %}
+            <li class="hb-cart__item">
+              <a class="hb-cart__media" href="{{ item.url }}">
+                {% if item.image %}
+                  {{ item.image | image_url: width: 200 | image_tag: loading: 'lazy', class: 'hb-cart__image', alt: item.title }}
+                {% else %}
+                  {{ 'product-1' | placeholder_svg_tag: 'hb-cart__image' }}
+                {% endif %}
+              </a>
+
+              <div class="hb-cart__details">
+                <a class="hb-cart__name" href="{{ item.url }}">{{ item.product.title }}</a>
+                <p class="hb-muted hb-cart__variant">{{ item.variant.title }}</p>
+                {% if item.product.metafields.custom.batch_id.value != blank %}
+                  <p class="hb-muted hb-cart__batch">
+                    {{ 'product.batch' | t: id: item.product.metafields.custom.batch_id.value }}
+                  </p>
+                {% endif %}
+              </div>
+
+              <label class="hb-cart__qty">
+                <span class="visually-hidden">{{ 'product.quantity' | t }}</span>
+                <input type="number" name="updates[]" value="{{ item.quantity }}" min="0">
+              </label>
+
+              <p class="hb-cart__line">{{ item.final_line_price | money }}</p>
+            </li>
+          {% endfor %}
+        </ul>
+
+        <div class="hb-cart__foot">
+          <div class="hb-cart__totals">
+            <p class="hb-cart__subtotal">
+              <span>{{ 'cart.subtotal' | t }}</span>
+              <strong>{{ cart.total_price | money }}</strong>
+            </p>
+            <p class="hb-muted hb-cart__note">{{ 'cart.tax_note' | t }}</p>
+          </div>
+
+          <div class="hb-cart__actions">
+            <button type="submit" name="update" class="hb-btn hb-btn--ghost">{{ 'cart.update' | t }}</button>
+            <button
+              type="submit"
+              name="checkout"
+              class="hb-btn hb-btn--primary"
+              {% if restricted_count > 0 %}
+                disabled
+              {% endif %}
+            >
+              {{ 'cart.checkout' | t }}
+            </button>
+          </div>
+        </div>
+
+        {% if section.settings.checkout_notice != blank %}
+          <p class="hb-cart__compliance">{{ section.settings.checkout_notice }}</p>
+        {% endif %}
+      {% endform %}
+    {% else %}
+      <p class="hb-muted">{{ 'cart.empty' | t }}</p>
+      <a class="hb-btn hb-btn--primary" href="{{ routes.all_products_collection_url }}">
+        {{ 'cart.continue' | t }}
+      </a>
+    {% endif %}
+  </div>
+</section>
+
+{% stylesheet %}
+  .hb-cart__title {
+    margin-bottom: 2rem;
+  }
+
+  .hb-cart__gate {
+    margin-bottom: 2rem;
+  }
+
+  .hb-cart__gate-note {
+    margin: 0.75rem 0 0;
+    font-size: 0.8125rem;
+  }
+
+  .hb-cart__items {
+    margin: 0;
+    padding: 0;
+    list-style: none;
+    border-top: 1px solid var(--hb-border);
+  }
+
+  .hb-cart__item {
+    display: grid;
+    grid-template-columns: 5rem 1fr auto;
+    gap: 1rem;
+    align-items: center;
+    padding-block: 1.25rem;
+    border-bottom: 1px solid var(--hb-border);
+  }
+
+  .hb-cart__image {
+    width: 5rem;
+    height: 5rem;
+    object-fit: cover;
+    border-radius: calc(var(--hb-radius) / 1.5);
+    display: block;
+    background: var(--hb-surface);
+  }
+
+  .hb-cart__details p {
+    margin: 0.125rem 0 0;
+    font-size: 0.8125rem;
+  }
+
+  .hb-cart__name {
+    color: inherit;
+    text-decoration: none;
+    font-weight: 600;
+  }
+
+  .hb-cart__qty input {
+    width: 4.5rem;
+    padding: 0.55rem 0.5rem;
+    border: 1px solid var(--hb-border);
+    border-radius: calc(var(--hb-radius) / 2);
+    background: var(--hb-surface);
+    color: inherit;
+    font: inherit;
+  }
+
+  .hb-cart__line {
+    margin: 0;
+    font-weight: 700;
+    font-variant-numeric: tabular-nums;
+  }
+
+  .hb-cart__foot {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 1.5rem;
+    justify-content: space-between;
+    align-items: end;
+    padding-top: 1.5rem;
+  }
+
+  .hb-cart__subtotal {
+    display: flex;
+    gap: 1rem;
+    align-items: baseline;
+    margin: 0;
+    font-size: 1.25rem;
+  }
+
+  .hb-cart__note {
+    margin: 0.35rem 0 0;
+    font-size: 0.75rem;
+  }
+
+  .hb-cart__actions {
+    display: flex;
+    gap: 0.75rem;
+  }
+
+  .hb-cart__compliance {
+    margin: 1.5rem 0 0;
+    padding-top: 1.25rem;
+    border-top: 1px solid var(--hb-border);
+    font-size: 0.75rem;
+    line-height: 1.55;
+    color: var(--hb-muted);
+  }
+
+  .visually-hidden {
+    position: absolute;
+    width: 1px;
+    height: 1px;
+    overflow: hidden;
+    clip: rect(0 0 0 0);
+    white-space: nowrap;
+  }
+
+  @media (max-width: 40rem) {
+    .hb-cart__item {
+      grid-template-columns: 4rem 1fr;
+    }
+
+    .hb-cart__line {
+      grid-column: 2;
+    }
+  }
+{% endstylesheet %}
+
+{% schema %}
+{
+  "name": "t:sections.main_cart.name",
+  "settings": [
+    {
+      "type": "textarea",
+      "id": "checkout_notice",
+      "label": "t:labels.checkout_notice",
+      "default": "Orders are released only after membership and age verification are confirmed. Unverified orders are refunded in full."
+    },
+    {
+      "type": "url",
+      "id": "membership_url",
+      "label": "t:labels.membership_url"
+    }
+  ]
+}
+{% endschema %}

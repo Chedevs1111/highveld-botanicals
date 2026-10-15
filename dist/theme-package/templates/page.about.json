@@ -1,0 +1,63 @@
+{
+  "sections": {
+    "policy": {
+      "type": "delivery-policy",
+      "blocks": {
+        "h-grow": {
+          "type": "heading",
+          "settings": {
+            "text": "What we grow"
+          }
+        },
+        "p-grow": {
+          "type": "paragraph",
+          "settings": {
+            "text": "<p>Landrace and landrace-derived flower lines, plus pre-rolls, measured-dose edibles, extracts and a non-intoxicating CBD range. The focus is South African and southern African genetics, grown slowly and cured properly rather than pushed for yield.</p><p>Landrace cultivars are harder to grow than modern hybrids. They take longer, they stretch, and they do not all finish at once. We grow them because they are what this part of the world actually produced before the seed market homogenised.</p>"
+          }
+        },
+        "h-test": {
+          "type": "heading",
+          "settings": {
+            "text": "Testing"
+          }
+        },
+        "p-test": {
+          "type": "paragraph",
+          "settings": {
+            "text": "<p>Every batch is tested by an independent laboratory before release — cannabinoid potency, terpene profile, pesticides, heavy metals, microbials and mycotoxins. Every certificate is published in full, including the numbers we would rather round.</p>"
+          }
+        },
+        "h-not": {
+          "type": "heading",
+          "settings": {
+            "text": "What we will not do"
+          }
+        },
+        "l-not": {
+          "type": "list",
+          "settings": {
+            "text": "Sell to anyone unverified. Age and residency are checked by a person, and checked again at handover.\nCourier members-only items. No exceptions, no matter who asks or how.\nMake a medical claim. We will tell you what is in a batch. We will not tell you what it treats.\nMarket to people who are not members, or build advertising profiles from anyone's order history.\nPublish a certificate we did not receive, or quietly drop one that came back badly."
+          }
+        }
+      },
+      "block_order": [
+        "h-grow",
+        "p-grow",
+        "h-test",
+        "p-test",
+        "h-not",
+        "l-not"
+      ],
+      "settings": {
+        "heading": "Landrace genetics, kept honest",
+        "intro": "A small collective growing South African landrace cultivars, testing every batch, and publishing the results whether they flatter us or not.",
+        "lede": "<p><strong>Placeholder content.</strong> The founding story, dates and people below are not written yet. Replace them before publishing — do not publish invented history about a real business.</p>",
+        "show_shipping_summary": false,
+        "updated": "2 August 2026"
+      }
+    }
+  },
+  "order": [
+    "policy"
+  ]
+}

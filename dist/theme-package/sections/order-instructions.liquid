@@ -1,0 +1,202 @@
+{% liquid
+  assign is_collection = false
+  if order.shipping_methods.size == 0
+    assign is_collection = true
+  endif
+
+  assign restricted = 0
+  for line in order.line_items
+    assign tier = line.product.metafields.custom.member_tier.value | default: 'standard'
+    if tier != 'open'
+      assign restricted = restricted | plus: 1
+    endif
+  endfor
+%}
+
+<section class="hb-section">
+  <div class="hb-container hb-narrow">
+    {% if section.settings.payment_method == 'eft' %}
+      <div class="hb-paybox">
+        <h2 class="hb-paybox__title">{{ 'order.eft_title' | t }}</h2>
+
+        <dl class="hb-paybox__list">
+          <div>
+            <dt>{{ 'order.account_name' | t }}</dt>
+            <dd>{{ section.settings.account_name }}</dd>
+          </div>
+          <div>
+            <dt>{{ 'order.bank' | t }}</dt>
+            <dd>{{ section.settings.bank_name }}</dd>
+          </div>
+          <div>
+            <dt>{{ 'order.account_number' | t }}</dt>
+            <dd>{{ section.settings.account_number }}</dd>
+          </div>
+          <div>
+            <dt>{{ 'order.branch_code' | t }}</dt>
+            <dd>{{ section.settings.branch_code }}</dd>
+          </div>
+          <div>
+            <dt>{{ 'order.amount' | t }}</dt>
+            <dd><strong>{{ order.total_price | money }}</strong></dd>
+          </div>
+          <div>
+            <dt>{{ 'order.reference' | t }}</dt>
+            <dd><strong>{{ order.name }}</strong></dd>
+          </div>
+        </dl>
+
+        <p class="hb-muted hb-paybox__note">{{ 'order.reference_note' | t }}</p>
+      </div>
+    {% endif %}
+
+    {% if restricted > 0 %}
+      <div class="hb-handover">
+        <h2 class="hb-paybox__title">{{ 'order.handover_title' | t }}</h2>
+        <ul class="hb-handover__list">
+          <li>{{ 'order.bring_id' | t }}</li>
+          <li>{{ 'order.bring_order' | t: name: order.name }}</li>
+          {% if section.settings.payment_method == 'cash' %}
+            <li>{{ 'order.bring_cash' | t: amount: order.total_price | money }}</li>
+          {% endif %}
+        </ul>
+        <p class="hb-muted hb-paybox__note">{{ 'order.named_member_only' | t }}</p>
+      </div>
+    {% endif %}
+
+    <div class="hb-batches">
+      <h2 class="hb-paybox__title">{{ 'order.batches_title' | t }}</h2>
+      <ul class="hb-batches__list">
+        {% for line in order.line_items %}
+          {% assign batch = line.product.metafields.custom.batch_id.value %}
+          {% if batch != blank %}
+            <li>
+              <span>{{ line.title }}</span>
+              {% assign coa = line.product.metafields.custom.coa_url.value %}
+              {% if coa != blank %}
+                <a href="{{ coa }}">{{ batch }}</a>
+              {% else %}
+                <span class="hb-muted">{{ batch }}</span>
+              {% endif %}
+            </li>
+          {% endif %}
+        {% endfor %}
+      </ul>
+      <p class="hb-muted hb-paybox__note">{{ 'order.batches_note' | t }}</p>
+    </div>
+
+    {% if section.settings.compliance_note != blank %}
+      <p class="hb-muted hb-paybox__note">{{ section.settings.compliance_note }}</p>
+    {% endif %}
+  </div>
+</section>
+
+{% stylesheet %}
+  .hb-paybox,
+  .hb-handover,
+  .hb-batches {
+    padding: 1.5rem;
+    margin-bottom: 1.5rem;
+    border: 1px solid var(--hb-border);
+    border-radius: var(--hb-radius);
+    background: var(--hb-surface);
+  }
+
+  .hb-paybox {
+    border-color: var(--hb-accent);
+  }
+
+  .hb-paybox__title {
+    margin: 0 0 1rem;
+    font-size: 1rem;
+  }
+
+  .hb-paybox__list {
+    display: grid;
+    gap: 0.5rem;
+    margin: 0;
+  }
+
+  .hb-paybox__list > div {
+    display: grid;
+    grid-template-columns: 9rem 1fr;
+    gap: 1rem;
+    font-size: 0.875rem;
+  }
+
+  .hb-paybox__list dt {
+    color: var(--hb-muted);
+  }
+
+  .hb-paybox__list dd {
+    margin: 0;
+    font-variant-numeric: tabular-nums;
+  }
+
+  .hb-paybox__note {
+    margin: 1rem 0 0;
+    font-size: 0.75rem;
+    line-height: 1.55;
+  }
+
+  .hb-handover__list {
+    display: grid;
+    gap: 0.6rem;
+    margin: 0;
+    padding-left: 1.1rem;
+    font-size: 0.9375rem;
+  }
+
+  .hb-batches__list {
+    display: grid;
+    gap: 0.5rem;
+    margin: 0;
+    padding: 0;
+    list-style: none;
+  }
+
+  .hb-batches__list li {
+    display: flex;
+    justify-content: space-between;
+    gap: 1rem;
+    padding: 0.6rem 0;
+    border-bottom: 1px solid var(--hb-border);
+    font-size: 0.875rem;
+  }
+
+  @media (max-width: 40rem) {
+    .hb-paybox__list > div {
+      grid-template-columns: 1fr;
+      gap: 0.1rem;
+    }
+  }
+{% endstylesheet %}
+
+{% schema %}
+{
+  "name": "t:sections.order_instructions.name",
+  "settings": [
+    {
+      "type": "select",
+      "id": "payment_method",
+      "label": "t:labels.payment_method",
+      "options": [
+        { "value": "eft", "label": "t:options.payment.eft" },
+        { "value": "cash", "label": "t:options.payment.cash" }
+      ],
+      "default": "eft",
+      "info": "t:labels.payment_method_info"
+    },
+    { "type": "text", "id": "account_name", "label": "t:order.account_name", "default": "Highveld Botanicals (Pty) Ltd" },
+    { "type": "text", "id": "bank_name", "label": "t:order.bank", "default": "First National Bank" },
+    { "type": "text", "id": "account_number", "label": "t:order.account_number" },
+    { "type": "text", "id": "branch_code", "label": "t:order.branch_code", "default": "250655" },
+    {
+      "type": "textarea",
+      "id": "compliance_note",
+      "label": "t:labels.compliance_notice",
+      "default": "Access is limited to verified members aged 18 and over. Amounts shown are member contributions toward cultivation and handling, not a public retail sale."
+    }
+  ]
+}
+{% endschema %}

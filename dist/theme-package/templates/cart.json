@@ -1,0 +1,11 @@
+{
+  "sections": {
+    "main": {
+      "type": "main-cart",
+      "settings": {
+        "checkout_notice": "Orders are released only after membership and age verification are confirmed. Unverified orders are refunded in full."
+      }
+    }
+  },
+  "order": ["main"]
+}

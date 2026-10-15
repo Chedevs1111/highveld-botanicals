@@ -1,0 +1,72 @@
+<section class="hb-section">
+  <div class="hb-container">
+    <p class="hb-eyebrow">{{ 'customer.eyebrow' | t }}</p>
+    <h1 class="hb-apply__title">{{ 'customer.order_title' | t: name: order.name }}</h1>
+    <p class="hb-muted">{{ 'customer.placed_on' | t: date: order.created_at | date: '%d %B %Y' }}</p>
+
+    <div class="hb-status">
+      <div>
+        <p class="hb-status__label">{{ 'customer.payment' | t }}</p>
+        <p class="hb-status__value">{{ order.financial_status_label }}</p>
+      </div>
+      <div>
+        <p class="hb-status__label">{{ 'customer.fulfilment' | t }}</p>
+        <p class="hb-status__value">{{ order.fulfillment_status_label }}</p>
+      </div>
+    </div>
+
+    <div class="hb-scroll">
+      <table class="hb-pol__table">
+        <thead>
+          <tr>
+            <th>{{ 'customer.item' | t }}</th>
+            <th>{{ 'product.batch_label' | t }}</th>
+            <th>{{ 'product.quantity' | t }}</th>
+            <th>{{ 'customer.total' | t }}</th>
+          </tr>
+        </thead>
+        <tbody>
+          {% for line in order.line_items %}
+            <tr>
+              <td>
+                <a href="{{ line.product.url }}">{{ line.title }}</a>
+                <span class="hb-muted hb-coa__method">{{ line.sku }}</span>
+              </td>
+              <td>
+                {% assign batch = line.product.metafields.custom.batch_id.value %}
+                {% assign coa = line.product.metafields.custom.coa_url.value %}
+                {% if batch != blank and coa != blank %}
+                  <a href="{{ coa }}">{{ batch }}</a>
+                {% else %}
+                  <span class="hb-muted">{{ batch | default: '—' }}</span>
+                {% endif %}
+              </td>
+              <td>{{ line.quantity }}</td>
+              <td>{{ line.final_line_price | money }}</td>
+            </tr>
+          {% endfor %}
+        </tbody>
+        <tfoot>
+          <tr>
+            <td colspan="3">{{ 'cart.subtotal' | t }}</td>
+            <td>{{ order.subtotal_price | money }}</td>
+          </tr>
+          <tr>
+            <td colspan="3"><strong>{{ 'customer.total' | t }}</strong></td>
+            <td><strong>{{ order.total_price | money }}</strong></td>
+          </tr>
+        </tfoot>
+      </table>
+    </div>
+
+    <p class="hb-muted hb-pol__updated">{{ 'order.batches_note' | t }}</p>
+    <p class="hb-apply__aside"><a href="{{ routes.account_url }}">{{ 'customer.back_to_account' | t }}</a></p>
+  </div>
+</section>
+
+{% stylesheet %}
+  .hb-coa__method {
+    display: block;
+    font-size: 0.75rem;
+  }
+{% endstylesheet %}

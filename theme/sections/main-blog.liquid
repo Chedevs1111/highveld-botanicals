@@ -1,0 +1,130 @@
+<section class="hb-section">
+  <div class="hb-container">
+    <p class="hb-eyebrow">{{ 'blog.eyebrow' | t }}</p>
+    <h1 class="hb-apply__title">{{ blog.title }}</h1>
+
+    {% if section.settings.intro != blank %}
+      <p class="hb-muted hb-pol__lead">{{ section.settings.intro }}</p>
+    {% endif %}
+
+    {% if current_tags %}
+      <p class="hb-muted">
+        {{ 'blog.filtered_by' | t: tag: current_tags | join: ', ' }}
+        <a href="{{ blog.url }}">{{ 'blog.clear' | t }}</a>
+      </p>
+    {% endif %}
+
+    {% paginate blog.articles by section.settings.per_page %}
+      {% if blog.articles.size > 0 %}
+        <ul class="hb-artgrid">
+          {% for article in blog.articles %}
+            <li class="hb-artcard">
+              <a href="{{ article.url }}">
+                {% if article.image %}
+                  {{
+                    article.image
+                    | image_url: width: 600
+                    | image_tag: class: 'hb-artcard__img', loading: 'lazy', alt: article.title
+                  }}
+                {% endif %}
+                <div class="hb-artcard__body">
+                  <h2 class="hb-artcard__title">{{ article.title }}</h2>
+                  {% if article.excerpt != blank %}
+                    <p class="hb-muted hb-artcard__stand">{{ article.excerpt | strip_html | truncate: 140 }}</p>
+                  {% endif %}
+                  <p class="hb-artcard__meta">{{ article.published_at | date: '%d %B %Y' }}</p>
+                </div>
+              </a>
+            </li>
+          {% endfor %}
+        </ul>
+
+        {% if paginate.pages > 1 %}
+          <nav class="hb-pagination" aria-label="{{ 'accessibility.pagination' | t }}">
+            {{ paginate | default_pagination }}
+          </nav>
+        {% endif %}
+      {% else %}
+        <p class="hb-muted">{{ 'blog.empty' | t }}</p>
+      {% endif %}
+    {% endpaginate %}
+  </div>
+</section>
+
+{% stylesheet %}
+  .hb-artgrid {
+    display: grid;
+    gap: 1rem;
+    margin: 1.5rem 0 0;
+    padding: 0;
+    list-style: none;
+    grid-template-columns: repeat(auto-fill, minmax(17rem, 1fr));
+  }
+
+  .hb-artcard {
+    border: 1px solid var(--hb-border);
+    border-radius: var(--hb-radius);
+    background: var(--hb-surface);
+    overflow: hidden;
+    transition: border-color 0.15s ease;
+  }
+
+  .hb-artcard:hover {
+    border-color: var(--hb-accent);
+  }
+
+  .hb-artcard a {
+    display: block;
+    color: inherit;
+    text-decoration: none;
+  }
+
+  .hb-artcard__img {
+    width: 100%;
+    aspect-ratio: 3 / 2;
+    object-fit: cover;
+    display: block;
+  }
+
+  .hb-artcard__body {
+    padding: 1.25rem;
+  }
+
+  .hb-artcard__title {
+    margin: 0 0 0.4rem;
+    font-size: 1.0625rem;
+    line-height: 1.3;
+  }
+
+  .hb-artcard__stand {
+    margin: 0 0 0.75rem;
+    font-size: 0.875rem;
+    line-height: 1.5;
+  }
+
+  .hb-artcard__meta {
+    margin: 0;
+    font-size: 0.6875rem;
+    letter-spacing: 0.06em;
+    text-transform: uppercase;
+    color: var(--hb-muted);
+  }
+{% endstylesheet %}
+
+{% schema %}
+{
+  "name": "t:sections.main_blog.name",
+  "settings": [
+    { "type": "textarea", "id": "intro", "label": "t:labels.body" },
+    {
+      "type": "range",
+      "id": "per_page",
+      "label": "t:labels.products_per_page",
+      "min": 3,
+      "max": 24,
+      "step": 3,
+      "default": 12
+    }
+  ]
+}
+{% endschema %}

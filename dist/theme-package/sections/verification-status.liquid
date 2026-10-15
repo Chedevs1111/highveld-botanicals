@@ -1,0 +1,269 @@
+{% capture member_status %}{% render 'member-status' %}{% endcapture %}
+
+{% liquid
+  assign member_status = member_status | strip
+  assign tier = customer.metafields.custom.member_tier.value | default: 'standard'
+  assign used = customer.metafields.custom.allocation_used.value | default: 0
+  assign verified_at = customer.metafields.custom.verified_at.value
+  assign expires_at = customer.metafields.custom.membership_expires_at.value
+  assign rejection = customer.metafields.custom.rejection_reason.value
+
+  if tier == 'premium'
+    assign allowance = section.settings.premium_allowance
+  else
+    assign allowance = section.settings.standard_allowance
+  endif
+
+  assign remaining = allowance | minus: used | at_least: 0
+  assign used_pct = 0
+  if allowance > 0
+    assign used_pct = used | times: 100 | divided_by: allowance
+  endif
+%}
+
+<section class="hb-section">
+  <div class="hb-container hb-narrow">
+    <p class="hb-eyebrow">{{ 'account.eyebrow' | t }}</p>
+    <h1 class="hb-apply__title">{{ 'account.title' | t }}</h1>
+
+    {% unless customer %}
+      <p class="hb-notice">{{ 'account.sign_in_required' | t }}</p>
+      <a class="hb-btn hb-btn--primary" href="{{ routes.account_login_url }}">{{ 'header.log_in' | t }}</a>
+    {% endunless %}
+
+    {% if customer %}
+      <div class="hb-status hb-status--{{ member_status }}">
+        <div>
+          <p class="hb-status__label">{{ 'account.status' | t }}</p>
+          <p class="hb-status__value">{{ 'account.status_value' | t: status: member_status }}</p>
+        </div>
+
+        {% if member_status == 'approved' %}
+          <div>
+            <p class="hb-status__label">{{ 'account.tier' | t }}</p>
+            <p class="hb-status__value">{{ tier }}</p>
+          </div>
+        {% endif %}
+
+        {% if verified_at != blank %}
+          <div>
+            <p class="hb-status__label">{{ 'account.verified_on' | t }}</p>
+            <p class="hb-status__value">{{ verified_at | date: '%d %b %Y' }}</p>
+          </div>
+        {% endif %}
+      </div>
+
+      {% if member_status == 'pending' %}
+        <p class="hb-notice">{{ 'account.pending_body' | t }}</p>
+      {% endif %}
+
+      {% if member_status == 'rejected' %}
+        <p class="hb-notice">
+          <strong>{{ 'account.rejected_title' | t }}</strong>
+          {{ rejection | default: 'account.rejected_fallback' | t }}
+        </p>
+        <a class="hb-btn hb-btn--primary" href="{{ section.settings.membership_url }}">
+          {{ 'account.reapply' | t }}
+        </a>
+      {% endif %}
+
+      {% if member_status == 'unverified' %}
+        <p class="hb-notice">{{ 'account.unverified_body' | t }}</p>
+        <a class="hb-btn hb-btn--primary" href="{{ section.settings.membership_url }}">
+          {{ 'account.apply' | t }}
+        </a>
+      {% endif %}
+
+      {% if member_status == 'approved' %}
+        <div class="hb-alloc">
+          <div class="hb-alloc__head">
+            <h2 class="hb-alloc__title">{{ 'account.allocation' | t }}</h2>
+            <p class="hb-muted">{{ 'account.allocation_used' | t: used: used, total: allowance }}</p>
+          </div>
+
+          <div class="hb-alloc__bar">
+            <span style="--used: {{ used_pct }}%"></span>
+          </div>
+
+          <p class="hb-muted hb-alloc__note">
+            {{ 'account.allocation_note' | t: remaining: remaining }}
+            {% if expires_at != blank %}
+              {{ 'account.expires' | t: date: expires_at | date: '%d %b %Y' }}
+            {% endif %}
+          </p>
+        </div>
+      {% endif %}
+
+      <div class="hb-detail">
+        <h2 class="hb-detail__title">{{ 'account.on_file' | t }}</h2>
+        <dl class="hb-detail__list">
+          <div>
+            <dt>{{ 'membership.first_name' | t }}</dt>
+            <dd>{{ customer.name }}</dd>
+          </div>
+          <div>
+            <dt>{{ 'membership.email' | t }}</dt>
+            <dd>{{ customer.email }}</dd>
+          </div>
+          {% if customer.default_address %}
+            <div>
+              <dt>{{ 'membership.address' | t }}</dt>
+              <dd>{{ customer.default_address | format_address }}</dd>
+            </div>
+          {% endif %}
+        </dl>
+        <p class="hb-muted hb-detail__note">{{ 'account.documents_note' | t }}</p>
+      </div>
+
+      <p class="hb-muted hb-detail__note">{{ 'account.deletion_note' | t }}</p>
+    {% endif %}
+  </div>
+</section>
+
+{% stylesheet %}
+  .hb-status {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 2.5rem;
+    padding: 1.5rem;
+    margin-bottom: 1.5rem;
+    border: 1px solid var(--hb-border);
+    border-left-width: 3px;
+    border-radius: var(--hb-radius);
+    background: var(--hb-surface);
+  }
+
+  .hb-status--approved {
+    border-left-color: var(--hb-accent);
+  }
+
+  .hb-status--pending {
+    border-left-color: #b9a441;
+  }
+
+  .hb-status--rejected {
+    border-left-color: #a8564a;
+  }
+
+  .hb-status__label {
+    margin: 0 0 0.2rem;
+    font-size: 0.6875rem;
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+    color: var(--hb-muted);
+  }
+
+  .hb-status__value {
+    margin: 0;
+    font-size: 1.125rem;
+    font-weight: 700;
+    text-transform: capitalize;
+  }
+
+  .hb-alloc,
+  .hb-detail {
+    margin-top: 1.5rem;
+    padding: 1.5rem;
+    border: 1px solid var(--hb-border);
+    border-radius: var(--hb-radius);
+    background: var(--hb-surface);
+  }
+
+  .hb-alloc__head {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.5rem;
+    justify-content: space-between;
+    align-items: baseline;
+  }
+
+  .hb-alloc__title,
+  .hb-detail__title {
+    margin: 0;
+    font-size: 1rem;
+  }
+
+  .hb-alloc__bar {
+    margin: 0.875rem 0 0.75rem;
+    height: 0.5rem;
+    border-radius: 999px;
+    background: var(--hb-bg);
+    overflow: hidden;
+  }
+
+  .hb-alloc__bar span {
+    display: block;
+    height: 100%;
+    width: var(--used);
+    background: var(--hb-accent);
+  }
+
+  .hb-alloc__note {
+    margin: 0;
+    font-size: 0.75rem;
+  }
+
+  .hb-detail__list {
+    display: grid;
+    gap: 0.6rem;
+    margin: 0.875rem 0 0;
+  }
+
+  .hb-detail__list > div {
+    display: grid;
+    grid-template-columns: 9rem 1fr;
+    gap: 1rem;
+    font-size: 0.875rem;
+  }
+
+  .hb-detail__list dt {
+    color: var(--hb-muted);
+  }
+
+  .hb-detail__list dd {
+    margin: 0;
+  }
+
+  .hb-detail__note {
+    margin: 1rem 0 0;
+    font-size: 0.75rem;
+  }
+
+  @media (max-width: 40rem) {
+    .hb-detail__list > div {
+      grid-template-columns: 1fr;
+      gap: 0.15rem;
+    }
+  }
+{% endstylesheet %}
+
+{% schema %}
+{
+  "name": "t:sections.verification_status.name",
+  "settings": [
+    {
+      "type": "url",
+      "id": "membership_url",
+      "label": "t:labels.membership_url"
+    },
+    {
+      "type": "range",
+      "id": "standard_allowance",
+      "label": "t:labels.standard_allowance",
+      "min": 1,
+      "max": 40,
+      "step": 1,
+      "default": 8
+    },
+    {
+      "type": "range",
+      "id": "premium_allowance",
+      "label": "t:labels.premium_allowance",
+      "min": 1,
+      "max": 60,
+      "step": 1,
+      "default": 16
+    }
+  ]
+}
+{% endschema %}

@@ -1,0 +1,112 @@
+<!doctype html>
+<html lang="en-ZA">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="robots" content="noindex, nofollow">
+    <title>Highveld Botanicals — storefront preview</title>
+    <link rel="stylesheet" href="styles.css">
+  </head>
+  <body>
+    <dialog id="age-gate" aria-labelledby="age-gate-title">
+      <div class="gate">
+        <p class="eyebrow">Highveld Botanicals</p>
+        <h1 id="age-gate-title">Are you 18 or older?</h1>
+        <p class="muted">
+          You must be 18 or older to view this collection. We do not sell to anyone under 18,
+          and age is verified again before any order is released.
+        </p>
+        <p class="gate__notice">
+          This collective operates on a private membership basis. Confirming your age does not
+          create a membership — verification is completed before any order is released.
+        </p>
+        <div class="gate__actions">
+          <button class="btn btn--primary" id="gate-accept" type="button">Yes, I am 18 or older</button>
+          <button class="btn btn--ghost" id="gate-decline" type="button">No, take me back</button>
+        </div>
+        <p class="muted gate__declined" id="gate-declined" hidden>
+          You need to be of legal age to continue. Thanks for stopping by.
+        </p>
+      </div>
+    </dialog>
+
+    <header class="header">
+      <p class="header__notice">Preview build · Members only · Verified 18+</p>
+      <div class="container header__bar">
+        <a class="header__brand" href="#/">Highveld Botanicals</a>
+        <nav class="header__nav" aria-label="Primary">
+          <ul class="header__links" id="nav-links"></ul>
+        </nav>
+        <a class="header__search" href="#/search" aria-label="Search">Search</a>
+        <a class="header__status" href="#/account" id="member-status"></a>
+        <a class="btn btn--ghost header__cart" href="#/cart">
+          Cart <span class="header__count" id="cart-count">0</span>
+        </a>
+      </div>
+    </header>
+
+    <main id="app" class="main"></main>
+
+    <footer class="footer">
+      <div class="container footer__ref">
+        <p class="footer__ref-label">Help</p>
+        <nav class="footer__ref-links" aria-label="Help">
+          <a href="#/how-it-works">How it works</a>
+          <a href="#/about">About</a>
+          <a href="#/learn">Education</a>
+          <a href="#/blog">Blog</a>
+          <a href="#/faq">FAQ</a>
+          <a href="#/contact">Contact</a>
+          <a href="#/delivery">Shipping &amp; delivery</a>
+          <a href="#/collection">Collection points</a>
+          <a href="#/returns">Returns &amp; refunds</a>
+          <a href="#/recalls">Batch recalls</a>
+          <a href="#/lab-results">Lab results</a>
+        </nav>
+      </div>
+
+      <div class="container footer__ref">
+        <p class="footer__ref-label">Internal reference</p>
+        <nav class="footer__ref-links" aria-label="Internal reference">
+          <a href="#/design-system">Design system</a>
+          <a href="#/photography">Product photography</a>
+          <a href="#/admin/verifications">Verification queue</a>
+        </nav>
+      </div>
+
+      <div class="container footer__ref">
+        <p class="footer__ref-label">Legal</p>
+        <nav class="footer__ref-links" aria-label="Legal">
+          <a href="#/terms">Terms of service</a>
+          <a href="#/privacy">Privacy policy</a>
+        </nav>
+      </div>
+
+      <div class="container footer__legal">
+        <p class="footer__compliance">
+          Access is limited to verified members aged 18 and over. Amounts shown are member
+          contributions toward cultivation and handling, not a public retail sale. Nothing on
+          this site is medical advice. This is a local design preview — no orders are processed.
+        </p>
+        <p class="muted footer__copy">&copy; 2026 Highveld Botanicals.</p>
+      </div>
+    </footer>
+
+    <script src="data.js"></script>
+    <script src="legal.js"></script>
+    <script src="member.js"></script>
+    <script src="views-membership.js"></script>
+    <script src="views-docs.js"></script>
+    <script src="views-lab.js"></script>
+    <script src="order.js"></script>
+    <script src="views-checkout.js"></script>
+    <script src="views-account.js"></script>
+    <script src="views-policy.js"></script>
+    <script src="views-support.js"></script>
+    <script src="views-about.js"></script>
+    <script src="views-learn.js"></script>
+    <script src="views-shop.js"></script>
+    <script src="views-search.js"></script>
+    <script src="app.js"></script>
+  </body>
+</html>

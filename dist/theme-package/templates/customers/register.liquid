@@ -1,0 +1,43 @@
+<section class="hb-section">
+  <div class="hb-container hb-narrow">
+    <p class="hb-eyebrow">{{ 'customer.eyebrow' | t }}</p>
+    <h1 class="hb-apply__title">{{ 'customer.register_title' | t }}</h1>
+    <p class="hb-muted hb-pol__lead">{{ 'customer.register_body' | t }}</p>
+
+    {% form 'create_customer', class: 'hb-form' %}
+      {{ form.errors | default_errors }}
+
+      <div class="hb-form__row">
+        <label class="hb-form__field">
+          <span class="hb-form__label">{{ 'membership.first_name' | t }}</span>
+          <input class="hb-form__input" type="text" name="customer[first_name]" autocomplete="given-name" required>
+        </label>
+
+        <label class="hb-form__field">
+          <span class="hb-form__label">{{ 'membership.last_name' | t }}</span>
+          <input class="hb-form__input" type="text" name="customer[last_name]" autocomplete="family-name" required>
+        </label>
+      </div>
+
+      <label class="hb-form__field">
+        <span class="hb-form__label">{{ 'membership.email' | t }}</span>
+        <input class="hb-form__input" type="email" name="customer[email]" autocomplete="email" required>
+      </label>
+
+      <label class="hb-form__field">
+        <span class="hb-form__label">{{ 'customer.password' | t }}</span>
+        <input class="hb-form__input" type="password" name="customer[password]" autocomplete="new-password" required>
+        <span class="hb-form__hint">{{ 'customer.password_hint' | t }}</span>
+      </label>
+
+      <p class="hb-notice">{{ 'customer.register_notice' | t }}</p>
+
+      <button type="submit" class="hb-btn hb-btn--primary">{{ 'customer.register_submit' | t }}</button>
+    {% endform %}
+
+    <p class="hb-muted hb-apply__aside">
+      {{ 'membership.have_account' | t }}
+      <a href="{{ routes.account_login_url }}">{{ 'header.log_in' | t }}</a>
+    </p>
+  </div>
+</section>

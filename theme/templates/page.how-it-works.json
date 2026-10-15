@@ -1,0 +1,63 @@
+{
+  "sections": {
+    "policy": {
+      "type": "delivery-policy",
+      "blocks": {
+        "h-stages": {
+          "type": "heading",
+          "settings": {
+            "text": "The five stages"
+          }
+        },
+        "l-stages": {
+          "type": "list",
+          "settings": {
+            "text": "Apply. Submit your name, a photo of your ID and a proof of address dated in the last three months.\nWe verify you. A person reads every application — there is no automated approval. Usually 2 business days.\nBrowse. Every product lists its cannabinoid profile, terpenes and batch code, linked to the certificate behind it.\nContribute. Standard members receive 8 units a month, premium 16. What you pay covers cultivation, testing and handling.\nCollect. Members-only items are handed over in person, where your ID is checked against the document you verified with."
+          }
+        },
+        "h-alloc": {
+          "type": "heading",
+          "settings": {
+            "text": "Tiers and allocation"
+          }
+        },
+        "p-alloc": {
+          "type": "paragraph",
+          "settings": {
+            "text": "<p>One unit is one item of any product, and you may order up to 4 of any single product per order. Allocation resets on the first of the month and does not roll over. Cancelled and refunded orders return their units immediately.</p>"
+          }
+        },
+        "h-docs": {
+          "type": "heading",
+          "settings": {
+            "text": "What we do with your documents"
+          }
+        },
+        "p-docs": {
+          "type": "paragraph",
+          "settings": {
+            "text": "<p>Your ID number and uploaded documents are special personal information under POPIA. We use them only to verify age and residency, we do not share them, and your ID number itself is never stored — only the last four digits, so we can match you at handover.</p>"
+          }
+        }
+      },
+      "block_order": [
+        "h-stages",
+        "l-stages",
+        "h-alloc",
+        "p-alloc",
+        "h-docs",
+        "p-docs"
+      ],
+      "settings": {
+        "heading": "A collective, not a shop",
+        "intro": "Highveld Botanicals is a private members' collective. Members cover the cost of cultivating and testing their own allocation, and collect it in person.",
+        "lede": "<p><strong>Why it is built this way.</strong> South African law permits private cultivation and private use, not public retail sale. A collective in which members are verified, allocated a personal quantity, and hand-checked at collection is a structure that fits that. An open shop front is not, which is why we do not run one.</p>",
+        "show_shipping_summary": false,
+        "updated": "2 August 2026"
+      }
+    }
+  },
+  "order": [
+    "policy"
+  ]
+}

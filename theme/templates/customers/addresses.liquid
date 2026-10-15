@@ -1,0 +1,78 @@
+<section class="hb-section">
+  <div class="hb-container hb-narrow">
+    <p class="hb-eyebrow">{{ 'customer.eyebrow' | t }}</p>
+    <h1 class="hb-apply__title">{{ 'customer.addresses_title' | t }}</h1>
+
+    <p class="hb-notice">{{ 'customer.address_notice' | t }}</p>
+
+    {% paginate customer.addresses by 6 %}
+      {% for address in customer.addresses %}
+        <div class="hb-detail">
+          <h2 class="hb-detail__title">
+            {% if address == customer.default_address %}
+              {{ 'customer.default_address' | t }}
+            {% else %}
+              {{ 'customer.address' | t }}
+            {% endif %}
+          </h2>
+          <p class="hb-muted">{{ address | format_address }}</p>
+        </div>
+      {% endfor %}
+
+      {% if paginate.pages > 1 %}
+        <nav class="hb-pagination" aria-label="{{ 'accessibility.pagination' | t }}">
+          {{ paginate | default_pagination }}
+        </nav>
+      {% endif %}
+    {% endpaginate %}
+
+    <div class="hb-detail">
+      <h2 class="hb-detail__title">{{ 'customer.add_address' | t }}</h2>
+
+      {% form 'customer_address', customer.new_address, class: 'hb-form' %}
+        {{ form.errors | default_errors }}
+
+        <div class="hb-form__row">
+          <label class="hb-form__field">
+            <span class="hb-form__label">{{ 'membership.first_name' | t }}</span>
+            <input class="hb-form__input" type="text" name="address[first_name]" autocomplete="given-name">
+          </label>
+          <label class="hb-form__field">
+            <span class="hb-form__label">{{ 'membership.last_name' | t }}</span>
+            <input class="hb-form__input" type="text" name="address[last_name]" autocomplete="family-name">
+          </label>
+        </div>
+
+        <label class="hb-form__field">
+          <span class="hb-form__label">{{ 'membership.address' | t }}</span>
+          <input class="hb-form__input" type="text" name="address[address1]" autocomplete="address-line1">
+        </label>
+
+        <div class="hb-form__row">
+          <label class="hb-form__field">
+            <span class="hb-form__label">{{ 'membership.city' | t }}</span>
+            <input class="hb-form__input" type="text" name="address[city]" autocomplete="address-level2">
+          </label>
+          <label class="hb-form__field">
+            <span class="hb-form__label">{{ 'membership.postal_code' | t }}</span>
+            <input class="hb-form__input" type="text" name="address[zip]" autocomplete="postal-code">
+          </label>
+        </div>
+
+        <label class="hb-form__field">
+          <span class="hb-form__label">{{ 'membership.province' | t }}</span>
+          <input class="hb-form__input" type="text" name="address[province]" autocomplete="address-level1">
+        </label>
+
+        <label class="hb-form__field">
+          <span class="hb-form__label">{{ 'membership.phone' | t }}</span>
+          <input class="hb-form__input" type="tel" name="address[phone]" autocomplete="tel">
+        </label>
+
+        <button type="submit" class="hb-btn hb-btn--primary">{{ 'customer.save_address' | t }}</button>
+      {% endform %}
+    </div>
+
+    <p class="hb-apply__aside"><a href="{{ routes.account_url }}">{{ 'customer.back_to_account' | t }}</a></p>
+  </div>
+</section>

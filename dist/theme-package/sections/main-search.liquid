@@ -1,0 +1,114 @@
+<section class="hb-section">
+  <div class="hb-container">
+    <p class="hb-eyebrow">{{ 'search.eyebrow' | t }}</p>
+    <h1 class="hb-apply__title">{{ 'search.title' | t }}</h1>
+
+    {% form 'search', class: 'hb-search__form' %}
+      <label class="hb-form__field">
+        <span class="hb-form__label">{{ 'search.label' | t }}</span>
+        <input
+          class="hb-form__input"
+          type="search"
+          name="q"
+          value="{{ search.terms | escape }}"
+          placeholder="{{ 'search.placeholder' | t }}"
+        >
+      </label>
+      <button type="submit" class="hb-btn hb-btn--primary">{{ 'search.submit' | t }}</button>
+    {% endform %}
+
+    {% if search.performed %}
+      <p class="hb-muted hb-search__count">
+        {{ 'search.results_count' | t: count: search.results_count, terms: search.terms }}
+      </p>
+
+      {% paginate search.results by section.settings.per_page %}
+        {% if search.results.size > 0 %}
+          <div class="hb-grid">
+            {% for item in search.results %}
+              {% if item.object_type == 'product' %}
+                {% render 'product-card', product: item %}
+              {% else %}
+                <article class="hb-result">
+                  <a href="{{ item.url }}">
+                    <p class="hb-result__kind">{{ item.object_type }}</p>
+                    <h2 class="hb-result__title">{{ item.title }}</h2>
+                  </a>
+                </article>
+              {% endif %}
+            {% endfor %}
+          </div>
+
+          {% if paginate.pages > 1 %}
+            <nav class="hb-pagination" aria-label="{{ 'accessibility.pagination' | t }}">
+              {{ paginate | default_pagination }}
+            </nav>
+          {% endif %}
+        {% else %}
+          <p class="hb-muted">{{ 'search.empty' | t: terms: search.terms }}</p>
+        {% endif %}
+      {% endpaginate %}
+    {% endif %}
+  </div>
+</section>
+
+{% stylesheet %}
+  .hb-search__form {
+    display: grid;
+    gap: 0.75rem;
+    max-width: 32rem;
+    margin-bottom: 2rem;
+  }
+
+  .hb-search__form .hb-btn {
+    justify-self: start;
+  }
+
+  .hb-search__count {
+    margin-bottom: 1.5rem;
+    font-size: 0.875rem;
+  }
+
+  .hb-result {
+    padding: 1.1rem 1.25rem;
+    border: 1px solid var(--hb-border);
+    border-radius: var(--hb-radius);
+    background: var(--hb-surface);
+  }
+
+  .hb-result a {
+    color: inherit;
+    text-decoration: none;
+  }
+
+  .hb-result__kind {
+    margin: 0 0 0.3rem;
+    font-size: 0.625rem;
+    font-weight: 700;
+    letter-spacing: 0.12em;
+    text-transform: uppercase;
+    color: var(--hb-accent);
+  }
+
+  .hb-result__title {
+    margin: 0;
+    font-size: 1.0625rem;
+  }
+{% endstylesheet %}
+
+{% schema %}
+{
+  "name": "t:sections.main_search.name",
+  "settings": [
+    {
+      "type": "range",
+      "id": "per_page",
+      "label": "t:labels.products_per_page",
+      "min": 8,
+      "max": 48,
+      "step": 4,
+      "default": 12
+    }
+  ]
+}
+{% endschema %}

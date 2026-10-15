@@ -1,0 +1,90 @@
+[
+  {
+    "name": "theme_info",
+    "theme_name": "Highveld Botanicals",
+    "theme_version": "0.1.0",
+    "theme_author": "Devsense",
+    "theme_documentation_url": "https://shopify.dev",
+    "theme_support_url": "https://shopify.dev"
+  },
+  {
+    "name": "t:settings.colors",
+    "settings": [
+      { "type": "color", "id": "color_background", "label": "t:labels.color_background", "default": "#10130F" },
+      { "type": "color", "id": "color_surface", "label": "t:labels.color_surface", "default": "#191D17" },
+      { "type": "color", "id": "color_text", "label": "t:labels.color_text", "default": "#EDEFE9" },
+      { "type": "color", "id": "color_accent", "label": "t:labels.color_accent", "default": "#7BA05B" },
+      { "type": "color", "id": "color_accent_text", "label": "t:labels.color_accent_text", "default": "#10130F" }
+    ]
+  },
+  {
+    "name": "t:settings.layout",
+    "settings": [
+      {
+        "type": "range",
+        "id": "page_width",
+        "label": "t:labels.page_width",
+        "min": 1000,
+        "max": 1600,
+        "step": 20,
+        "unit": "px",
+        "default": 1240
+      },
+      {
+        "type": "range",
+        "id": "corner_radius",
+        "label": "t:labels.corner_radius",
+        "min": 0,
+        "max": 24,
+        "step": 2,
+        "unit": "px",
+        "default": 12
+      }
+    ]
+  },
+  {
+    "name": "t:settings.compliance",
+    "settings": [
+      {
+        "type": "header",
+        "content": "t:settings.age_gate_header"
+      },
+      {
+        "type": "paragraph",
+        "content": "t:settings.age_gate_paragraph"
+      },
+      { "type": "checkbox", "id": "enable_age_gate", "label": "t:labels.enable_age_gate", "default": true },
+      {
+        "type": "range",
+        "id": "minimum_age",
+        "label": "t:labels.minimum_age",
+        "min": 18,
+        "max": 25,
+        "step": 1,
+        "default": 18
+      },
+      {
+        "type": "range",
+        "id": "age_gate_remember_days",
+        "label": "t:labels.age_gate_remember_days",
+        "min": 1,
+        "max": 90,
+        "step": 1,
+        "unit": "d",
+        "default": 30
+      },
+      {
+        "type": "textarea",
+        "id": "age_gate_notice",
+        "label": "t:labels.age_gate_notice",
+        "default": "This collective operates on a private membership basis. Confirming your age does not create a membership — verification is completed before any order is released."
+      },
+      {
+        "type": "checkbox",
+        "id": "allow_search_indexing",
+        "label": "t:labels.allow_search_indexing",
+        "default": false
+      }
+    ]
+  }
+]

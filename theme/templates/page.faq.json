@@ -1,0 +1,96 @@
+{
+  "sections": {
+    "faq": {
+      "type": "faq",
+      "blocks": {
+        "g1": {
+          "type": "group",
+          "settings": {
+            "title": "Membership"
+          }
+        },
+        "q1": {
+          "type": "question",
+          "settings": {
+            "question": "Who can join?",
+            "answer": "<p>Anyone 18 or older who is resident in South Africa and applying for themselves. You are verified against a government-issued ID, not on your word. One membership per person.</p>"
+          }
+        },
+        "q2": {
+          "type": "question",
+          "settings": {
+            "question": "How long does verification take?",
+            "answer": "<p>Usually 2 business days. A person reviews every application — there is no automated approval.</p>"
+          }
+        },
+        "q3": {
+          "type": "question",
+          "settings": {
+            "question": "Do I need a membership to buy CBD?",
+            "answer": "<p>No. The CBD and hemp range is non-intoxicating and sits outside the members-only catalogue.</p>"
+          }
+        },
+        "g2": {
+          "type": "group",
+          "settings": {
+            "title": "Collection & delivery"
+          }
+        },
+        "q4": {
+          "type": "question",
+          "settings": {
+            "question": "Why can members-only items not be couriered?",
+            "answer": "<p>Because your ID is checked against the document you verified with at the moment of handover, and a courier cannot do that. There is no workaround.</p>"
+          }
+        },
+        "q5": {
+          "type": "question",
+          "settings": {
+            "question": "Can someone collect on my behalf?",
+            "answer": "<p>No. Not a partner, not a housemate, not a driver with a letter. The ID check is the entire basis on which we may hand anything over.</p>"
+          }
+        },
+        "g3": {
+          "type": "group",
+          "settings": {
+            "title": "Returns"
+          }
+        },
+        "q6": {
+          "type": "question",
+          "settings": {
+            "question": "Can I return something I have opened?",
+            "answer": "<p>No. Once a seal is broken we cannot verify how it was stored, so it can never go back into stock for another member. That is a health rule.</p>"
+          }
+        },
+        "q7": {
+          "type": "question",
+          "settings": {
+            "question": "What if the product is faulty?",
+            "answer": "<p>Refund or replacement, your choice, for six months. That is the Consumer Protection Act and nothing in our terms shrinks it.</p>"
+          }
+        }
+      },
+      "block_order": [
+        "g1",
+        "q1",
+        "q2",
+        "q3",
+        "g2",
+        "q4",
+        "q5",
+        "g3",
+        "q6",
+        "q7"
+      ],
+      "settings": {
+        "heading": "Frequently asked questions",
+        "intro": "The things members actually ask. If the answer is not here, contact us — we would rather answer twice than have you guess.",
+        "contact_page": "shopify://pages/contact"
+      }
+    }
+  },
+  "order": [
+    "faq"
+  ]
+}

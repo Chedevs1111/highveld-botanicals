@@ -1,0 +1,169 @@
+<section class="hb-section">
+  <div class="hb-container">
+    <div class="hb-section__head">
+      <div>
+        <p class="hb-eyebrow">{{ 'collection.eyebrow' | t }}</p>
+        <h1 class="hb-section__title">{{ collection.title }}</h1>
+        {% if collection.description != blank %}
+          <div class="hb-muted hb-collection__description">{{ collection.description }}</div>
+        {% endif %}
+      </div>
+      <p class="hb-muted hb-collection__count">
+        {{ 'collection.count' | t: count: collection.products_count }}
+      </p>
+    </div>
+
+    {% if section.settings.show_filters %}
+      <form class="hb-filters" id="hb-filters">
+        {% for filter in collection.filters %}
+          <details class="hb-filters__group">
+            <summary class="hb-filters__summary">{{ filter.label }}</summary>
+            <div class="hb-filters__body">
+              {% for value in filter.values %}
+                <label class="hb-filters__option">
+                  <input
+                    type="checkbox"
+                    name="{{ value.param_name }}"
+                    value="{{ value.value }}"
+                    {% if value.active %}
+                      checked
+                    {% endif %}
+                  >
+                  <span>{{ value.label }} ({{ value.count }})</span>
+                </label>
+              {% endfor %}
+            </div>
+          </details>
+        {% endfor %}
+
+        <noscript>
+          <button type="submit" class="hb-btn hb-btn--ghost">{{ 'collection.apply_filters' | t }}</button>
+        </noscript>
+      </form>
+    {% endif %}
+
+    {% paginate collection.products by section.settings.products_per_page %}
+      {% if collection.products.size > 0 %}
+        <div class="hb-grid">
+          {% for product in collection.products %}
+            {% render 'product-card', product: product %}
+          {% endfor %}
+        </div>
+
+        {% if paginate.pages > 1 %}
+          <nav class="hb-pagination" aria-label="{{ 'accessibility.pagination' | t }}">
+            {{ paginate | default_pagination }}
+          </nav>
+        {% endif %}
+      {% else %}
+        <p class="hb-muted">{{ 'collection.empty' | t }}</p>
+      {% endif %}
+    {% endpaginate %}
+  </div>
+</section>
+
+{% stylesheet %}
+  .hb-collection__description {
+    margin-top: 0.5rem;
+    max-width: 60ch;
+  }
+
+  .hb-collection__count {
+    margin: 0;
+    font-size: 0.875rem;
+  }
+
+  .hb-filters {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.75rem;
+    margin-bottom: 2rem;
+    padding-bottom: 1.5rem;
+    border-bottom: 1px solid var(--hb-border);
+  }
+
+  .hb-filters__group {
+    position: relative;
+    border: 1px solid var(--hb-border);
+    border-radius: calc(var(--hb-radius) / 1.5);
+    background: var(--hb-surface);
+  }
+
+  .hb-filters__summary {
+    padding: 0.6rem 1rem;
+    cursor: pointer;
+    font-size: 0.875rem;
+    font-weight: 600;
+    list-style: none;
+  }
+
+  .hb-filters__summary::-webkit-details-marker {
+    display: none;
+  }
+
+  .hb-filters__summary::after {
+    content: ' ↓';
+    color: var(--hb-muted);
+  }
+
+  .hb-filters__body {
+    position: absolute;
+    z-index: 10;
+    min-width: 14rem;
+    margin-top: 0.25rem;
+    padding: 0.75rem;
+    display: grid;
+    gap: 0.5rem;
+    border: 1px solid var(--hb-border);
+    border-radius: calc(var(--hb-radius) / 1.5);
+    background: var(--hb-surface);
+    box-shadow: 0 12px 32px rgb(0 0 0 / 0.28);
+  }
+
+  .hb-filters__option {
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+    font-size: 0.875rem;
+    cursor: pointer;
+  }
+
+  .hb-pagination {
+    margin-top: 2.5rem;
+    text-align: center;
+  }
+{% endstylesheet %}
+
+{% javascript %}
+  (function () {
+    const form = document.getElementById('hb-filters');
+    if (!form) return;
+
+    form.addEventListener('change', () => {
+      const params = new URLSearchParams();
+      form.querySelectorAll('input[type="checkbox"]:checked').forEach((input) => {
+        params.append(input.name, input.value);
+      });
+      const query = params.toString();
+      window.location.search = query.length > 0 ? `?${query}` : '';
+    });
+  })();
+{% endjavascript %}
+
+{% schema %}
+{
+  "name": "t:sections.main_collection.name",
+  "settings": [
+    { "type": "checkbox", "id": "show_filters", "label": "t:labels.show_filters", "default": true },
+    {
+      "type": "range",
+      "id": "products_per_page",
+      "label": "t:labels.products_per_page",
+      "min": 8,
+      "max": 48,
+      "step": 4,
+      "default": 12
+    }
+  ]
+}
+{% endschema %}

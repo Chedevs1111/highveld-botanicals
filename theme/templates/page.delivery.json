@@ -1,0 +1,93 @@
+{
+  "sections": {
+    "policy": {
+      "type": "delivery-policy",
+      "blocks": {
+        "h-collection": {
+          "type": "heading",
+          "settings": {
+            "text": "Collection"
+          }
+        },
+        "l-collection": {
+          "type": "list",
+          "settings": {
+            "text": "Ready within 1 business day of payment clearing. You get an SMS when it is packed and waiting.\nHeld for 72 hours. After that the order is returned to stock and your allocation is credited back.\nBring the ID you verified with. The physical document, not a photo of it. Handover is refused without it.\nThe named member collects. We cannot hand over to a partner, friend or driver, whatever authorisation they carry."
+          }
+        },
+        "h-courier": {
+          "type": "heading",
+          "settings": {
+            "text": "Courier — CBD range only"
+          }
+        },
+        "l-courier": {
+          "type": "list",
+          "settings": {
+            "text": "South Africa only. We do not ship across borders — exporting these products is regulated and we are not licensed for it.\n2–3 business days to main centres, 3–5 business days elsewhere.\nOrders placed before 12:00 on a business day go out the same day, once payment has cleared. The clock starts at payment, not at checkout.\nSignature and 18+ ID on delivery. The courier will not leave a parcel with a minor, at a security gate, or without a signature.\nNo PO boxes or lockers. Someone has to sign."
+          }
+        },
+        "h-packaging": {
+          "type": "heading",
+          "settings": {
+            "text": "Packaging"
+          }
+        },
+        "p-packaging": {
+          "type": "paragraph",
+          "settings": {
+            "text": "<p>Everything goes out in plain, unbranded, odour-sealed packaging. The waybill shows a company name and nothing about the contents. No branding, no product names, no leaf motifs on the outside of the box.</p>"
+          }
+        },
+        "h-failed": {
+          "type": "heading",
+          "settings": {
+            "text": "If delivery fails"
+          }
+        },
+        "l-failed": {
+          "type": "list",
+          "settings": {
+            "text": "The courier makes two attempts, then holds the parcel at the nearest depot for five days.\nUncollected parcels come back to us. We refund the order less the original courier fee.\nA re-delivery after a failed attempt is charged at the standard fee, regardless of the free-shipping threshold.\nA wrong address given at checkout is a re-delivery, not a failed delivery — the fee applies."
+          }
+        },
+        "h-never": {
+          "type": "heading",
+          "settings": {
+            "text": "What we do not do"
+          }
+        },
+        "l-never": {
+          "type": "list",
+          "settings": {
+            "text": "International shipping. Not to anywhere, including countries where these products are legal.\nCourier for members-only items.\nThird-party collection. No proxies, no couriers you arrange yourself.\nDelivery to a workplace without the recipient present to sign."
+          }
+        }
+      },
+      "block_order": [
+        "h-collection",
+        "l-collection",
+        "h-courier",
+        "l-courier",
+        "h-packaging",
+        "p-packaging",
+        "h-failed",
+        "l-failed",
+        "h-never",
+        "l-never"
+      ],
+      "settings": {
+        "heading": "Shipping & delivery",
+        "courier_fee": 150,
+        "free_over": 1200,
+        "collection_page": "shopify://pages/collection-points",
+        "updated": "1 August 2026",
+        "lede": "<p><strong>Members-only items are not couriered. Ever.</strong> Anything outside the CBD range is handed over in person so we can check your ID against the document you verified with. There is no workaround for this, and asking us to post it will get the order cancelled and refunded.</p>",
+        "show_shipping_summary": true
+      }
+    }
+  },
+  "order": [
+    "policy"
+  ]
+}

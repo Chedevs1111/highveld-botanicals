@@ -1,0 +1,67 @@
+<section class="hb-section">
+  <div class="hb-container hb-narrow">
+    <p class="hb-eyebrow">{{ 'customer.eyebrow' | t }}</p>
+    <h1 class="hb-apply__title">{{ 'customer.login_title' | t }}</h1>
+
+    <div id="recover" class="hb-recover" hidden>
+      {% form 'recover_customer_password', class: 'hb-form' %}
+        <h2 class="hb-detail__title">{{ 'customer.recover_title' | t }}</h2>
+        <p class="hb-muted">{{ 'customer.recover_body' | t }}</p>
+
+        {{ form.errors | default_errors }}
+
+        {% if form.posted_successfully? %}
+          <p class="hb-notice hb-notice--ok">{{ 'customer.recover_sent' | t }}</p>
+        {% endif %}
+
+        <label class="hb-form__field">
+          <span class="hb-form__label">{{ 'membership.email' | t }}</span>
+          <input class="hb-form__input" type="email" name="email" autocomplete="email" required>
+        </label>
+
+        <div class="hb-form__actions">
+          <button type="submit" class="hb-btn hb-btn--primary">{{ 'customer.recover_submit' | t }}</button>
+          <button type="button" class="hb-btn hb-btn--ghost" data-toggle-recover>{{ 'customer.cancel' | t }}</button>
+        </div>
+      {% endform %}
+    </div>
+
+    <div id="login">
+      {% form 'customer_login', class: 'hb-form' %}
+        {{ form.errors | default_errors }}
+
+        <label class="hb-form__field">
+          <span class="hb-form__label">{{ 'membership.email' | t }}</span>
+          <input class="hb-form__input" type="email" name="customer[email]" autocomplete="email" required>
+        </label>
+
+        <label class="hb-form__field">
+          <span class="hb-form__label">{{ 'customer.password' | t }}</span>
+          <input class="hb-form__input" type="password" name="customer[password]" autocomplete="current-password" required>
+        </label>
+
+        <div class="hb-form__actions">
+          <button type="submit" class="hb-btn hb-btn--primary">{{ 'customer.login_submit' | t }}</button>
+          <button type="button" class="hb-btn hb-btn--ghost" data-toggle-recover>{{ 'customer.forgot' | t }}</button>
+        </div>
+      {% endform %}
+
+      <p class="hb-muted hb-apply__aside">
+        {{ 'customer.no_account' | t }}
+        <a href="{{ routes.account_register_url }}">{{ 'membership.create_account' | t }}</a>
+      </p>
+    </div>
+  </div>
+</section>
+
+{% javascript %}
+  document.addEventListener('click', function (event) {
+    if (!event.target.closest('[data-toggle-recover]')) return;
+    var login = document.getElementById('login');
+    var recover = document.getElementById('recover');
+    if (!login || !recover) return;
+    var showRecover = recover.hidden;
+    recover.hidden = !showRecover;
+    login.hidden = showRecover;
+  });
+{% endjavascript %}

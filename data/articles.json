@@ -1,0 +1,630 @@
+{
+  "note": "Guides are evergreen education. Posts are dated writing. Anything describing company history or events must be written by someone who was there — see placeholder entries.",
+  "topics": [
+    {
+      "handle": "dosing",
+      "title": "Dosing & safety",
+      "blurb": "How much, how long, and when not to."
+    },
+    {
+      "handle": "testing",
+      "title": "Testing & labels",
+      "blurb": "Reading what is on the certificate."
+    },
+    {
+      "handle": "plant",
+      "title": "The plant",
+      "blurb": "Terpenes, cultivars and what the labels actually mean."
+    },
+    {
+      "handle": "keeping",
+      "title": "Keeping it well",
+      "blurb": "Storage, degradation and tolerance."
+    }
+  ],
+  "articles": [
+    {
+      "slug": "start-low-go-slow",
+      "type": "guide",
+      "topic": "dosing",
+      "title": "Start low, go slow",
+      "standfirst": "The single most useful habit, and the one mistake almost everybody makes with edibles at least once.",
+      "reading_minutes": 4,
+      "updated": "2026-08-02",
+      "safety_critical": true,
+      "body": [
+        {
+          "t": "p",
+          "v": "Tolerance varies enormously between people, and in the same person between one week and the next. Body weight, what you last ate, how much sleep you had, how often you use and how recently — all of it moves the line. This is why nobody, including us, can tell you what your dose is. What we can tell you is how to find it without a bad evening."
+        },
+        {
+          "t": "h2",
+          "v": "The rule"
+        },
+        {
+          "t": "callout",
+          "v": "Take the smallest amount you reasonably can. Wait the full onset time. Do not take more inside that window, whatever your judgement is telling you at minute forty."
+        },
+        {
+          "t": "h2",
+          "v": "Onset times, and why edibles catch people"
+        },
+        {
+          "t": "p",
+          "v": "Inhaled cannabis reaches you in minutes, peaks around thirty, and you can feel your way up. Anything eaten goes through your liver first, where THC is converted into a metabolite that is both stronger and longer-lasting than what you started with."
+        },
+        {
+          "t": "table",
+          "head": [
+            "Route",
+            "Onset",
+            "Peak",
+            "Duration"
+          ],
+          "rows": [
+            [
+              "Inhaled",
+              "1–10 minutes",
+              "~30 minutes",
+              "2–4 hours"
+            ],
+            [
+              "Eaten or swallowed",
+              "45–90 minutes",
+              "2–4 hours",
+              "6–8 hours, sometimes longer"
+            ],
+            [
+              "Under the tongue",
+              "15–45 minutes",
+              "~90 minutes",
+              "4–6 hours"
+            ],
+            [
+              "Topical",
+              "No intoxication",
+              "—",
+              "Local effect only"
+            ]
+          ]
+        },
+        {
+          "t": "p",
+          "v": "The gap between eating something and feeling it is the whole problem. Ninety minutes is long enough to conclude nothing is happening, take a second dose, and then meet both at once."
+        },
+        {
+          "t": "h2",
+          "v": "Where to start"
+        },
+        {
+          "t": "list",
+          "v": [
+            "**New to edibles:** half of a 5 mg piece. Yes, half. Wait two hours before deciding anything.",
+            "**Occasional user:** 5 mg. That is one piece of most measured-dose products.",
+            "**Regular user:** 10 mg is a moderate dose, not a starting one.",
+            "**A new batch or a new product:** treat yourself as new again, particularly with anything above 20% THC."
+          ]
+        },
+        {
+          "t": "h2",
+          "v": "If you have taken too much"
+        },
+        {
+          "t": "p",
+          "v": "It is unpleasant and it is frightening, and it passes. No one has died of a cannabis overdose. What helps: somewhere quiet and dim, someone you trust nearby, water, and time. What does not help: more caffeine, more alcohol, or trying to walk it off in public."
+        },
+        {
+          "t": "callout",
+          "v": "Get medical help if there is chest pain, trouble breathing, fainting, or if the person is a child. Tell the medical staff exactly what was taken and how much — they are treating you, not reporting you."
+        },
+        {
+          "t": "h2",
+          "v": "Things that make a dose land harder"
+        },
+        {
+          "t": "list",
+          "v": [
+            "An empty stomach.",
+            "Alcohol, in either order.",
+            "A tolerance break — a week off can put you back near where you started.",
+            "Concentrates. An 80% cartridge is not a stronger version of flower, it is a different scale."
+          ]
+        }
+      ]
+    },
+    {
+      "slug": "reading-a-certificate-of-analysis",
+      "type": "guide",
+      "topic": "testing",
+      "title": "How to read a certificate of analysis",
+      "standfirst": "Every batch we release has one. Here is what each part of it is actually telling you.",
+      "reading_minutes": 5,
+      "updated": "2026-08-02",
+      "body": [
+        {
+          "t": "p",
+          "v": "A certificate of analysis, or COA, is a laboratory's report on one specific batch. Not on the product line, not on the strain — on the batch, identified by the code printed on your packaging. If the code on your jar does not match a certificate on file, something is wrong."
+        },
+        {
+          "t": "h2",
+          "v": "Total THC is a calculation, not a measurement"
+        },
+        {
+          "t": "p",
+          "v": "Raw cannabis contains very little THC. It contains THCA, an acid that converts to THC when heated — when you smoke it, vape it, or when it is baked into an edible. The lab measures both and calculates what you will actually get."
+        },
+        {
+          "t": "callout",
+          "v": "Total THC = (THCA × 0.877) + Δ9-THC"
+        },
+        {
+          "t": "p",
+          "v": "The 0.877 is a molecular weight ratio: THCA loses a carboxyl group when it decarboxylates, so it gets lighter. A certificate showing 24.33% THCA and 0.67% THC gives 22.01% total THC — and that is the number on the product page. Total CBD works the same way from CBDA."
+        },
+        {
+          "t": "p",
+          "v": "If a seller quotes you a THC figure much higher than the total on the certificate, they are quoting THCA and hoping you do not know the difference."
+        },
+        {
+          "t": "h2",
+          "v": "The contaminant panels"
+        },
+        {
+          "t": "list",
+          "v": [
+            "**Pesticides** — usually 60-plus analytes by mass spectrometry. Cannabis is often grown intensively and is then inhaled, which is the worst possible route for a residue.",
+            "**Heavy metals** — lead, cadmium, arsenic, mercury. Cannabis is a hyperaccumulator: it pulls metals out of soil and concentrates them.",
+            "**Microbials** — E. coli, salmonella, and the aspergillus moulds. Relevant to anyone, dangerous to anyone immunocompromised.",
+            "**Mycotoxins** — aflatoxins and ochratoxin A, produced by moulds that may no longer be present.",
+            "**Residual solvents** — extracts only. Butane, propane, ethanol left behind by extraction."
+          ]
+        },
+        {
+          "t": "h2",
+          "v": "ND does not mean zero"
+        },
+        {
+          "t": "p",
+          "v": "\"Not detected\" means below the limit of quantitation — the lowest amount the method can reliably measure. It is a statement about the test, not a guarantee of absence. That is normal and it is honest; be suspicious of a lab that reports a hard zero."
+        },
+        {
+          "t": "h2",
+          "v": "Moisture and water activity"
+        },
+        {
+          "t": "p",
+          "v": "On flower certificates you will see both. Water activity below 0.65 is the threshold that inhibits mould growth. Moisture above about 13% risks spoilage; below about 8% and the terpenes have already gone, which is why over-dried flower tastes of nothing."
+        },
+        {
+          "t": "h2",
+          "v": "What to actually check"
+        },
+        {
+          "t": "list",
+          "v": [
+            "The batch code matches your packaging.",
+            "The report date is recent relative to when you got it.",
+            "Every safety panel says pass.",
+            "The total THC on the certificate matches the figure on the product page."
+          ]
+        },
+        {
+          "t": "link",
+          "label": "Look up a batch code",
+          "href": "#/lab-results"
+        }
+      ],
+      "verify_against_batch": "DP-2607-A"
+    },
+    {
+      "slug": "sativa-indica-and-why-it-is-a-weak-guide",
+      "type": "guide",
+      "topic": "plant",
+      "title": "Sativa, indica, and why it is a weak guide",
+      "standfirst": "The most widely used classification in cannabis is mostly about the shape of the plant, not what it does to you.",
+      "reading_minutes": 4,
+      "updated": "2026-08-02",
+      "body": [
+        {
+          "t": "p",
+          "v": "Sativa is supposed to mean energising and cerebral. Indica is supposed to mean relaxing and physical. It is a useful shorthand and it is repeated everywhere, including on our own product pages, because customers expect it. It is also a much weaker predictor than the industry pretends."
+        },
+        {
+          "t": "h2",
+          "v": "Where the terms come from"
+        },
+        {
+          "t": "p",
+          "v": "They are botanical descriptions of plant morphology — tall and narrow-leafed against short and broad-leafed — which correlated loosely with geographic origin. They were never descriptions of effect. Decades of hybridisation have since made the labels almost meaningless as lineage: nearly everything sold today is a hybrid, and the label reflects which side the grower thinks dominates."
+        },
+        {
+          "t": "h2",
+          "v": "What predicts effect better"
+        },
+        {
+          "t": "list",
+          "v": [
+            "**Total THC** — the single biggest factor in how strong it feels.",
+            "**The THC-to-CBD ratio** — CBD moderates the experience. A strain with meaningful CBD feels different from a THC-only strain at the same potency.",
+            "**The terpene profile** — the most likely explanation for why two 20% flowers feel different.",
+            "**Dose** — a small amount of an energising cultivar and a large amount of the same thing are not the same experience."
+          ]
+        },
+        {
+          "t": "h2",
+          "v": "How to use the labels anyway"
+        },
+        {
+          "t": "p",
+          "v": "Treat sativa and indica as a rough starting hypothesis, then pay attention to the profile underneath. If a flower you liked was terpinolene-dominant, that is a far more useful thing to remember than that it was labelled sativa. The certificate tells you the profile; the label tells you what the grower expected."
+        },
+        {
+          "t": "callout",
+          "v": "Keep a note of what you have tried and what the profile was. Two or three entries in and you will have a better guide to your own preferences than any label on a jar."
+        }
+      ]
+    },
+    {
+      "slug": "terpenes-what-is-known-and-what-is-marketing",
+      "type": "guide",
+      "topic": "plant",
+      "title": "Terpenes: what is known and what is marketing",
+      "standfirst": "The aromatic compounds that make one cultivar smell of citrus and another of pine — and the limits of what we can honestly say they do.",
+      "reading_minutes": 4,
+      "updated": "2026-08-02",
+      "body": [
+        {
+          "t": "p",
+          "v": "Terpenes are aromatic compounds found across the plant kingdom. Limonene is what makes citrus peel smell of citrus. Pinene is pine. They are not unique to cannabis, and they are a large part of why two batches with identical THC can smell and taste completely different."
+        },
+        {
+          "t": "h2",
+          "v": "The ones you will see on our certificates"
+        },
+        {
+          "t": "table",
+          "head": [
+            "Terpene",
+            "Smells like",
+            "Also found in"
+          ],
+          "rows": [
+            [
+              "Myrcene",
+              "Earthy, musky, slightly sweet",
+              "Hops, mango, thyme"
+            ],
+            [
+              "Limonene",
+              "Citrus peel",
+              "Citrus rind, juniper"
+            ],
+            [
+              "Terpinolene",
+              "Fresh, piney, faintly floral",
+              "Nutmeg, apples, cumin"
+            ],
+            [
+              "Caryophyllene",
+              "Peppery, woody",
+              "Black pepper, cloves"
+            ],
+            [
+              "Pinene",
+              "Pine needles",
+              "Pine, rosemary, basil"
+            ],
+            [
+              "Linalool",
+              "Floral, lavender",
+              "Lavender, coriander"
+            ]
+          ]
+        },
+        {
+          "t": "h2",
+          "v": "The honest position on effects"
+        },
+        {
+          "t": "p",
+          "v": "You will read confident claims that myrcene sedates, limonene lifts mood, and pinene sharpens focus. The underlying research is mostly preclinical — cell cultures and animal models, often at concentrations far above what is present in a joint. There is a plausible mechanism, and there is real work on the so-called entourage effect, but it is not settled enough for anyone to promise you an outcome."
+        },
+        {
+          "t": "callout",
+          "v": "We list terpene profiles because they are measured facts about the batch, and because they are genuinely useful for finding more of what you liked. We are not telling you what they will do to you, and anyone who does is going past the evidence."
+        },
+        {
+          "t": "h2",
+          "v": "Why they matter practically"
+        },
+        {
+          "t": "p",
+          "v": "Terpenes are volatile. They evaporate with heat, light and time, which is why old flower smells flat and why storage matters. A high terpene reading on a fresh certificate is a reasonable proxy for careful growing and curing — and a good reason to keep it in the dark and use it while it is good."
+        }
+      ]
+    },
+    {
+      "slug": "storing-it-properly",
+      "type": "guide",
+      "topic": "keeping",
+      "title": "Storing it properly",
+      "standfirst": "Light, heat, air and humidity. Get these wrong and a good batch is mediocre in a month.",
+      "reading_minutes": 3,
+      "updated": "2026-08-02",
+      "body": [
+        {
+          "t": "p",
+          "v": "Cannabis degrades in predictable ways. THC oxidises into CBN, which is why old flower feels duller and heavier rather than simply weaker. Terpenes evaporate, which is why it stops smelling of anything. Both are driven by the same four things."
+        },
+        {
+          "t": "h2",
+          "v": "The four enemies"
+        },
+        {
+          "t": "list",
+          "v": [
+            "**Light** — UV accelerates degradation faster than anything else. Opaque or UV-blocking glass, always.",
+            "**Heat** — store cool, but not in a fridge. Temperature cycling causes condensation, and condensation causes mould.",
+            "**Air** — oxygen drives oxidation. A jar that is half air is worse than a full one.",
+            "**Humidity** — too wet and it moulds, too dry and the terpenes leave and the flower turns to dust."
+          ]
+        },
+        {
+          "t": "h2",
+          "v": "What good looks like"
+        },
+        {
+          "t": "list",
+          "v": [
+            "Airtight glass, not plastic. Plastic holds static that strips trichomes, and some plastics interact with terpenes.",
+            "A cupboard, not a windowsill. Cool, dark and stable.",
+            "Around 60% relative humidity. A two-way humidity pack holds this for you.",
+            "Whole flower, not ground. Grind as you use it — surface area is the enemy."
+          ]
+        },
+        {
+          "t": "h2",
+          "v": "Edibles, oils and cartridges"
+        },
+        {
+          "t": "list",
+          "v": [
+            "**Edibles** — as the packaging says, and out of reach of children and animals. This is the one that matters most.",
+            "**Oils and tinctures** — upright, dark, cool. Never in a bathroom.",
+            "**Cartridges** — upright and at room temperature. Cold thickens the oil and can crack the glass."
+          ]
+        },
+        {
+          "t": "callout",
+          "v": "Anything that smells of ammonia, looks fuzzy or grey-white in a way trichomes are not, or crumbles to powder should be thrown away. If you are unsure whether what you are looking at is mould, assume it is."
+        }
+      ]
+    },
+    {
+      "slug": "tolerance-and-taking-a-break",
+      "type": "guide",
+      "topic": "keeping",
+      "title": "Tolerance, and taking a break",
+      "standfirst": "Why the same amount stops working, and what actually resets it.",
+      "reading_minutes": 3,
+      "updated": "2026-08-02",
+      "body": [
+        {
+          "t": "p",
+          "v": "Tolerance to THC builds quickly, and it builds through a fairly well-understood mechanism: regular use downregulates the CB1 receptors THC acts on. Your body makes fewer of them available. The same dose does less, so the natural response is to take more."
+        },
+        {
+          "t": "h2",
+          "v": "What resets it"
+        },
+        {
+          "t": "p",
+          "v": "Time, and only time. Imaging studies show CB1 receptor density beginning to recover within a couple of days of stopping and largely returning within about four weeks. Most people notice a real difference after a week."
+        },
+        {
+          "t": "list",
+          "v": [
+            "**48 hours** — measurable recovery has started.",
+            "**One week** — most people notice a clear difference.",
+            "**Two to four weeks** — a substantial reset."
+          ]
+        },
+        {
+          "t": "h2",
+          "v": "What does not reset it"
+        },
+        {
+          "t": "list",
+          "v": [
+            "Switching cultivar. Different terpenes, same THC, same receptors.",
+            "Switching from flower to a cartridge. That is a higher dose, not a fresh start.",
+            "Alternating between products through the day."
+          ]
+        },
+        {
+          "t": "h2",
+          "v": "The first few days"
+        },
+        {
+          "t": "p",
+          "v": "Regular users stopping abruptly often report a few days of poor sleep, vivid dreams, irritability and reduced appetite. It is generally mild, it peaks in the first week and it passes. If it does not, or if stopping feels genuinely difficult rather than inconvenient, that is worth talking to a doctor about — not because cannabis is uniquely dangerous, but because the pattern is worth taking seriously."
+        },
+        {
+          "t": "callout",
+          "v": "Coming back after a break, treat yourself as a new user. Your old dose is now a large dose. This is when experienced users have their worst experiences."
+        }
+      ]
+    },
+    {
+      "slug": "when-not-to-use",
+      "type": "guide",
+      "topic": "dosing",
+      "title": "When not to use",
+      "standfirst": "The situations where the answer is simply no, and the ones worth a conversation with a doctor first.",
+      "reading_minutes": 4,
+      "updated": "2026-08-02",
+      "safety_critical": true,
+      "body": [
+        {
+          "t": "callout",
+          "v": "This is general safety information, not medical advice, and it does not know anything about you. If any of it applies to you, talk to a doctor or a pharmacist — they will not report you, and they can give you an answer specific to your situation."
+        },
+        {
+          "t": "h2",
+          "v": "Not, in any circumstances"
+        },
+        {
+          "t": "list",
+          "v": [
+            "**Driving, or operating machinery.** South African law treats driving under the influence of cannabis the same as alcohol. Impairment of reaction time and judgement outlasts the effect you notice, often by hours.",
+            "**Anyone under 18.** The evidence on adolescent brain development is the strongest negative finding in the whole field. This is why we verify age.",
+            "**Pregnant or breastfeeding.** THC crosses the placenta and is present in breast milk.",
+            "**At work**, if your work involves anyone's safety."
+          ]
+        },
+        {
+          "t": "h2",
+          "v": "Talk to a doctor first"
+        },
+        {
+          "t": "list",
+          "v": [
+            "**A personal or family history of psychosis or schizophrenia.** The association with high-THC cannabis is one of the better-established risks, particularly with early and heavy use.",
+            "**A heart condition.** THC raises heart rate, sometimes considerably.",
+            "**Prescribed medication.** Cannabis interacts with the same liver enzymes as many drugs, including some blood thinners, anti-epileptics and antidepressants. The interaction can push a medication level in either direction.",
+            "**An anxiety disorder.** High-THC products make anxiety worse for a substantial number of people, and low-CBD ones especially."
+          ]
+        },
+        {
+          "t": "h2",
+          "v": "Combinations worth avoiding"
+        },
+        {
+          "t": "list",
+          "v": [
+            "**Alcohol.** Drinking first increases THC absorption, and the combination is far harder to judge than either alone.",
+            "**Sedatives.** Additive drowsiness.",
+            "**Anything you cannot verify.** If it has no batch code and no certificate, you do not know what is in it."
+          ]
+        },
+        {
+          "t": "h2",
+          "v": "Around other people"
+        },
+        {
+          "t": "p",
+          "v": "Store everything so that children and animals cannot reach it. Edibles look like confectionery and dogs in particular will eat an entire bar. If a child or a pet has eaten something, treat it as an emergency and say exactly what was in it."
+        }
+      ]
+    },
+    {
+      "slug": "why-we-publish-every-certificate",
+      "type": "post",
+      "topic": "testing",
+      "title": "Why we publish every certificate",
+      "standfirst": "Including the ones with numbers we would rather round.",
+      "reading_minutes": 3,
+      "updated": "2026-08-02",
+      "body": [
+        {
+          "t": "p",
+          "v": "Most cannabis sold anywhere is sold on a number somebody told you. A percentage on a label, a strain name, a claim about how it will make you feel. Very little of it is checkable, and the parts that are checkable are usually the parts nobody publishes."
+        },
+        {
+          "t": "p",
+          "v": "We publish the full certificate for every batch, linked from the product page and searchable by the code on your packaging. Not a summary, not the headline potency — the whole report, including the contaminant panels and the moisture readings."
+        },
+        {
+          "t": "h2",
+          "v": "The uncomfortable part"
+        },
+        {
+          "t": "p",
+          "v": "This means publishing results that are less flattering than the marketing would like. A batch that came in at 17.99% rather than the 18% on the line's usual spec. A terpene reading lower than the previous run. Those are real, they are what the lab found, and rounding them in our favour would make every other number on the site worth less."
+        },
+        {
+          "t": "h2",
+          "v": "What it lets you do"
+        },
+        {
+          "t": "list",
+          "v": [
+            "Check that the batch in your hand is one we actually released.",
+            "Compare what you liked against its measured profile, rather than against a name.",
+            "See that the safety panels were run at all — which, industry-wide, is not a given.",
+            "Hold us to the number on the product page."
+          ]
+        },
+        {
+          "t": "p",
+          "v": "The test we set ourselves is simple: the potency on the product page must reconcile with the certificate behind it. If it ever does not, the product page is wrong and we fix the product page."
+        },
+        {
+          "t": "link",
+          "label": "Read the certificates",
+          "href": "#/lab-results"
+        }
+      ]
+    },
+    {
+      "slug": "why-landrace",
+      "type": "post",
+      "topic": "plant",
+      "title": "Why landrace",
+      "standfirst": "They yield less, take longer and are harder to grow. That is roughly the point.",
+      "reading_minutes": 3,
+      "updated": "2026-08-02",
+      "body": [
+        {
+          "t": "p",
+          "v": "A landrace is a population that adapted to one place over a long time without deliberate breeding for market traits. Southern Africa has several — the Durban line on the east coast, the Swazi highland cultivars, the Malawi lines further north. They were what grew here before the global seed market arrived."
+        },
+        {
+          "t": "h2",
+          "v": "What makes them difficult"
+        },
+        {
+          "t": "list",
+          "v": [
+            "They flower for a long time. Fourteen weeks is common where a modern hybrid finishes in eight.",
+            "They stretch, sometimes to three times their vegetative height.",
+            "They do not finish evenly, so a single plant may need picking over several times.",
+            "They yield less per square metre than anything bred for commercial output."
+          ]
+        },
+        {
+          "t": "h2",
+          "v": "What makes them worth it"
+        },
+        {
+          "t": "p",
+          "v": "Terpene profiles you do not find in the hybrid market. Durban Poison's terpinolene-driven aniseed-and-citrus nose is not a marketing description, it is a measurable feature of the cultivar, and it survives in the certificate. Growing these lines is also the only way they continue to exist in a market that otherwise selects entirely for yield and potency."
+        },
+        {
+          "t": "p",
+          "v": "There is no claim here that landrace is better for you, or stronger, or more natural in some way that means anything. Malawi lines test above 23% THC and are not a gentle introduction to anything. The argument is narrower: these cultivars are specific, they are from here, and they are worth keeping in cultivation."
+        }
+      ]
+    },
+    {
+      "slug": "placeholder-company-news",
+      "type": "post",
+      "topic": "plant",
+      "title": "Company news goes here",
+      "standfirst": "Harvest updates, new batches, collection point changes, anything dated.",
+      "reading_minutes": 1,
+      "updated": "2026-08-02",
+      "placeholder": true,
+      "body": [
+        {
+          "t": "callout",
+          "v": "This is a structural placeholder, not an article. Dated company news must be written by someone who was there — invented history reads as fact and nobody downstream can tell the difference."
+        },
+        {
+          "t": "p",
+          "v": "The blog is wired and ready. What belongs here: harvest and batch announcements, collection point openings and hours changes, recalls and safety notices, and anything else with a date attached to it. Delete this entry once there is a real first post."
+        }
+      ]
+    }
+  ]
+}

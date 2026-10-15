@@ -1,0 +1,77 @@
+{
+  "sections": {
+    "policy": {
+      "type": "delivery-policy",
+      "blocks": {
+        "h-cancel": {
+          "type": "heading",
+          "settings": {
+            "text": "Cancelling before collection"
+          }
+        },
+        "l-cancel": {
+          "type": "list",
+          "settings": {
+            "text": "Cancel any time before handover from your order page. No fee, no reason needed.\nUnits go back to your allocation immediately — the same month they were taken from.\nUnpaid orders cancel themselves after 72 hours, with the same credit back."
+          }
+        },
+        "h-rights": {
+          "type": "heading",
+          "settings": {
+            "text": "Your rights, which this page cannot shrink"
+          }
+        },
+        "p-rights": {
+          "type": "paragraph",
+          "settings": {
+            "text": "<p>Section 56 of the Consumer Protection Act gives you six months to return goods that are unsafe, defective, or not fit for the purpose they were sold for. You choose whether that is a refund, a replacement or a repair — not us. Nothing on this page overrides that, and if anything here appears to, the Act wins.</p><p>What the Act also does is exempt us from taking back goods that cannot be resold for health reasons. That is the basis for the rule on opened consumables.</p>"
+          }
+        },
+        "h-paid": {
+          "type": "heading",
+          "settings": {
+            "text": "How refunds are paid"
+          }
+        },
+        "l-paid": {
+          "type": "list",
+          "settings": {
+            "text": "Paid by EFT? It goes back to the account it came from. We do not pay refunds to a different account than the one that paid — that is a fraud control.\nPaid cash at collection? We need your bank details, and the account must be in the member's name.\nProcessing takes 5–10 business days from the day we approve it.\nNo restocking fee."
+          }
+        },
+        "h-notdefect": {
+          "type": "heading",
+          "settings": {
+            "text": "Things that are not defects"
+          }
+        },
+        "l-notdefect": {
+          "type": "list",
+          "settings": {
+            "text": "It affected you differently than you expected. Tolerance varies enormously between people and between sessions. That is not a fault in the product.\nThe effect was stronger than you wanted. Start lower next time.\nYou did not like the taste or the smell.\nPotency differs slightly from the label. Cannabinoid testing carries a tolerance. A result inside it is not a mislabelling. A result outside it is, and that is a refund."
+          }
+        }
+      },
+      "block_order": [
+        "h-cancel",
+        "l-cancel",
+        "h-rights",
+        "p-rights",
+        "h-paid",
+        "l-paid",
+        "h-notdefect",
+        "l-notdefect"
+      ],
+      "settings": {
+        "heading": "Returns & refunds",
+        "intro": "What we can take back, what we cannot, and what you are owed regardless of anything written on this page.",
+        "updated": "1 August 2026",
+        "lede": "<p><strong>Opened consumables cannot be returned.</strong> Once a seal is broken on flower, a pre-roll, an edible or a cartridge, we cannot verify how it was stored or whether it was tampered with, so it can never go back into stock for another member. This is a health rule, not a commercial one, and it does not change however recently you bought it.</p>",
+        "show_shipping_summary": false
+      }
+    }
+  },
+  "order": [
+    "policy"
+  ]
+}

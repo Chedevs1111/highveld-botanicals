@@ -1,0 +1,42 @@
+<section class="hb-section">
+  <div class="hb-container hb-narrow">
+    <p class="hb-eyebrow">{{ 'not_found.eyebrow' | t }}</p>
+    <h1 class="hb-apply__title">{{ 'not_found.title' | t }}</h1>
+    <p class="hb-muted hb-pol__lead">{{ 'not_found.body' | t }}</p>
+
+    <div class="hb-404__actions">
+      <a class="hb-btn hb-btn--primary" href="{{ routes.all_products_collection_url }}">
+        {{ 'not_found.browse' | t }}
+      </a>
+      <a class="hb-btn hb-btn--ghost" href="{{ routes.search_url }}">{{ 'not_found.search' | t }}</a>
+    </div>
+
+    {% if section.settings.show_links %}
+      <h2 class="hb-pol__h2">{{ 'not_found.popular' | t }}</h2>
+      <ul class="hb-pol__list">
+        {% for link in section.settings.menu.links %}
+          <li><a href="{{ link.url }}">{{ link.title }}</a></li>
+        {% endfor %}
+      </ul>
+    {% endif %}
+  </div>
+</section>
+
+{% stylesheet %}
+  .hb-404__actions {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.75rem;
+    margin-top: 1.5rem;
+  }
+{% endstylesheet %}
+
+{% schema %}
+{
+  "name": "t:sections.main_404.name",
+  "settings": [
+    { "type": "checkbox", "id": "show_links", "label": "t:labels.show_links", "default": true },
+    { "type": "link_list", "id": "menu", "label": "t:labels.menu", "default": "main-menu" }
+  ]
+}
+{% endschema %}

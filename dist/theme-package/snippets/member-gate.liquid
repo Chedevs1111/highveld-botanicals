@@ -1,0 +1,72 @@
+{% doc %}
+  Renders the members-only gate shown in place of the add-to-cart form when the
+  current customer may not purchase a product.
+
+  @param {string} status - Verification status from the 'member-status' snippet
+  @param {string} [apply_url] - Where the apply button points. Defaults to /pages/membership
+
+  @example
+  {% render 'member-gate', status: member_status, apply_url: '/pages/membership' %}
+{% enddoc %}
+
+{% liquid
+  assign target = apply_url | default: '/pages/membership'
+
+  case status
+    when 'pending'
+      assign message = 'member_gate.pending'
+      assign action = 'member_gate.action_pending'
+      assign target = routes.account_url
+    when 'rejected'
+      assign message = 'member_gate.rejected'
+      assign action = 'member_gate.action_rejected'
+      assign target = routes.account_url
+    else
+      assign message = 'member_gate.unverified'
+      assign action = 'member_gate.action_unverified'
+  endcase
+%}
+
+<div class="hb-gate" role="note">
+  <p class="hb-gate__lock">{{ 'member_gate.lock' | t }}</p>
+  <p class="hb-gate__message">{{ message | t }}</p>
+
+  {% if customer %}
+    <a class="hb-btn hb-btn--primary" href="{{ target }}">{{ action | t }}</a>
+  {% else %}
+    <a class="hb-btn hb-btn--primary" href="{{ routes.account_login_url }}">{{ 'member_gate.log_in' | t }}</a>
+    <a class="hb-gate__secondary" href="{{ target }}">{{ 'member_gate.action_unverified' | t }}</a>
+  {% endif %}
+</div>
+
+{% stylesheet %}
+  .hb-gate {
+    display: grid;
+    gap: 0.6rem;
+    justify-items: start;
+    padding: 1.25rem;
+    border: 1px solid var(--hb-accent);
+    border-radius: var(--hb-radius);
+    background: var(--hb-surface);
+  }
+
+  .hb-gate__lock {
+    margin: 0;
+    font-size: 0.6875rem;
+    font-weight: 700;
+    letter-spacing: 0.12em;
+    text-transform: uppercase;
+    color: var(--hb-accent);
+  }
+
+  .hb-gate__message {
+    margin: 0;
+    font-size: 0.9375rem;
+    color: var(--hb-muted);
+  }
+
+  .hb-gate__secondary {
+    font-size: 0.875rem;
+    color: var(--hb-muted);
+  }
+{% endstylesheet %}

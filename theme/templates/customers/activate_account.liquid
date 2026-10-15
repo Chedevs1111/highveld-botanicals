@@ -1,0 +1,26 @@
+<section class="hb-section">
+  <div class="hb-container hb-narrow">
+    <p class="hb-eyebrow">{{ 'customer.eyebrow' | t }}</p>
+    <h1 class="hb-apply__title">{{ 'customer.activate_title' | t }}</h1>
+    <p class="hb-muted hb-pol__lead">{{ 'customer.activate_body' | t }}</p>
+
+    {% form 'activate_customer_password', class: 'hb-form' %}
+      {{ form.errors | default_errors }}
+
+      <label class="hb-form__field">
+        <span class="hb-form__label">{{ 'customer.password' | t }}</span>
+        <input class="hb-form__input" type="password" name="customer[password]" autocomplete="new-password" required>
+      </label>
+
+      <label class="hb-form__field">
+        <span class="hb-form__label">{{ 'customer.confirm_password' | t }}</span>
+        <input class="hb-form__input" type="password" name="customer[password_confirmation]" autocomplete="new-password" required>
+      </label>
+
+      <div class="hb-form__actions">
+        <button type="submit" name="commit" class="hb-btn hb-btn--primary">{{ 'customer.activate_submit' | t }}</button>
+        <button type="submit" name="decline" class="hb-btn hb-btn--ghost">{{ 'customer.decline' | t }}</button>
+      </div>
+    {% endform %}
+  </div>
+</section>

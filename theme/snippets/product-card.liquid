@@ -1,0 +1,168 @@
+{% doc %}
+  Renders a product card for collection grids and featured rows, including the
+  potency summary, member tier flag and price.
+
+  @param {product} product - The product to render
+  @param {boolean} [show_vendor] - Whether to render the vendor name. Defaults to false
+
+  @example
+  {% render 'product-card', product: product, show_vendor: true %}
+{% enddoc %}
+
+{% liquid
+  assign tier = product.metafields.custom.member_tier.value | default: 'standard'
+  assign batch = product.metafields.custom.batch_id.value
+%}
+
+<article class="hb-card">
+  <a class="hb-card__link" href="{{ product.url }}">
+    <div class="hb-card__media">
+      {% if product.featured_image %}
+        {{
+          product.featured_image
+          | image_url: width: 600
+          | image_tag: loading: 'lazy', widths: '300, 450, 600', class: 'hb-card__image', alt: product.featured_image.alt | default: product.title
+        }}
+      {% else %}
+        {{ 'product-1' | placeholder_svg_tag: 'hb-card__image hb-card__image--placeholder' }}
+      {% endif %}
+
+      {% if product.available == false %}
+        <span class="hb-card__flag hb-card__flag--out">{{ 'product.sold_out' | t }}</span>
+      {% elsif tier == 'premium' %}
+        <span class="hb-card__flag hb-card__flag--premium">{{ 'product.tier_premium' | t }}</span>
+      {% elsif tier == 'open' %}
+        <span class="hb-card__flag hb-card__flag--open">{{ 'product.tier_open' | t }}</span>
+      {% endif %}
+    </div>
+
+    <div class="hb-card__body">
+      {% if show_vendor %}
+        <p class="hb-card__vendor">{{ product.vendor }}</p>
+      {% endif %}
+
+      <h3 class="hb-card__title">{{ product.title }}</h3>
+
+      {% render 'potency-badge', product: product %}
+
+      <div class="hb-card__foot">
+        <p class="hb-card__price">
+          {% if product.compare_at_price > product.price %}
+            <s class="hb-card__was">{{ product.compare_at_price | money }}</s>
+          {% endif %}
+          {{ product.price | money }}
+        </p>
+
+        {% if batch != blank %}
+          <p class="hb-card__batch">{{ 'product.batch' | t: id: batch }}</p>
+        {% endif %}
+      </div>
+    </div>
+  </a>
+</article>
+
+{% stylesheet %}
+  .hb-card {
+    background: var(--hb-surface);
+    border: 1px solid var(--hb-border);
+    border-radius: var(--hb-radius);
+    overflow: hidden;
+    transition: border-color 0.15s ease, transform 0.15s ease;
+  }
+
+  .hb-card:hover {
+    border-color: var(--hb-accent);
+    transform: translateY(-2px);
+  }
+
+  .hb-card__link {
+    display: block;
+    color: inherit;
+    text-decoration: none;
+  }
+
+  .hb-card__media {
+    position: relative;
+    aspect-ratio: 1 / 1;
+    background: var(--hb-bg);
+  }
+
+  .hb-card__image {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    display: block;
+  }
+
+  .hb-card__flag {
+    position: absolute;
+    inset-block-start: 0.75rem;
+    inset-inline-start: 0.75rem;
+    padding: 0.25rem 0.6rem;
+    border-radius: 999px;
+    font-size: 0.6875rem;
+    font-weight: 700;
+    letter-spacing: 0.06em;
+    text-transform: uppercase;
+    background: var(--hb-accent);
+    color: var(--hb-accent-ink);
+  }
+
+  .hb-card__flag--out {
+    background: var(--hb-muted);
+  }
+
+  .hb-card__flag--open {
+    background: var(--hb-surface);
+    color: var(--hb-ink);
+    border: 1px solid var(--hb-border);
+  }
+
+  .hb-card__body {
+    display: flex;
+    flex-direction: column;
+    gap: 0.75rem;
+    padding: 1.125rem;
+  }
+
+  .hb-card__vendor {
+    margin: 0;
+    font-size: 0.6875rem;
+    letter-spacing: 0.12em;
+    text-transform: uppercase;
+    color: var(--hb-muted);
+  }
+
+  .hb-card__title {
+    margin: 0;
+    font-size: 1.0625rem;
+    line-height: 1.3;
+  }
+
+  .hb-card__foot {
+    display: flex;
+    align-items: baseline;
+    justify-content: space-between;
+    gap: 0.75rem;
+    margin-top: 0.25rem;
+  }
+
+  .hb-card__price {
+    margin: 0;
+    font-size: 1.0625rem;
+    font-weight: 700;
+    font-variant-numeric: tabular-nums;
+  }
+
+  .hb-card__was {
+    margin-inline-end: 0.4rem;
+    font-weight: 400;
+    color: var(--hb-muted);
+  }
+
+  .hb-card__batch {
+    margin: 0;
+    font-size: 0.6875rem;
+    color: var(--hb-muted);
+  }
+{% endstylesheet %}

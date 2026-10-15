@@ -1,0 +1,473 @@
+{
+  "store": {
+    "name": "Highveld Botanicals",
+    "tagline": "Members-only botanical collective",
+    "currency": "ZAR",
+    "currency_symbol": "R",
+    "model": "private_members_club",
+    "jurisdiction": "ZA",
+    "minimum_age": 18,
+    "compliance_note": "Access is limited to verified members aged 18+. Amounts shown are member contributions toward cultivation and handling, not a public retail sale."
+  },
+  "categories": [
+    {
+      "handle": "flower",
+      "title": "Flower",
+      "blurb": "Cured whole-flower, sorted by batch."
+    },
+    {
+      "handle": "pre-rolls",
+      "title": "Pre-Rolls",
+      "blurb": "Ready-rolled, single-strain."
+    },
+    {
+      "handle": "edibles",
+      "title": "Edibles",
+      "blurb": "Measured-dose, slow onset."
+    },
+    {
+      "handle": "vapes-concentrates",
+      "title": "Vapes & Concentrates",
+      "blurb": "Extracts and cartridges."
+    },
+    {
+      "handle": "cbd-wellness",
+      "title": "CBD & Wellness",
+      "blurb": "Non-intoxicating, no membership required."
+    }
+  ],
+  "products": [
+    {
+      "handle": "durban-poison",
+      "sku": "HB-FL-001",
+      "title": "Durban Poison",
+      "category": "flower",
+      "type": "Flower",
+      "strain_type": "Sativa",
+      "lineage": "South African landrace",
+      "thc_pct": 22.0,
+      "cbd_pct": 0.4,
+      "thc_mg": null,
+      "cbd_mg": null,
+      "terpenes": [
+        "Terpinolene",
+        "Ocimene",
+        "Myrcene"
+      ],
+      "effects": [
+        "Energetic",
+        "Focused",
+        "Uplifted"
+      ],
+      "size": "3.5",
+      "unit": "g",
+      "price": 450,
+      "compare_at": null,
+      "stock": 24,
+      "weight_g": 8,
+      "batch_id": "DP-2607-A",
+      "coa_url": "/lab-results/DP-2607-A",
+      "member_tier": "standard",
+      "accent": "#7BA05B",
+      "short_description": "The country's most recognised landrace sativa — sharp, citrus-anise nose and a clear-headed daytime effect.",
+      "description": "A pure South African landrace that has been grown on the east coast for generations. Terpinolene-dominant, giving it the distinctive aniseed-and-orange-peel nose it is known for. Cured for 21 days and hand-sorted. Reported as clear-headed and functional rather than sedating, which makes it a common daytime choice among members.",
+      "image": "images/durban-poison.jpg",
+      "photo": {
+        "source": "pexels",
+        "id": "8139128",
+        "page": "https://www.pexels.com/photo/8139128/",
+        "photographer": "RDNE",
+        "cdn": "https://images.pexels.com/photos/8139128/pexels-photo-8139128.jpeg?auto=compress&cs=tinysrgb&w=1600",
+        "placeholder": true
+      }
+    },
+    {
+      "handle": "swazi-gold",
+      "sku": "HB-FL-002",
+      "title": "Swazi Gold",
+      "category": "flower",
+      "type": "Flower",
+      "strain_type": "Sativa",
+      "lineage": "Eswatini landrace",
+      "thc_pct": 19.0,
+      "cbd_pct": 0.6,
+      "thc_mg": null,
+      "cbd_mg": null,
+      "terpenes": [
+        "Myrcene",
+        "Pinene",
+        "Limonene"
+      ],
+      "effects": [
+        "Uplifted",
+        "Talkative",
+        "Creative"
+      ],
+      "size": "3.5",
+      "unit": "g",
+      "price": 420,
+      "compare_at": 470,
+      "stock": 31,
+      "weight_g": 8,
+      "batch_id": "SG-2606-C",
+      "coa_url": "/lab-results/SG-2606-C",
+      "member_tier": "standard",
+      "accent": "#C9A227",
+      "short_description": "Long-flowering equatorial sativa with the golden cure it takes its name from.",
+      "description": "A slow, fourteen-week equatorial sativa originally from the Eswatini highlands. Cures to a distinctive amber-gold. Softer in potency than Durban Poison with a rounder, sweeter smoke and a gentler climb. A good entry point for members new to landrace sativas.",
+      "image": "images/swazi-gold.jpg",
+      "photo": {
+        "source": "pexels",
+        "id": "8140284",
+        "page": "https://www.pexels.com/photo/8140284/",
+        "photographer": "RDNE",
+        "cdn": "https://images.pexels.com/photos/8140284/pexels-photo-8140284.jpeg?auto=compress&cs=tinysrgb&w=1600",
+        "placeholder": true
+      }
+    },
+    {
+      "handle": "malawi-cobra",
+      "sku": "HB-FL-003",
+      "title": "Malawi Cobra",
+      "category": "flower",
+      "type": "Flower",
+      "strain_type": "Sativa",
+      "lineage": "Malawian landrace",
+      "thc_pct": 24.0,
+      "cbd_pct": 0.2,
+      "thc_mg": null,
+      "cbd_mg": null,
+      "terpenes": [
+        "Limonene",
+        "Terpinolene",
+        "Caryophyllene"
+      ],
+      "effects": [
+        "Euphoric",
+        "Energetic",
+        "Giggly"
+      ],
+      "size": "3.5",
+      "unit": "g",
+      "price": 520,
+      "compare_at": null,
+      "stock": 12,
+      "weight_g": 8,
+      "batch_id": "MC-2607-A",
+      "coa_url": "/lab-results/MC-2607-A",
+      "member_tier": "premium",
+      "accent": "#B85C38",
+      "short_description": "The strongest sativa in the collection. Experienced members only.",
+      "description": "Descended from the Malawi Gold line and long regarded as one of the most potent landrace sativas on the continent. Tests consistently above 23% THC with almost no CBD to soften it. The onset is fast and pronounced. We do not recommend this batch as a first purchase — start at a quarter of your usual amount.",
+      "image": "images/malawi-cobra.jpg",
+      "photo": {
+        "source": "pexels",
+        "id": "8139080",
+        "page": "https://www.pexels.com/photo/8139080/",
+        "photographer": "RDNE",
+        "cdn": "https://images.pexels.com/photos/8139080/pexels-photo-8139080.jpeg?auto=compress&cs=tinysrgb&w=1600",
+        "placeholder": true
+      }
+    },
+    {
+      "handle": "midnight-kush",
+      "sku": "HB-FL-004",
+      "title": "Midnight Kush",
+      "category": "flower",
+      "type": "Flower",
+      "strain_type": "Indica",
+      "lineage": "Hindu Kush cross",
+      "thc_pct": 21.0,
+      "cbd_pct": 0.8,
+      "thc_mg": null,
+      "cbd_mg": null,
+      "terpenes": [
+        "Myrcene",
+        "Caryophyllene",
+        "Linalool"
+      ],
+      "effects": [
+        "Relaxed",
+        "Sleepy",
+        "Calm"
+      ],
+      "size": "7",
+      "unit": "g",
+      "price": 780,
+      "compare_at": null,
+      "stock": 18,
+      "weight_g": 14,
+      "batch_id": "MK-2605-B",
+      "coa_url": "/lab-results/MK-2605-B",
+      "member_tier": "standard",
+      "accent": "#4A4E7C",
+      "short_description": "Heavy myrcene-linalool indica in a seven-gram jar. An evening strain.",
+      "description": "A Hindu Kush cross selected for its myrcene and linalool content — the combination most associated with sedation. Dense, resin-heavy flower with a peppery, floral finish. Supplied in a seven-gram UV jar. Members most often report using this one late, and not before driving or working.",
+      "image": "images/midnight-kush.jpg",
+      "photo": {
+        "source": "pexels",
+        "id": "34246669",
+        "page": "https://www.pexels.com/photo/34246669/",
+        "photographer": "",
+        "cdn": "https://images.pexels.com/photos/34246669/pexels-photo-34246669.jpeg?auto=compress&cs=tinysrgb&w=1600",
+        "placeholder": true
+      }
+    },
+    {
+      "handle": "cape-haze-pre-roll-5-pack",
+      "sku": "HB-PR-001",
+      "title": "Cape Haze Pre-Roll 5-Pack",
+      "category": "pre-rolls",
+      "type": "Pre-Roll",
+      "strain_type": "Hybrid",
+      "lineage": "Haze hybrid",
+      "thc_pct": 18.0,
+      "cbd_pct": 0.5,
+      "thc_mg": null,
+      "cbd_mg": null,
+      "terpenes": [
+        "Pinene",
+        "Limonene",
+        "Humulene"
+      ],
+      "effects": [
+        "Balanced",
+        "Social",
+        "Clear"
+      ],
+      "size": "5 × 0.7",
+      "unit": "g",
+      "price": 350,
+      "compare_at": null,
+      "stock": 40,
+      "weight_g": 25,
+      "batch_id": "CH-2607-D",
+      "coa_url": "/lab-results/CH-2607-D",
+      "member_tier": "standard",
+      "accent": "#8FA98F",
+      "short_description": "Five single-strain cones, 0.7 g each, in a resealable tin.",
+      "description": "Whole-flower Haze hybrid, milled and packed into unbleached cones — no trim or shake. Five 0.7 g cones per tin, which makes portioning straightforward for members who prefer not to weigh. Balanced hybrid effect that sits between the daytime sativas and the evening indicas.",
+      "image": "images/cape-haze-pre-roll-5-pack.jpg",
+      "photo": {
+        "source": "pexels",
+        "id": "18512074",
+        "page": "https://www.pexels.com/photo/18512074/",
+        "photographer": "Elsa Olofsson",
+        "cdn": "https://images.pexels.com/photos/18512074/pexels-photo-18512074.jpeg?auto=compress&cs=tinysrgb&w=1600",
+        "placeholder": true
+      }
+    },
+    {
+      "handle": "citrus-sunrise-gummies",
+      "sku": "HB-ED-001",
+      "title": "Citrus Sunrise Gummies",
+      "category": "edibles",
+      "type": "Edible",
+      "strain_type": "Hybrid",
+      "lineage": "Distillate-infused",
+      "thc_pct": null,
+      "cbd_pct": null,
+      "thc_mg": 5,
+      "cbd_mg": 5,
+      "terpenes": [
+        "Limonene"
+      ],
+      "effects": [
+        "Relaxed",
+        "Even",
+        "Long-lasting"
+      ],
+      "size": "20",
+      "unit": "pieces",
+      "price": 390,
+      "compare_at": null,
+      "stock": 55,
+      "weight_g": 120,
+      "batch_id": "CS-2607-B",
+      "coa_url": "/lab-results/CS-2607-B",
+      "member_tier": "standard",
+      "accent": "#E8944A",
+      "short_description": "5 mg THC + 5 mg CBD per piece. Twenty pieces. Start with half.",
+      "description": "A balanced 1:1 gummy at 5 mg THC and 5 mg CBD per piece, which is a deliberately low starting dose. Onset is 45 to 90 minutes — considerably slower than inhalation, and the most common mistake is taking a second piece before the first has landed. Take half a piece and wait two hours before deciding.",
+      "image": "images/citrus-sunrise-gummies.jpg",
+      "photo": {
+        "source": "pexels",
+        "id": "6316679",
+        "page": "https://www.pexels.com/photo/6316679/",
+        "photographer": "",
+        "cdn": "https://images.pexels.com/photos/6316679/pexels-photo-6316679.jpeg?auto=compress&cs=tinysrgb&w=1600",
+        "placeholder": true
+      }
+    },
+    {
+      "handle": "dark-cacao-bar",
+      "sku": "HB-ED-002",
+      "title": "Dark Cacao Bar",
+      "category": "edibles",
+      "type": "Edible",
+      "strain_type": "Indica",
+      "lineage": "Distillate-infused",
+      "thc_pct": null,
+      "cbd_pct": null,
+      "thc_mg": 100,
+      "cbd_mg": 0,
+      "terpenes": [
+        "Myrcene"
+      ],
+      "effects": [
+        "Relaxed",
+        "Sleepy",
+        "Body-heavy"
+      ],
+      "size": "100",
+      "unit": "g",
+      "price": 310,
+      "compare_at": null,
+      "stock": 28,
+      "weight_g": 110,
+      "batch_id": "DC-2606-A",
+      "coa_url": "/lab-results/DC-2606-A",
+      "member_tier": "standard",
+      "accent": "#5C4033",
+      "short_description": "70% dark chocolate, 100 mg THC per bar across 10 scored squares.",
+      "description": "Single-origin 70% dark chocolate infused with indica-derived distillate. The bar is scored into ten squares at 10 mg each — the score lines are the dosing guide, and the bar should not be eaten as a bar. 10 mg is a moderate dose for an experienced member and a high one for a new member.",
+      "image": "images/dark-cacao-bar.jpg",
+      "photo": {
+        "source": "pexels",
+        "id": "6167341",
+        "page": "https://www.pexels.com/photo/6167341/",
+        "photographer": "",
+        "cdn": "https://images.pexels.com/photos/6167341/pexels-photo-6167341.jpeg?auto=compress&cs=tinysrgb&w=1600",
+        "placeholder": true
+      }
+    },
+    {
+      "handle": "blue-dream-live-resin-cart",
+      "sku": "HB-VC-001",
+      "title": "Live Resin Cart — Blue Dream",
+      "category": "vapes-concentrates",
+      "type": "Vape Cartridge",
+      "strain_type": "Hybrid",
+      "lineage": "Blueberry × Haze",
+      "thc_pct": 80.0,
+      "cbd_pct": 0.5,
+      "thc_mg": null,
+      "cbd_mg": null,
+      "terpenes": [
+        "Myrcene",
+        "Pinene",
+        "Caryophyllene"
+      ],
+      "effects": [
+        "Euphoric",
+        "Creative",
+        "Relaxed"
+      ],
+      "size": "1",
+      "unit": "ml",
+      "price": 650,
+      "compare_at": 720,
+      "stock": 22,
+      "weight_g": 20,
+      "batch_id": "BD-2607-C",
+      "coa_url": "/lab-results/BD-2607-C",
+      "member_tier": "premium",
+      "accent": "#5B7FA3",
+      "short_description": "Fresh-frozen live resin, 1 ml, 510-thread. 80% THC — one draw is a dose.",
+      "description": "Extracted from fresh-frozen material rather than cured flower, which keeps far more of the original terpene profile intact. No cutting agents, no added flavouring. At 80% THC a single two-second draw is a full dose. Fits any standard 510-thread battery; a low-voltage battery will give a noticeably better result than a high one.",
+      "image": "images/blue-dream-live-resin-cart.jpg",
+      "photo": {
+        "source": "pexels",
+        "id": "9419514",
+        "page": "https://www.pexels.com/photo/9419514/",
+        "photographer": "TheShutterVision",
+        "cdn": "https://images.pexels.com/photos/9419514/pexels-photo-9419514.jpeg?auto=compress&cs=tinysrgb&w=1600",
+        "placeholder": true
+      }
+    },
+    {
+      "handle": "full-spectrum-cbd-oil-1000mg",
+      "sku": "HB-CB-001",
+      "title": "Full-Spectrum CBD Oil 1000 mg",
+      "category": "cbd-wellness",
+      "type": "Tincture",
+      "strain_type": "Hemp",
+      "lineage": "Certified industrial hemp",
+      "thc_pct": 0.0,
+      "cbd_pct": null,
+      "thc_mg": 0,
+      "cbd_mg": 1000,
+      "terpenes": [
+        "Caryophyllene",
+        "Humulene"
+      ],
+      "effects": [
+        "Calm",
+        "Non-intoxicating"
+      ],
+      "size": "30",
+      "unit": "ml",
+      "price": 580,
+      "compare_at": null,
+      "stock": 64,
+      "weight_g": 90,
+      "batch_id": "CB-2607-A",
+      "coa_url": "/lab-results/CB-2607-A",
+      "member_tier": "open",
+      "accent": "#6B8E7B",
+      "short_description": "1000 mg CBD in 30 ml MCT carrier. Non-intoxicating — no membership required.",
+      "description": "Full-spectrum extract from certified industrial hemp in an MCT carrier oil, at roughly 33 mg CBD per millilitre. THC is below the detection threshold, so this product is non-intoxicating and sits outside the members-only catalogue. Graduated dropper included. Every batch is third-party tested and the certificate is linked on this page.",
+      "image": "images/full-spectrum-cbd-oil-1000mg.jpg",
+      "photo": {
+        "source": "pexels",
+        "id": "7852732",
+        "page": "https://www.pexels.com/photo/7852732/",
+        "photographer": "N. Voitkevich",
+        "cdn": "https://images.pexels.com/photos/7852732/pexels-photo-7852732.jpeg?auto=compress&cs=tinysrgb&w=1600",
+        "placeholder": true
+      }
+    },
+    {
+      "handle": "recovery-balm",
+      "sku": "HB-CB-002",
+      "title": "Recovery Balm",
+      "category": "cbd-wellness",
+      "type": "Topical",
+      "strain_type": "Hemp",
+      "lineage": "Certified industrial hemp",
+      "thc_pct": 0.0,
+      "cbd_pct": null,
+      "thc_mg": 0,
+      "cbd_mg": 500,
+      "terpenes": [
+        "Pinene",
+        "Linalool"
+      ],
+      "effects": [
+        "Topical",
+        "Non-intoxicating"
+      ],
+      "size": "50",
+      "unit": "ml",
+      "price": 340,
+      "compare_at": null,
+      "stock": 47,
+      "weight_g": 80,
+      "batch_id": "RB-2606-B",
+      "coa_url": "/lab-results/RB-2606-B",
+      "member_tier": "open",
+      "accent": "#A8977E",
+      "short_description": "500 mg CBD in a shea and arnica base. Topical only, no membership required.",
+      "description": "A thick balm at 500 mg CBD in a shea butter and arnica base, with menthol and rosemary for the cooling effect. Applied to the skin rather than ingested, so it does not enter the bloodstream in any meaningful quantity and cannot cause intoxication. Non-greasy finish. Patch-test before wider use.",
+      "image": "images/recovery-balm.jpg",
+      "photo": {
+        "source": "pexels",
+        "id": "6815653",
+        "page": "https://www.pexels.com/photo/6815653/",
+        "photographer": "",
+        "cdn": "https://images.pexels.com/photos/6815653/pexels-photo-6815653.jpeg?auto=compress&cs=tinysrgb&w=1600",
+        "placeholder": true
+      }
+    }
+  ]
+}

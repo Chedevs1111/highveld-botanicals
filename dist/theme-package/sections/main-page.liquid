@@ -1,0 +1,12 @@
+<section class="hb-section">
+  <div class="hb-container hb-narrow">
+    <h1 class="hb-apply__title">{{ page.title }}</h1>
+    {% if page.content != blank %}
+      <div class="hb-prose rte">{{ page.content }}</div>
+    {% endif %}
+  </div>
+</section>
+
+{% schema %}
+{ "name": "t:sections.main_page.name", "settings": [] }
+{% endschema %}
